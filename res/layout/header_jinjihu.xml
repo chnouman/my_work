@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		  android:layout_width="fill_parent"
+    		  android:layout_height="wrap_content"
+    		  android:orientation="vertical"
+    			>
+    
+    <RelativeLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="50dp"
+			    android:orientation="horizontal"
+			    android:background="@drawable/nav_brown"
+			    android:gravity="center"
+			    >
+    <ImageView 
+        		android:layout_width="50dp"
+        		android:id="@+id/imageLeftOfHeadDajuyuan"
+        		android:layout_height="wrap_content"
+        		android:src="@drawable/back_red"
+        		/>
+    <TextView 
+        		android:layout_width="match_parent"
+        		android:layout_height="wrap_content"
+        		android:gravity="center"
+        		android:text="@string/str_home_jinjihu"
+        		android:textColor="#FFFFFF"
+        		android:textStyle="bold"
+        		android:textSize="17sp"
+        		android:layout_centerInParent="true"
+        		/>
+</RelativeLayout>
+<LinearLayout 
+    		  android:layout_width="fill_parent"
+    		  android:layout_height="45dp"
+    		  android:orientation="horizontal"
+    		  android:background="@drawable/yanchu_top"
+    		  android:gravity="center_vertical"
+    		  android:padding="5dp"
+    		  >
+    	
+    		<LinearLayout 
+			    		  android:layout_width="fill_parent"
+			    		  android:layout_height="wrap_content"
+			    		  android:orientation="horizontal"
+			    		  android:layout_weight="1"
+			    		  android:gravity="center"
+			    		  android:background="@drawable/yanchu_backtop"
+			    		  >
+    				<TextView 
+    				    		android:layout_width="wrap_content"
+    				    		android:layout_height="wrap_content"
+    				    		android:id="@+id/txtShowInfoOfTheatre"
+    				    		android:text="@string/str_theatre_info"
+    				    		android:textColor="#FFFFFF"
+    				    		/>
+    	
+ 			</LinearLayout>
+ 			<LinearLayout 
+			    		  android:layout_width="fill_parent"
+			    		  android:layout_height="wrap_content"
+			    		  android:orientation="horizontal"
+			    		  android:layout_weight="1"
+			    		  android:gravity="center"
+			    		  >
+    				<TextView 
+    				    		android:layout_width="wrap_content"
+    				    		android:layout_height="wrap_content"
+    				    		android:id="@+id/txtShowActiveOfTheatre"
+    				    		android:text="@string/str_theatre_activie"
+    				    		android:textColor="#FFFFFF"
+    				    		/>
+    	
+ 			</LinearLayout>
+ 			<LinearLayout 
+			    		  android:layout_width="fill_parent"
+			    		  android:layout_height="wrap_content"
+			    		  android:orientation="horizontal"
+			    		  android:layout_weight="1"
+			    		  android:gravity="center"
+			    		  >
+    				<TextView 
+    				    		android:layout_width="wrap_content"
+    				    		android:layout_height="wrap_content"
+    				    		android:id="@+id/txtShowReportOfTheatre"
+    				    		android:text="@string/str_theatre_report"
+    				    		android:textColor="#FFFFFF"
+    				    		/>
+    	
+ 			</LinearLayout>
+    
+ </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,91 @@
+<resources>
+
+    <string name="app_name">expro</string>
+    <string name="exitshow">确定退出么？</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    
+    <!-- foot content -->
+    <string name="str_home">首页</string>
+    <string name="str_vip">贵宾卡专区</string>
+    <string name="str_news">每月艺讯</string>
+    <string name="str_map">交通信息</string>
+    <string name="str_more">更多</string>
+    <string name="str_youhui">优惠活动</string>
+    <!-- 首页的字符串 -->
+    <string name="str_navgate">栏目</string>
+    <string name="str_home_title">苏州文化艺术中心</string>
+    <string name="str_home_yanchu">演出</string>
+    <string name="str_home_dianying">电影</string>
+    <string name="str_home_huizhan">会展</string>
+    <string name="str_home_suyipeixun">苏艺培训</string>
+    <string name="str_home_jinjihu">金鸡湖美术馆</string>
+    <string name="str_home_jinjihu2">金鸡湖艺坛</string>
+    <string name="copyright">苏州文化博览中心有限公司 版权所有</string>
+    <string name="swipe">swipe from left to right</string>
+    
+    <string name="str_theatre">演出</string>
+    <string name="str_theatre_info">演出资讯</string>
+    <string name="str_theatre_item1">演出类型:</string>
+    <string name="str_theatre_item2">演出时间:</string>
+    <string name="str_theatre_item3">演出票价:</string>
+    <string name="str_theatre_dail">电话订票</string>
+    <string name="str_theatre_company">出品公司:</string>
+    
+    <string name="str_theatre_activie">剧院活动</string>
+    <string name="str_theatre_activie_effect_time">开始时间:</string>
+    <string name="str_theatre_activie_introduce">活动介绍</string>
+    <string name="str_theatre_detail_info">演出详情</string>
+    
+    <string name="str_theatre_report">艺文周刊</string>
+    
+    
+    <string name="str_yitan_yskt">艺术课堂</string>
+    <string name="str_yitan_ywzk">艺文周刊</string>
+    
+    
+    <string name="str_film_city">电影</string>
+    <string name="str_film_paipian">排片信息</string>
+    <string name="str_film_desc">影片介绍</string>
+    <string name="str_film_detail_buy">购票</string>
+    
+    <string name="str_film">影片</string>
+    <string name="str_yingyuan">影院</string>
+     <string name="str_yingyuan_detail">影院详情</string>
+    <string name="str_huodong">活动</string>
+    <string name="str_huodong_detail">活动详情</string>
+    
+    <string name="str_show_detail">会展详情</string>
+    
+    <string name="str_huizhan">会展</string>
+    <string name="str_huizhan_address">展馆:</string>
+    <string name="str_huizhan_time">时间:</string>
+    <string name="str_huizhan_zhuban">主办:</string>
+    <string name="str_huizhan_phone">热线:</string>
+    <string name="str_huizhan_desc">展馆简介:</string>
+    <string name="str_huizhan_member">参展商:</string>
+    <string name="str_huizhan_pingmiantu">展会平面图:</string>
+    
+    <string name="str_login_number">登陆账号</string>
+    <string name="str_check_remount">余额查询</string>
+    <string name="str_check_jifen">积分查询</string>
+    <string name="str_account_chongzhi">账户充值</string>
+    
+    <string name="str_vip_area">贵宾卡专区</string>
+    <string name="str_vip_shenqing">贵宾卡在线申请</string>
+    <string name="str_vip_chongzhi">贵宾卡在线充值</string>
+    <string name="str_vip_center">贵宾卡中心</string>
+    <string name="str_vip_zongze">贵宾卡总则</string>
+    <string name="str_vip_youhui">我的优惠</string>
+    
+    
+    <string name="str_about">关于文博</string>
+    <string name="str_system_set">系统设置</string>
+    <string name="str_more_map">交通信息</string>
+    <string name="str_more_contact">联系我们</string>
+    <string name="str_more_version">版本信息</string>
+    
+    
+	<string name="loading">loading...</string>
+	<string name="load_more">正在为您加载下一页...</string>
+</resources>

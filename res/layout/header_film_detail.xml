@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		  android:layout_width="fill_parent"
+    		  android:layout_height="wrap_content"
+    		  android:orientation="vertical"
+    			>
+    <RelativeLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="50dp"
+			    android:orientation="horizontal"
+			    android:background="@drawable/nav_green"
+			    android:gravity="center"
+			    >
+    <ImageView 
+        		android:layout_width="50dp"
+        		android:id="@+id/imageLeftOfHeadFilmDetail"
+        		android:layout_height="wrap_content"
+        		android:src="@drawable/selector_back_film"
+        		/>
+    <TextView 
+        		android:id="@+id/textNameOfHeadFilmDetail"
+        		android:layout_width="match_parent"
+        		android:layout_height="wrap_content"
+        		android:gravity="center"
+        		android:text="@string/str_film_city"
+        		android:textColor="#FFFFFF"
+        		android:textStyle="bold"
+        		android:textSize="17sp"
+        		android:layout_centerInParent="true"
+        		/>
+</RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:layout_width="fill_parent"
+			    android:layout_height="100dp"
+			    android:orientation="horizontal"
+			    >
+		<ImageView 
+		    			android:id="@+id/imageOfYingyuanActivitiesItem"
+		    			android:layout_width="fill_parent"
+		    			android:layout_height="100dp"
+		    			android:scaleType="fitXY"
+		    			android:layout_weight="3"
+		    			/>	    
+    	<LinearLayout 
+		    			android:layout_width="fill_parent"
+		    			android:layout_height="fill_parent"
+		    			android:layout_weight="1"
+		    			android:orientation="vertical"
+		    			>	
+			<TextView 		android:id="@+id/texttitleOfYingyuanActivitiesItem"
+			    			android:layout_width="fill_parent"
+			    			android:layout_height="wrap_content"
+			    			android:singleLine="true"
+			    			android:ellipsize="end"
+			    			style="@style/yanchu_item_title"
+			    			/>		    
+			 <TextView 
+			    			android:id="@+id/textContentOfYingyuanActivitiesItem"
+			    			android:layout_width="wrap_content"
+			    			android:layout_height="wrap_content"
+			    			android:singleLine="true"
+			    			android:ellipsize="end"
+			    			/>	
+	    </LinearLayout>   			
+</LinearLayout>
+

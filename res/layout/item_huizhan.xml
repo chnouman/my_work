@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="horizontal"
+			    android:padding="5dp"
+			    >
+			    <ImageView
+						    android:id="@+id/imageOfHuiZhanItem"
+						    android:layout_width="fill_parent"
+						    android:layout_height="fill_parent"
+						    android:layout_weight="3"
+						    android:src="@drawable/placeholder_high"
+						    android:scaleType="fitXY"
+						     />
+			    
+			    <LinearLayout 
+			        		android:layout_width="fill_parent"
+			        		android:layout_height="wrap_content"
+			        		android:layout_weight="1"
+			        		android:orientation="vertical"
+			        		android:padding="2dp"
+			        		>
+
+			        			<TextView 
+			            			    		android:id="@+id/titleOfHuiZhanItem"
+			            			    		android:layout_width="fill_parent"
+			            			    		android:layout_height="wrap_content"
+			            			    		android:text="testtiltle: testtiltle: testtiltle: testtiltle: testtiltle: testtiltle: testtiltle: "
+			            			    		android:ellipsize="end"
+			            			    		android:singleLine="true"
+			            			    		style="@style/yanchu_item_title"
+			            			    		/>
+						            
+			            			<TextView 
+			            			    		android:id="@+id/textTimeOfHuiZhanItem"
+			            			    		android:layout_width="wrap_content"
+			            			    		android:layout_height="wrap_content"
+			            			    		android:ellipsize="end"
+			            			    		android:singleLine="true"
+			            			    		style="@style/yanchu_item_title2"
+			            			    		/>
+			            			<TextView 
+			            			    		android:id="@+id/textAddressOfHuiZhanItem"
+			            			    		android:layout_width="wrap_content"
+			            			    		android:layout_height="wrap_content"
+			            			    		android:ellipsize="end"
+			            			    		android:singleLine="true"
+			            			    		style="@style/yanchu_item_title2"
+			            			    		/>
+			         <LinearLayout
+						            android:layout_width="fill_parent"
+						            android:layout_height="wrap_content"
+						            android:orientation="horizontal" 
+						            android:gravity="right"
+						            >
+			            			<Button 
+			            			    		android:id="@+id/btnOfHuiZhanItem"
+			            			    		android:layout_width="wrap_content"
+			            			    		android:layout_height="wrap_content"
+			            			    		android:text="详情>>"
+			            			    		/>
+			            			
+			        </LinearLayout>
+			    </LinearLayout>
+</LinearLayout>
+

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		  android:layout_width="fill_parent"
+    		  android:layout_height="wrap_content"
+    		  android:orientation="vertical"
+    			>
+    
+    <RelativeLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="50dp"
+			    android:orientation="horizontal"
+			    android:background="@drawable/nav_green"
+			    android:gravity="center"
+			    >
+    <ImageView 
+        		android:layout_width="50dp"
+        		android:id="@+id/imageLeftOfHeadFilm"
+        		android:layout_height="wrap_content"
+        		android:src="@drawable/back_red"
+        		/>
+    <TextView 
+        		android:layout_width="match_parent"
+        		android:layout_height="wrap_content"
+        		android:gravity="center"
+        		android:text="@string/str_film_city"
+        		android:textColor="#FFFFFF"
+        		android:textStyle="bold"
+        		android:textSize="17sp"
+        		android:layout_centerInParent="true"
+        		/>
+</RelativeLayout>
+<LinearLayout 
+    		  android:layout_width="fill_parent"
+    		  android:layout_height="45dp"
+    		  android:orientation="horizontal"
+    		  android:background="#145d63"
+    		  android:gravity="center_vertical"
+    		  android:padding="5dp"
+    		  >
+    		<LinearLayout 
+			    		  android:id="@+id/linearYingPianOfFilm"
+			    		  android:layout_width="fill_parent"
+			    		  android:layout_height="wrap_content"
+			    		  android:orientation="horizontal"
+			    		  android:layout_weight="1"
+			    		  android:gravity="center"
+			    		  android:background="@drawable/film_backtop"
+			    		  >
+    				<TextView 
+    				    		android:layout_width="wrap_content"
+    				    		android:layout_height="wrap_content"
+    				    		android:id="@+id/txtShowInfoOfTheatre"
+    				    		android:text="@string/str_film"
+    				    		android:textColor="#FFFFFF"
+    				    		/>
+    	
+ 			</LinearLayout>
+ 			<LinearLayout 
+			    		  android:id="@+id/linearYingYuanOfFilm"
+			    		  android:layout_width="fill_parent"
+			    		  android:layout_height="wrap_content"
+			    		  android:orientation="horizontal"
+			    		  android:layout_weight="1"
+			    		  android:gravity="center"
+			    		  >
+    				<TextView 
+    				    		android:layout_width="wrap_content"
+    				    		android:layout_height="wrap_content"
+    				    		android:id="@+id/txtShowActiveOfTheatre"
+    				    		android:text="@string/str_yingyuan"
+    				    		android:textColor="#FFFFFF"
+    				    		/>
+    	
+ 			</LinearLayout>
+ 			<LinearLayout 
+			    		  android:id="@+id/linearHuoDongOfFilm"
+			    		  android:layout_width="fill_parent"
+			    		  android:layout_height="wrap_content"
+			    		  android:orientation="horizontal"
+			    		  android:layout_weight="1"
+			    		  android:gravity="center"
+			    		  >
+    				<TextView 
+    				    		android:layout_width="wrap_content"
+    				    		android:layout_height="wrap_content"
+    				    		android:id="@+id/txtShowReportOfTheatre"
+    				    		android:text="@string/str_huodong"
+    				    		android:textColor="#FFFFFF"
+    				    		/>
+    	
+ 			</LinearLayout>
+    
+ </LinearLayout>
+</LinearLayout>

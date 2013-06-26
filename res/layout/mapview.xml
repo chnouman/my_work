@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    			xmlns:android="http://schemas.android.com/apk/res/android"
+    			android:layout_width="match_parent"
+          		android:layout_height="match_parent"
+          		android:orientation="vertical"
+    			>
+ <include 			
+     				android:id="@+id/headerOfMap"
+     			    layout="@layout/header_map"
+					android:layout_width="fill_parent"
+					android:layout_height="50dp"
+					/>  
+<com.google.android.maps.MapView
+        android:id="@+id/map_view" 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        android:enabled="true"
+        android:clickable="true"  
+       	android:layout_marginBottom="40dp"
+        android:layout_below="@id/headerOfMap"
+        />					 			
+<!-- 
+<fragment 
+          android:id="@+id/mapOfPoe"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:name="com.google.android.gms.maps.MapFragment"
+          android:layout_marginBottom="40dp"
+          android:layout_below="@id/headerOfMap"
+          />
+ -->
+<include 
+    		android:layout_width="fill_parent"
+    		android:layout_height="60dp"
+    		layout="@layout/footer"
+    		android:layout_alignParentBottom="true"
+    		/>
+</RelativeLayout>

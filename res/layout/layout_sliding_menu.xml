@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+               xmlns:android="http://schemas.android.com/apk/res/android"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+                >
+
+<com.ssac.expro.kewen.view.SlideHolder
+    			android:id="@+id/slideHolder"
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    >
+<ScrollView
+	        android:layout_width="200dp"
+	        android:layout_height="fill_parent"
+	        android:background="@android:color/black" 
+	        android:scrollbars="none"
+	        >
+        <LinearLayout
+		            android:layout_width="200dp"
+		            android:layout_height="wrap_content"
+		            android:orientation="vertical"
+		            android:background="@drawable/leftback"
+		            >
+		            	<LinearLayout 
+		            	    			android:layout_width="fill_parent"
+		            	    			android:layout_height="45dp"
+		            	    			android:background="@drawable/nav_brown"
+		            	    			android:gravity="center"
+		            	    			>
+		            	    		<TextView 
+										    		android:layout_width="wrap_content"
+										    		android:layout_height="wrap_content"
+										    		android:text="@string/str_navgate"
+										    		android:textSize="17sp"
+										    		android:textColor="#FFFFFF"
+										    		android:textStyle="bold"
+										    		/>	
+		            	</LinearLayout>
+           				<LinearLayout 
+								    		android:id="@+id/linearYanchuOfSlidingMenue"
+								    		android:layout_width="fill_parent"
+								    		android:layout_height="45dp"
+								    		android:orientation="horizontal"
+								    		android:background="@drawable/selector_yanchu"
+								    		android:gravity="center"
+								    		>
+										<TextView 
+										    		android:layout_width="wrap_content"
+										    		android:layout_height="wrap_content"
+										    		android:text="@string/str_home_yanchu"
+										    		android:textSize="17sp"
+										    		android:textColor="#FFFFFF"
+										    		android:textStyle="bold"
+										    		/>
+					    			
+								</LinearLayout>
+								<LinearLayout 
+								    		android:id="@+id/linearDianYingOfSlidingMenue"
+								    		android:layout_width="fill_parent"
+								    		android:layout_height="45dp"
+								    		android:orientation="horizontal"
+								    		android:background="@drawable/selector_dianying"
+								    		android:gravity="center"
+								    		>
+										<TextView 
+										    		android:layout_width="wrap_content"
+										    		android:layout_height="wrap_content"
+										    		android:text="@string/str_home_dianying"
+										    		android:textSize="17sp"
+										    		android:textColor="#FFFFFF"
+										    		android:textStyle="bold"
+										    		/>
+					    			
+								</LinearLayout>
+								<LinearLayout 
+								    		android:id="@+id/linearHuiZhanOfSlidingMenue"
+								    		android:layout_width="fill_parent"
+								    		android:layout_height="45dp"
+								    		android:orientation="horizontal"
+								    		android:background="@drawable/selector_huizhan"
+								    		android:gravity="center"
+								    		android:visibility="gone"
+								    		>
+										<TextView 
+										    		android:layout_width="wrap_content"
+										    		android:layout_height="wrap_content"
+										    		android:text="@string/str_home_huizhan"
+										    		android:textSize="17sp"
+										    		android:textColor="#FFFFFF"
+										    		android:textStyle="bold"
+										    		/>
+					    			
+								</LinearLayout>
+								<LinearLayout 
+								    		android:id="@+id/linearPeiXunOfSlidingMenue"
+								    		android:layout_width="fill_parent"
+								    		android:layout_height="45dp"
+								    		android:orientation="horizontal"
+								    		android:background="@drawable/selector_peixun"
+								    		android:gravity="center"
+								    		>
+										<TextView 
+										    		android:layout_width="wrap_content"
+										    		android:layout_height="wrap_content"
+										    		android:text="@string/str_home_suyipeixun"
+										    		android:textSize="17sp"
+										    		android:textColor="#FFFFFF"
+										    		android:textStyle="bold"
+										    		/>
+					    			
+								</LinearLayout>
+								<LinearLayout 
+								    		android:id="@+id/linearMeiShuOfSlidingMenue"
+								    		android:layout_width="fill_parent"
+								    		android:layout_height="45dp"
+								    		android:orientation="horizontal"
+								    		android:background="@drawable/selector_meishu"
+								    		android:gravity="center"
+								    		>
+										<TextView 
+										    		android:layout_width="wrap_content"
+										    		android:layout_height="wrap_content"
+										    		android:text="@string/str_home_jinjihu"
+										    		android:textSize="17sp"
+										    		android:textColor="#FFFFFF"
+										    		android:textStyle="bold"
+										    		/>
+					    			
+								</LinearLayout>
+								
+						<LinearLayout 
+								    		android:id="@+id/linearYiTanOfSlidingMenue"
+								    		android:layout_width="fill_parent"
+								    		android:layout_height="45dp"
+								    		android:orientation="horizontal"
+								    		android:background="@drawable/selector_yitan"
+								    		android:gravity="center"
+								    		>
+										<TextView 
+										    		android:layout_width="wrap_content"
+										    		android:layout_height="wrap_content"
+										    		android:text="@string/str_home_jinjihu2"
+										    		android:textSize="17sp"
+										    		android:textColor="#FFFFFF"
+										    		android:textStyle="bold"
+										    		/>
+					    			
+					</LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+	        	android:id="@+id/linearcontent"
+	        	android:layout_width="fill_parent"
+	        	android:layout_height="fill_parent" 
+	        	android:orientation="vertical"
+	         	android:background="#FFFFFF"
+			 	android:layout_marginBottom="50dp"
+	       	 	>
+    </LinearLayout>	  
+      
+</com.ssac.expro.kewen.view.SlideHolder>
+ <include 	layout="@layout/footer"
+					android:layout_width="fill_parent"
+					android:layout_height="60dp"
+					android:layout_alignParentBottom="true"
+					/>
+</RelativeLayout>
