@@ -15,7 +15,7 @@ import com.ssac.expro.kewen.bean.FromType;
 
 public class AsyncImageLoader {
 
-	public static HashMap<String, SoftReference<Bitmap>> imageCache = new HashMap<String, SoftReference<Bitmap>>();
+	public static HashMap<String, Bitmap> imageCache = new HashMap<String, Bitmap>();
 	public static List<String> path_list = new ArrayList<String>();
 
 	public String durl = null, dfrom = null;
@@ -32,10 +32,9 @@ public class AsyncImageLoader {
 			};
 
 		// 如果已经有了这个下载的线程则不启动
-		if(imageCache.get(imageUrl)!=null&&
-				imageCache.get(imageUrl).get()!=null
-				&&!imageCache.get(imageUrl).get().isRecycled()) {
-				Bitmap bitmap = imageCache.get(imageUrl).get();
+		if(imageCache.get(imageUrl)!=null
+				&&!imageCache.get(imageUrl).isRecycled()) {
+				Bitmap bitmap = imageCache.get(imageUrl);
 				
 					Message message = handler.obtainMessage(0, bitmap);
 					handler.sendMessage(message);
@@ -57,11 +56,11 @@ public class AsyncImageLoader {
 						}
 						// store the image url
 						if (drawable != null) {
-							imageCache.put(imageUrl, new SoftReference<Bitmap>(drawable));
+							imageCache.put(imageUrl,drawable);
 							path_list.add(imageUrl);
 						}
 						// remove the top from stack
-						if (path_list.size() > 20) {
+						if (path_list.size() > 25) {
 							removeImageCache();
 						}
 
@@ -78,9 +77,9 @@ public class AsyncImageLoader {
 	 */
 	public void removeImageCache() {
 		
-		if(null!=imageCache.get(path_list.get(0)).get()
-				&&!imageCache.get(path_list.get(0)).get().isRecycled()){
-			imageCache.get(path_list.get(0)).get().recycle();
+		if(null!=imageCache.get(path_list.get(0))
+				&&!imageCache.get(path_list.get(0)).isRecycled()){
+			imageCache.get(path_list.get(0)).recycle();
 		}
 		
 		imageCache.remove(path_list.get(0));
