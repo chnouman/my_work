@@ -24,7 +24,6 @@ public class Activity_Art extends BaseActivity implements OnClickListener{
 	private ImageView image;
 	private LinearLayout progressbar;
 	
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

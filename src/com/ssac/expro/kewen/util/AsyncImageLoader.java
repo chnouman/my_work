@@ -10,7 +10,6 @@ import java.util.List;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Message;
-
 import com.ssac.expro.kewen.bean.FromType;
 
 public class AsyncImageLoader {
@@ -60,7 +59,7 @@ public class AsyncImageLoader {
 							path_list.add(imageUrl);
 						}
 						// remove the top from stack
-						if (path_list.size() > 25) {
+						if (path_list.size() > 20) {
 							removeImageCache();
 						}
 

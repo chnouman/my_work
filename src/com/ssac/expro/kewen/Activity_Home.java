@@ -47,11 +47,10 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 		public void handleMessage(Message msg) {
 			// TODO Auto-generated method stub
 			super.handleMessage(msg);
-			if(postion==MainService.adList.size()){
+			if(postion>=MainService.adList.size()){
 				postion=0;
 			}
-			mGallery.setSelection(postion	, true);
-			postion++;
+			mGallery.setSelection(postion, true);
 		}
 	};
 	
@@ -189,12 +188,10 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				if(postion==(MainService.adList.size())){
-					postion=0;
-				}
+				postion++;
 				handler.sendEmptyMessage(0);
 			}
-		},  5000, 3000);
+		},  10*1000, 3000);
 	    
 	  }
 	  

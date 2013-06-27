@@ -13,14 +13,13 @@
 <ScrollView
 	        android:layout_width="200dp"
 	        android:layout_height="fill_parent"
-	        android:background="@android:color/black" 
+	        android:background="@drawable/leftback"
 	        android:scrollbars="none"
 	        >
         <LinearLayout
 		            android:layout_width="200dp"
-		            android:layout_height="wrap_content"
+		            android:layout_height="fill_parent"
 		            android:orientation="vertical"
-		            android:background="@drawable/leftback"
 		            >
 		            	<LinearLayout 
 		            	    			android:layout_width="fill_parent"

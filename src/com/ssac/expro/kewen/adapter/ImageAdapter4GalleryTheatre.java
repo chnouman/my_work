@@ -4,6 +4,7 @@ import java.util.List;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -44,7 +45,7 @@ public class ImageAdapter4GalleryTheatre extends BaseAdapter {
 
 	    public Object getItem(int paramInt)
 	    {
-	      return  list.get(paramInt>getCount()?paramInt%getCount():paramInt);
+	      return  list.get(paramInt>=getCount()?paramInt%getCount():paramInt);
 	    }
 
 	    public long getItemId(int paramInt)
@@ -63,7 +64,7 @@ public class ImageAdapter4GalleryTheatre extends BaseAdapter {
 			}
 	    	final ViewHolder vh = new ViewHolder();
 	    	vh.image = (ImageView) paramView.findViewById(R.id.imgOfHomeItem);
-	    	vh.image.setScaleType(ImageView.ScaleType.FIT_XY);
+//	    	vh.image.setScaleType(ImageView.ScaleType.FIT_XY);
 			// 设置数据
 			final AD Ninfo = list.get(paramInt);
 			// 取图片
@@ -78,8 +79,9 @@ public class ImageAdapter4GalleryTheatre extends BaseAdapter {
 					@Override
 					public void imageLoaded(Bitmap bitmap, String imageUrl) {
 						
-						vh.image.setImageBitmap(bitmap);
-						
+//						vh.image.setImageBitmap(bitmap);
+						if(null!=bitmap)
+					vh.image.setBackgroundDrawable(new BitmapDrawable(bitmap));
 					}
 				}, tag, FromType.home);
 	      

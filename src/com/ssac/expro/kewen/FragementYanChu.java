@@ -86,8 +86,11 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 		public void handleMessage(Message msg) {
 			// TODO Auto-generated method stub
 			super.handleMessage(msg);
+			
+			if(postion>=(adList.size())){
+				postion=0;
+			}
 			mGallery.setSelection(postion, true);
-			postion++;
 		}
 	};
 	
@@ -268,12 +271,10 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				if(postion==(adList.size())){
-					postion=0;
-				}
+				postion++;
 				handler.sendEmptyMessage(0);
 			}
-		},  3000, 2500);
+		},  10*1000, 2500);
 	 }
 	  
 	@SuppressWarnings("deprecation")

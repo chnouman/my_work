@@ -18,7 +18,6 @@ package com.ssac.expro.kewen.view;
 
 import java.util.LinkedList;
 import java.util.Queue;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -570,7 +569,7 @@ public class SlideHolder extends FrameLayout {
 		
 		mOffset = mStartOffset;
 		
-		if(mCachedBitmap == null || mCachedBitmap.isRecycled() || mCachedBitmap.getWidth() != v.getWidth()) {
+		if(mCachedBitmap == null || mCachedBitmap.isRecycled() || mCachedBitmap.getWidth() != v.getWidth()||mCachedBitmap.isRecycled()) {
 			mCachedBitmap = Bitmap.createBitmap(v.getWidth(), v.getHeight(), Bitmap.Config.ARGB_8888);
 			mCachedCanvas = new Canvas(mCachedBitmap);
 		} else {

@@ -80,26 +80,9 @@ public class GetPicFromURL {
 					inStream.close();
 					outStream.flush();
 					outStream.close();
-					//压缩转档
-					Bitmap bm=BitmapFactory.decodeFile(pic_path);//getSmallBitmap(pic_name);
-					BufferedOutputStream bos = new BufferedOutputStream(
-							new FileOutputStream(file));
-					/* 采用压缩转档方法 */
-					bm.compress(Bitmap.CompressFormat.JPEG, 30, bos);
-					/* 调用flush()方法，更新BufferStream */
-					bos.flush();
-					bos.close();
-					
-					if (!bm.isRecycled()) {
-						bm.recycle();
-					}
 				}
-				
-				Options options=getSampleOption(file.length());
-				d=BitmapFactory.decodeFile(pic_path,options);
+					d=BitMapUtil.getimage(pic_path);
 			} else {
-//				d = (BitmapDrawable) BitmapDrawable.createFromStream(inStream,
-//						"src");.
 				d = BitmapFactory.decodeStream(inStream);
 			}
             
