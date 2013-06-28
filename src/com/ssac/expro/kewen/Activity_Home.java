@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import com.ssac.expro.kewen.adapter.ImageAdapter4NumberGallery;
 import com.ssac.expro.kewen.bean.Task;
 import com.ssac.expro.kewen.bean.TaskType;
+import com.ssac.expro.kewen.exception.DefaultExceptionHandler;
 import com.ssac.expro.kewen.service.MainService;
 import com.ssac.expro.kewen.view.NumberDotImageView;
 import com.ssac.expro.kewen.view.SlowFlipGallery;
@@ -59,6 +60,7 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		Thread.setDefaultUncaughtExceptionHandler(new DefaultExceptionHandler(this.getApplicationContext()));
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.layout_home);
 
@@ -67,7 +69,7 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 			Intent it = new Intent(Activity_Home.this, MainService.class);
 			Activity_Home.this.startService(it);
 		}
-		init();
+		init();	
 	}
 
 	

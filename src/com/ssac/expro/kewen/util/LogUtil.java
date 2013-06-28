@@ -15,10 +15,10 @@
  */
 package com.ssac.expro.kewen.util;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
-
-import android.util.Log;
 
 /**
  * Utility class for LogCat. 返回： FYCRM_+类的名称
@@ -26,6 +26,8 @@ import android.util.Log;
  * @author Sehwan Noh (devnoh@gmail.com)
  */
 public class LogUtil {
+
+	private static boolean ISOPEN = true;
 
 	@SuppressWarnings("unchecked")
 	public static String makeLogTag(Class cls) {
@@ -39,23 +41,25 @@ public class LogUtil {
 	 * @param e
 	 */
 	public static void log(ErrorLog mLog, Throwable e) {
-		if (e != null) {
-			e.printStackTrace();
-			if (mLog != null) {
-				try {
-					mLog.println("Case By :"+e.toString());
-				} catch (IOException ex) {
-				}
-			}
+		if (ISOPEN) {
 			if (e != null) {
-				StackTraceElement[] stacks = e.getStackTrace();
-				if (stacks.length > 0) {
-					for (int i = 0; i < stacks.length; i++) {
-						String tip = stacks[i].toString();
-						if (mLog != null) {
-							try {
-								mLog.println(tip);
-							} catch (IOException ex) {
+				e.printStackTrace();
+				if (mLog != null) {
+					try {
+						mLog.println("Case By :" + e.toString());
+					} catch (IOException ex) {
+					}
+				}
+				if (e != null) {
+					StackTraceElement[] stacks = e.getStackTrace();
+					if (stacks.length > 0) {
+						for (int i = 0; i < stacks.length; i++) {
+							String tip = stacks[i].toString();
+							if (mLog != null) {
+								try {
+									mLog.println(tip);
+								} catch (IOException ex) {
+								}
 							}
 						}
 					}
@@ -80,4 +84,21 @@ public class LogUtil {
 			}
 		}
 	}
+
+	public static void logOut2Sdcard(String data, String outputfile) {
+		try {
+			FileOutputStream out = new FileOutputStream(new File(outputfile));
+			ByteArrayInputStream bis = new ByteArrayInputStream(data.getBytes());
+			int len = 0;
+			byte[] buffer = new byte[1024];
+			while ((len = bis.read(buffer)) != -1) {
+				out.write(buffer, 0, len);
+			}
+			out.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }
