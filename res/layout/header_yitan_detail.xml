@@ -22,7 +22,7 @@
         		android:layout_width="match_parent"
         		android:layout_height="wrap_content"
         		android:gravity="center"
-        		android:text="@string/str_home_jinjihu2"
+        		android:text="@string/str_fram_yitan"
         		android:textColor="#FFFFFF"
         		android:textStyle="bold"
         		android:textSize="17sp"
