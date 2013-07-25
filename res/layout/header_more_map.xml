@@ -13,12 +13,11 @@
 			    >
     <ImageView 
         		android:layout_width="50dp"
-        		android:id="@+id/imageLeftOfHeadTheatreDetail"
+        		android:id="@+id/imageLeftOfHeadMoreMap"
         		android:layout_height="wrap_content"
         		android:src="@drawable/selector_back_film"
         		/>
     <TextView 
-        		android:id="@+id/textOfHeadTheatreDetail"
         		android:layout_width="match_parent"
         		android:layout_height="wrap_content"
         		android:gravity="center"

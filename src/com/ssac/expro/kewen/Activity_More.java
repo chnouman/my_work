@@ -1,7 +1,5 @@
 package com.ssac.expro.kewen;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,7 +14,6 @@ public class Activity_More extends BaseActivity implements OnClickListener{
 
 	private LinearLayout linearAbount,linearMap,linearContact,linearVersion;
 	private ImageView home;
-	private String point ="31.321087, 120.701845";//地图定位中心点 文化博览中心
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +67,7 @@ public class Activity_More extends BaseActivity implements OnClickListener{
 			startActivity(new Intent(Activity_More.this,MoreAbountDetail.class));
 			break;
 		case R.id.linearMapOfMore:
-			Intent i = new Intent(Intent.ACTION_VIEW, Uri .parse("http://ditu.google.cn/maps?hl=zh&mrt=loc&q="+point));   
-			startActivity(i);   
+			startActivity(new Intent(Activity_More.this,Client_Map.class));
 			break;
 		case R.id.linearContactOfMore:
 			startActivity(new Intent(Activity_More.this,MoreContactDetail.class));

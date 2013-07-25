@@ -1,7 +1,6 @@
 package com.ssac.expro.kewen;
 
 import java.io.IOException;
-
 import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
@@ -15,7 +14,6 @@ import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.widget.Toast;
-
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.ssac.expro.kewen.util.ErrorLog;
@@ -28,7 +26,9 @@ public class ExproApplication extends Application {
 	public static DisplayMetrics metrics =null;
 	public static ErrorLog mLog = null;
 	public static ImageLoader imageLoader=ImageLoader.getInstance();
-	
+	// 百度MapAPI的管理类
+	public static	String mStrKey = "D62C7A77394E09E9AA004C7F3B8C589D2F96746D";
+
 	@Override
 	public void onCreate() {
 		super.onCreate();
