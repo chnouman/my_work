@@ -2,43 +2,25 @@ package com.ssac.expro.kewen;
 
 import java.io.IOException;
 import java.util.List;
-
-import com.ssac.expro.kewen.FragementFilm.ImageAdapter;
 import com.ssac.expro.kewen.bean.Constants;
 import com.ssac.expro.kewen.bean.Film;
 import com.ssac.expro.kewen.bean.FilmSchedule;
-import com.ssac.expro.kewen.bean.FromType;
 import com.ssac.expro.kewen.service.XmlToListService;
-import com.ssac.expro.kewen.util.AsyncImageLoader;
 import com.ssac.expro.kewen.util.HttpUtil;
 import com.ssac.expro.kewen.util.ImageCacheUtil;
-import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
-import com.ssac.expro.kewen.util.ImageCacheUtil;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.LinearGradient;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Bitmap.Config;
-import android.graphics.PorterDuff.Mode;
-import android.graphics.Shader.TileMode;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.webkit.WebView;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -133,15 +115,6 @@ public class FilmDetail extends Activity {
 
 		ImageCacheUtil ic =new ImageCacheUtil();
 		ic.loadImageList(ExproApplication.imageLoader, img_film, img);
-		/*AsyncImageLoader async = new AsyncImageLoader();
-		async.loadDrawable(img, new ImageCallback() {
-
-			@Override
-			public void imageLoaded(Bitmap imageDrawable, String imageUrl) {
-				// TODO Auto-generated method stub
-				img_film.setImageBitmap(imageDrawable);
-			}
-		}, "internet", FromType.home);*/
 
 		// 获取更详细的数据
 		task4FilmDetail ts = new task4FilmDetail();

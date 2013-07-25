@@ -15,9 +15,7 @@ import com.ssac.expro.kewen.ExproApplication;
 import com.ssac.expro.kewen.R;
 import com.ssac.expro.kewen.bean.FromType;
 import com.ssac.expro.kewen.bean.ShowInfo;
-import com.ssac.expro.kewen.util.AsyncImageLoader;
 import com.ssac.expro.kewen.util.ImageCacheUtil;
-import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
 
 public class Adapter4ShowinfoList extends BaseAdapter {
 
@@ -98,21 +96,6 @@ public class Adapter4ShowinfoList extends BaseAdapter {
 			String imageUrl = Ninfo.getTitleImage();
 			ImageCacheUtil ic =new ImageCacheUtil();
 			ic.loadImageList(ExproApplication.imageLoader, vh.image, imageUrl);
-			String tag="file";
-			if(imageUrl!=null&&imageUrl.indexOf("http")!=-1){
-				tag="internet";
-			}
-				AsyncImageLoader asyncloder = new AsyncImageLoader();
-				asyncloder.loadDrawable(imageUrl, new ImageCallback() {
-					@Override
-					public void imageLoaded(Bitmap bitmap, String imageUrl) {
-						
-						if(null!=bitmap&&!bitmap.isRecycled())
-						vh.image.setImageBitmap(bitmap);
-						
-					}
-				}, tag, FromType.home);
-	      
 				vh.title.setText(Ninfo.getDramaName());
 				vh.type.setText(Ninfo.getDramaType());
 				vh.time.setText(Ninfo.getShowTime());

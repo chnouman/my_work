@@ -116,6 +116,14 @@ public class FragementFilm extends Fragment implements OnClickListener {
 		super.onCreate(savedInstanceState);
 	}
 
+	
+	@Override
+	public void onDestroy() {
+		// TODO Auto-generated method stub
+		ImageCacheUtil.ClearCache(ExproApplication.imageLoader);
+		super.onDestroy();
+	}
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -518,22 +526,11 @@ public class FragementFilm extends Fragment implements OnClickListener {
 			image.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 			BitmapDrawable drawable = (BitmapDrawable) image.getDrawable();
 			drawable.setAntiAlias(true);
-			
-			/*AsyncImageLoader async = new AsyncImageLoader();
-
-			async.loadDrawable(ad.getTitleImageName(), new ImageCallback() {
-
-				@Override
-				public void imageLoaded(Bitmap imageDrawable, String imageUrl) {
-					// TODO Auto-generated method stub
-					if (imageDrawable != null) {
-						image.setImageBitmap(createReflectedImages(imageDrawable));// createReflectedImages(imageDrawable)
-					}
-				}
-			}, "internet", FromType.home);*/
 
 			return image;
 		}
+		
+		
 	}
 
 	/**

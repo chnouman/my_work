@@ -18,6 +18,7 @@ import com.ssac.expro.kewen.bean.Theatre;
 import com.ssac.expro.kewen.service.MainService;
 import com.ssac.expro.kewen.service.XmlToListService;
 import com.ssac.expro.kewen.util.HttpUtil;
+import com.ssac.expro.kewen.util.ImageCacheUtil;
 import com.ssac.expro.kewen.view.MyViewPager;
 import com.ssac.expro.kewen.view.NumberDotImageView;
 import com.ssac.expro.kewen.view.SlideHolder;
@@ -116,6 +117,15 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
 		
+	}
+
+	
+
+	@Override
+	public void onDestroy() {
+		// TODO Auto-generated method stub
+		ImageCacheUtil.ClearCache(ExproApplication.imageLoader);
+		super.onDestroy();
 	}
 
 

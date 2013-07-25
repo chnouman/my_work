@@ -7,10 +7,7 @@ import com.ssac.expro.kewen.adapter.PaperAdapter;
 import com.ssac.expro.kewen.bean.ArtLesson;
 import com.ssac.expro.kewen.bean.Constants;
 import com.ssac.expro.kewen.bean.FromType;
-import com.ssac.expro.kewen.bean.Huizhan;
 import com.ssac.expro.kewen.service.XmlToListService;
-import com.ssac.expro.kewen.util.AsyncImageLoader;
-import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
 import com.ssac.expro.kewen.util.HttpUtil;
 import com.ssac.expro.kewen.util.ImageCacheUtil;
 import com.ssac.expro.kewen.view.MyViewPager;
@@ -18,7 +15,6 @@ import com.ssac.expro.kewen.view.SlideHolder;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -29,14 +25,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 /**
@@ -659,17 +653,6 @@ public class FragementYiTan extends Fragment implements OnClickListener {
 			content.setText(art.getSummary());
 			ImageCacheUtil ic =new ImageCacheUtil();
 			ic.loadImageList(ExproApplication.imageLoader, img, art.getTitleImageName());
-//			AsyncImageLoader asyn = new AsyncImageLoader();
-//			asyn.loadDrawable(art.getTitleImageName(), new ImageCallback() {
-//
-//				@Override
-//				public void imageLoaded(Bitmap imageDrawable, String imageUrl) {
-//					// TODO Auto-generated method stub
-//					if (null != imageDrawable) {
-//						img.setImageBitmap(imageDrawable);
-//					}
-//				}
-//			}, "internet", FromType.home);
 
 			return convertView;
 		}
@@ -793,17 +776,6 @@ public class FragementYiTan extends Fragment implements OnClickListener {
 			content.setText(art.getSummary());
 			ImageCacheUtil ic =new ImageCacheUtil();
 			ic.loadImageList(ExproApplication.imageLoader, img, art.getTitleImageName());
-			/*AsyncImageLoader asyn = new AsyncImageLoader();
-			asyn.loadDrawable(art.getTitleImageName(), new ImageCallback() {
-
-				@Override
-				public void imageLoaded(Bitmap imageDrawable, String imageUrl) {
-					// TODO Auto-generated method stub
-					if (null != imageDrawable) {
-						img.setImageBitmap(imageDrawable);
-					}
-				}
-			}, "internet", FromType.home);*/
 
 			return convertView;
 		}

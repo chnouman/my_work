@@ -19,11 +19,7 @@ import android.widget.LinearLayout.LayoutParams;
 import com.ssac.expro.kewen.ExproApplication;
 import com.ssac.expro.kewen.R;
 import com.ssac.expro.kewen.bean.AD;
-import com.ssac.expro.kewen.bean.FromType;
 import com.ssac.expro.kewen.service.MainService;
-import com.ssac.expro.kewen.util.AsyncImageLoader;
-import com.ssac.expro.kewen.util.BitMapUtil;
-import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
 import com.ssac.expro.kewen.util.ImageCacheUtil;
 
 public class ImageAdapter4NumberGallery extends BaseAdapter {
@@ -75,35 +71,6 @@ public class ImageAdapter4NumberGallery extends BaseAdapter {
 			final AD Ninfo = MainService.adList.get(paramInt);
 			// 取图片
 			String imageUrl = Ninfo.getImgPath();
-		/*	
-			String tag="file";
-			if(imageUrl!=null&&imageUrl.indexOf("http")!=-1){
-				tag="internet";
-			}
-				AsyncImageLoader asyncloder = new AsyncImageLoader();
-				asyncloder.loadDrawable(imageUrl, new ImageCallback() {
-					@Override
-					public void imageLoaded(Bitmap bitmap, String imageUrl) {
-						
-//						BitmapDrawable imageDrawable =BitMapUtil.createBitMapDrawable(150, bitmap);
-						if(null!=bitmap&&!bitmap.isRecycled())
-						vh.image.setImageBitmap(bitmap);
-						
-					}
-				}, tag, FromType.home);
-//				vh.image.setOnClickListener(new OnClickListener() {
-//					
-//					@Override
-//					public void onClick(View v) {
-//						// TODO Auto-generated method stub
-//						
-//						//url跳转
-//						Uri uri = Uri.parse(Ninfo.getLinkAddress());    
-//						Intent it   = new Intent(Intent.ACTION_VIEW,uri);    
-//						mContext.startActivity(it);   
-//					}
-//				});
-*/	      
 			ImageCacheUtil ic =new ImageCacheUtil();
 			ic.loadImageGallery(ExproApplication.imageLoader, vh.image, imageUrl,null);
 			Log.i("poe", imageUrl);

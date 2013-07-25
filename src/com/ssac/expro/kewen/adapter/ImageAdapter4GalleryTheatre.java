@@ -19,10 +19,7 @@ import android.widget.LinearLayout.LayoutParams;
 import com.ssac.expro.kewen.ExproApplication;
 import com.ssac.expro.kewen.R;
 import com.ssac.expro.kewen.bean.AD;
-import com.ssac.expro.kewen.bean.FromType;
-import com.ssac.expro.kewen.util.AsyncImageLoader;
 import com.ssac.expro.kewen.util.ImageCacheUtil;
-import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
 
 public class ImageAdapter4GalleryTheatre extends BaseAdapter {
 
@@ -77,20 +74,6 @@ public class ImageAdapter4GalleryTheatre extends BaseAdapter {
 			String imageUrl = Ninfo.getImgPath();
 			ImageCacheUtil ic =new ImageCacheUtil();
 			ic.loadImageGallery(ExproApplication.imageLoader, vh.image, imageUrl,null);
-		/*	String tag="file";
-			if(imageUrl!=null&&imageUrl.indexOf("http")!=-1){
-				tag="internet";
-			}
-				AsyncImageLoader asyncloder = new AsyncImageLoader();
-				asyncloder.loadDrawable(imageUrl, new ImageCallback() {
-					@Override
-					public void imageLoaded(Bitmap bitmap, String imageUrl) {
-//						vh.image.setImageBitmap(bitmap);
-						if(null!=bitmap&&!bitmap.isRecycled())
-					vh.image.setBackgroundDrawable(new BitmapDrawable(bitmap));
-					}
-				}, tag, FromType.home);
-	      */
 
 	      return paramView;
 	    }

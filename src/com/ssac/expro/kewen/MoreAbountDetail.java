@@ -1,15 +1,10 @@
 package com.ssac.expro.kewen;
 
 import java.io.IOException;
-import com.ssac.expro.kewen.bean.ArtLesson;
 import com.ssac.expro.kewen.bean.Constants;
-import com.ssac.expro.kewen.bean.FromType;
 import com.ssac.expro.kewen.service.XmlToListService;
-import com.ssac.expro.kewen.util.AsyncImageLoader;
 import com.ssac.expro.kewen.util.HttpUtil;
-import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
 import android.app.Activity;
-import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;

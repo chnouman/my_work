@@ -2,13 +2,10 @@ package com.ssac.expro.kewen;
 
 import java.io.IOException;
 import com.ssac.expro.kewen.bean.Constants;
-import com.ssac.expro.kewen.bean.FromType;
 import com.ssac.expro.kewen.bean.Theatre;
 import com.ssac.expro.kewen.service.XmlToListService;
-import com.ssac.expro.kewen.util.AsyncImageLoader;
 import com.ssac.expro.kewen.util.HttpUtil;
 import com.ssac.expro.kewen.util.ImageCacheUtil;
-import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
@@ -70,17 +67,6 @@ public class TheatreActivitiesDetail extends Activity {
 		
 		ImageCacheUtil ic =new ImageCacheUtil();
 		ic.loadImageList(ExproApplication.imageLoader, img, str_img);
-		/*
-		AsyncImageLoader async =new AsyncImageLoader();
-		async.loadDrawable(str_img, new ImageCallback() {
-			
-			@Override
-			public void imageLoaded(Bitmap imageDrawable, String imageUrl) {
-				// TODO Auto-generated method stub
-				img.setImageBitmap(imageDrawable);
-			}
-		}, "internet", FromType.home);*/
-		
 		//获取更详细的数据
 		task4FilmDetail ts =new task4FilmDetail();
 		ts.execute();

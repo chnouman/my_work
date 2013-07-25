@@ -9,9 +9,9 @@ import com.ssac.expro.kewen.bean.Constants;
 import com.ssac.expro.kewen.bean.Film;
 import com.ssac.expro.kewen.bean.FromType;
 import com.ssac.expro.kewen.service.XmlToListService;
-import com.ssac.expro.kewen.util.AsyncImageLoader;
 import com.ssac.expro.kewen.util.HttpUtil;
-import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
+import com.ssac.expro.kewen.util.ImageCacheUtil;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -79,17 +79,8 @@ public class YitanDetail extends Activity {
 		String titlename=getIntent().getStringExtra("title");
 		
 		txt_title.setText(titlename);
-		
-		AsyncImageLoader async =new AsyncImageLoader();
-		async.loadDrawable(img, new ImageCallback() {
-			
-			@Override
-			public void imageLoaded(Bitmap imageDrawable, String imageUrl) {
-				// TODO Auto-generated method stub
-				img_film.setImageBitmap(imageDrawable);
-			}
-		}, "internet", FromType.home);
-		
+		ImageCacheUtil ic =new ImageCacheUtil();
+		ic.loadImageList(ExproApplication.imageLoader, img_film, img);
 		//获取更详细的数据
 		task4YitanDetail ts =new task4YitanDetail();
 		ts.execute();

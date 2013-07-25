@@ -22,10 +22,7 @@ import com.ssac.expro.kewen.bean.Art;
 import com.ssac.expro.kewen.bean.Task;
 import com.ssac.expro.kewen.bean.TaskType;
 import com.ssac.expro.kewen.service.MainService;
-import com.ssac.expro.kewen.util.AsyncImageLoader;
 import com.ssac.expro.kewen.util.GetPicFromURL;
-import com.ssac.expro.kewen.util.ImageCacheUtil;
-import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
 
 public class Activity_Art extends BaseActivity implements OnClickListener {
 
