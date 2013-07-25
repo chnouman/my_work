@@ -31,7 +31,7 @@ public class Activity_Art extends BaseActivity implements OnClickListener {
 
 	private ImageView imageView;
 	private LinearLayout lin_home, lin_art, lin_vip, lin_youhui, lin_more;
-	private WebView webView;
+	private WebView webView=null;
 	private LinearLayout progressbar;
 	final static int PROGRESS_DIALOG_CONNECTING = 1000;
 	ProgressDialog loadingProgressDialog = null;
@@ -43,7 +43,7 @@ public class Activity_Art extends BaseActivity implements OnClickListener {
 			// TODO Auto-generated method stub
 			super.handleMessage(msg);
 			String path =(String) msg.obj;
-			if(null!=path){
+			if(null!=path&&webView!=null){
 			webView.loadUrl(path);
 			showDialog(PROGRESS_DIALOG_CONNECTING);
 			}
@@ -140,8 +140,8 @@ public class Activity_Art extends BaseActivity implements OnClickListener {
 
 	protected void onDestroy() {
 		Log.i("poe", "onDestroy()");
-		webView.getSettings().setBuiltInZoomControls(false);
-		webView.stopLoading();
+		webView.getSettings().setBuiltInZoomControls(true);
+		webView.setVisibility(View.GONE);
 		webView.destroy();
 		super.onDestroy();
 	}
@@ -205,34 +205,30 @@ public class Activity_Art extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		Intent intent = new Intent();
+		intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 		switch (v.getId()) {
 		case R.id.linearHOme:
-			intent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
 			intent.setClass(this, Activity_Home.class);
 			startActivity(intent);
-			finish();
-			
-			MainService.removeActivity(Activity_Art.this);
-			finish();
+//			MainService.removeActivity(Activity_Art.this);
+//			finish();
 			break;
 		case R.id.linearNews:
 			break;
 		case R.id.linearVip:
-			intent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
 			intent.setClass(this, Activity_VIP.class);
 			startActivity(intent);
-			MainService.removeActivity(Activity_Art.this);
-			finish();
+//			MainService.removeActivity(Activity_Art.this);
+//			finish();
 			break;
 		case R.id.linearYouHui:
 			ExproApplication.showBuildTip(Activity_Art.this);
 			break;
 		case R.id.linearMore:
-			intent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
 			intent.setClass(this, Activity_More.class);
 			startActivity(intent);
-			MainService.removeActivity(Activity_Art.this);
-			finish();
+//			MainService.removeActivity(Activity_Art.this);
+//			finish();
 			break;
 		default:
 			break;

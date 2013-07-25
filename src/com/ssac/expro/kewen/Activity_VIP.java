@@ -63,7 +63,7 @@ public class Activity_VIP extends BaseActivity implements OnClickListener{
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		Intent intent = new Intent();
-		intent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
+		intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 		switch (v.getId()) {
 		case R.id.linearHOme:
 			intent.setClass(this, Activity_Home.class);
@@ -90,5 +90,15 @@ public class Activity_VIP extends BaseActivity implements OnClickListener{
 		}
 		
 	}
+
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		webview.getSettings().setBuiltInZoomControls(true);
+		webview.setVisibility(View.GONE);
+		webview.destroy();
+		super.onDestroy();
+	}
+	
 	
 }

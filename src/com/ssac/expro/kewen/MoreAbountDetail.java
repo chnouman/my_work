@@ -102,4 +102,15 @@ public class MoreAbountDetail extends Activity {
 				}
 			}
 		}
+
+		@Override
+		protected void onDestroy() {
+			// TODO Auto-generated method stub
+			mWebView.getSettings().setBuiltInZoomControls(true);
+			mWebView.setVisibility(View.GONE);
+			mWebView.destroy();
+			super.onDestroy();
+		}
+		
+		
 }
