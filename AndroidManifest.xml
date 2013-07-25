@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ssac.expro.kewen"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0.0" >
   <uses-sdk
     android:minSdkVersion="8"
     android:targetSdkVersion="17"/>
@@ -35,11 +35,14 @@
 				<activity android:name=".Activity_Home"
 				          android:screenOrientation="portrait"
 				          >
-				       <intent-filter>
+				   <intent-filter>
 		                <action android:name="android.intent.action.MAIN" />
-		
 		                <category android:name="android.intent.category.LAUNCHER" />
-		            	</intent-filter>  
+		           </intent-filter>  
+				</activity>
+				<activity android:name=".CoverFlowExample"
+				          android:screenOrientation="portrait"
+				          >
 				</activity>
 				 <activity 
             		android:name=".FilmDetail"
@@ -104,22 +107,9 @@
 		            	    
 		        </activity>
 		        
-		         <activity android:name=".CoverFlowExample"
-		            	  android:screenOrientation="portrait"
-		            	  >
-		            	
-		        </activity>
-		        <!-- 预留的帮助页面 -->
-		         <activity android:name=".HelpShowImageActivity"
-		            	  android:screenOrientation="portrait"
-		            	  >
-		            	  
-		        </activity>
-		        
 		        <activity android:name=".Activity_Art"
 		            	  android:screenOrientation="portrait"
 		            	  >
-		            
 		            	
 		        </activity>
 		        <activity android:name=".Activity_VIP"
@@ -129,6 +119,16 @@
 		            	
 		        </activity>
 		        <activity android:name=".Activity_More"
+		            	  android:screenOrientation="portrait"
+		            	  >
+		            	
+		        </activity>
+		         <activity android:name=".MoreVersionUpdateDetail"
+		            	  android:screenOrientation="portrait"
+		            	  >
+		            	
+		        </activity>
+		        <activity android:name=".MoreContactDetail"
 		            	  android:screenOrientation="portrait"
 		            	  >
 		            	
