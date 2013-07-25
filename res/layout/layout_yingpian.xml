@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView 
-		    xmlns:android="http://schemas.android.com/apk/res/android"
-			android:layout_width="fill_parent"
-			android:layout_height="fill_parent"
-			android:orientation="vertical"
-			android:background="@drawable/dy_detail_back"	
-			>
-	<LinearLayout 
+<RelativeLayout  
+	    			xmlns:android="http://schemas.android.com/apk/res/android"
 	    			android:layout_width="fill_parent"
-	    			android:layout_height="wrap_content"
+	    			android:layout_height="fill_parent"
 	    			android:orientation="vertical"
+	    			android:background="@drawable/dy_detail_back"
 	    			>
 	    <!-- 
  		<com.ssac.expro.kewen.view.CoverFlow
@@ -22,12 +17,17 @@
 		</com.ssac.expro.kewen.view.CoverFlow>  
 		 -->
 		<com.ssac.expro.kewen.view.MirrorView 
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/mirrorviewOfYingPian" 
         android:layout_width="fill_parent"
-        android:layout_height="220dp"
-        android:layout_marginTop="10dp"
-         />  		 
+        android:layout_height="400dp"
+         /> 
+     <LinearLayout 
+ 		    		android:layout_width="fill_parent"
+ 		    		android:layout_height="wrap_content"
+ 		    		android:orientation="vertical"	
+ 		    		android:layout_alignParentBottom="true"
+ 		    		android:layout_marginBottom="50dp"
+ 		    		>		 
  		<TextView 	
  		    		android:id="@+id/textTitleOfYingPian"
  		    		android:layout_width="wrap_content"
@@ -94,5 +94,5 @@
  		    		android:padding="5dp"
  		    		style="@style/yingpian_generate_text"
  		    		/>
-  </LinearLayout>		
-</ScrollView>
+  </LinearLayout>	
+ </RelativeLayout>

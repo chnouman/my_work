@@ -19,25 +19,23 @@
      
  <LinearLayout 
 			    android:layout_width="fill_parent"
-			    android:layout_height="fill_parent"
+			    android:layout_height="wrap_content"
 			    android:orientation="vertical" 
 			    android:background="#FFFFFF"
 			    > 
      		<LinearLayout 
 					    android:layout_width="fill_parent"
-					    android:layout_height="170dp"
+					    android:layout_height="wrap_content"
 					    android:orientation="horizontal" 
 					    android:background="@drawable/bg_yanchu_detail"
 					    android:baselineAligned="false"
-					    android:paddingBottom="10dp"
 					    > 
-	     		    <LinearLayout 
-						    android:layout_width="fill_parent"
-						    android:layout_height="fill_parent"
-						    android:orientation="vertical" 
-						    android:layout_weight="2"
-						    android:gravity="center_vertical"
-						    > 
+					    <LinearLayout 
+								    android:layout_width="fill_parent"
+								    android:layout_height="wrap_content"
+								    android:orientation="horizontal" 
+								    android:baselineAligned="false"
+								    > 
 				    		<ImageView 
 				    		    		android:id="@+id/imageOfTheatreDetail"
 				    		    		android:layout_width="fill_parent"
@@ -45,15 +43,14 @@
 				    		    		android:scaleType="fitXY"
 				    		    		android:src="@drawable/back_home"
 				    		    		android:layout_margin="5dp"
+				    		    		android:layout_weight="2"
 				    		    		/>
-	     		
-	   				</LinearLayout>
 	   				 <LinearLayout 
 						    android:layout_width="fill_parent"
-						    android:layout_height="fill_parent"
+						    android:layout_height="wrap_content"
 						    android:orientation="vertical" 
 						    android:layout_weight="1"
-						    android:padding="10dp"
+						    android:padding="5dp"
 						    > 
 				    		<TextView 	
 								 		  android:id="@+id/textTitleOfTheatreDetail"
@@ -147,15 +144,16 @@
 					 		
 					 		<Button 	
 					 		    	android:id="@+id/btnBuyOfFilmDetail"
-					 		    	android:layout_width="wrap_content"
-					 		    	android:layout_height="30dp"
+					 		    	android:layout_width="100dp"
+					 		    	android:layout_height="50dp"
 					 		    	android:text="@string/str_theatre_dail"
-					 		    	android:background="#f69705"
+					 		    	android:background="@drawable/selector_btn_buy"
 					 		    	android:layout_marginTop="15dp"
-					 		    	android:layout_marginBottom="5dp"
-					 		    	android:textSize="13sp"
+					 		    	android:padding="5dp"
+					 		    	android:textSize="15sp"
 					 		    	/>
 	   				</LinearLayout>
+	   			</LinearLayout>
    			</LinearLayout>
    			
    			<LinearLayout 

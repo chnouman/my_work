@@ -90,6 +90,7 @@ public class HuizhanDetail extends Activity {
 		txt_time.setText(time);
 		txt_address.setText(address);
 		
+		
 		AsyncImageLoader async =new AsyncImageLoader();
 		async.loadDrawable(img, new ImageCallback() {
 			

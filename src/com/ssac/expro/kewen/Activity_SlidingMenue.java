@@ -176,7 +176,7 @@ public class Activity_SlidingMenue extends FragmentActivity implements
 			break;
 		}
 		
-		mSlideHolder.toggle();
+//		mSlideHolder.toggle();
 
 	}
 

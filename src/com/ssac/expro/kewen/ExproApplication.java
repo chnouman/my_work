@@ -16,23 +16,25 @@ import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.widget.Toast;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.ssac.expro.kewen.util.ErrorLog;
 
 public class ExproApplication extends Application {
 
 	public static SharedPreferences sp = null;
 	public static ExproApplication crmApp;
-	public static String version = "version";
+	public static String version = "";
 	public static DisplayMetrics metrics =null;
 	public static ErrorLog mLog = null;
+	public static ImageLoader imageLoader=ImageLoader.getInstance();
 	
-
 	@Override
 	public void onCreate() {
 		super.onCreate();
 		
 		crmApp = this;
-		
+		imageLoader.init(ImageLoaderConfiguration.createDefault(this));
 		try {
 			//检查sd卡
 			if (Environment.getExternalStorageState().equals(
@@ -53,8 +55,7 @@ public class ExproApplication extends Application {
 		PackageInfo packInfo;
 		try {
 			packInfo = packageManager.getPackageInfo(getPackageName(), 0);
-			 version = "V" + packInfo.versionName;
-
+			 version = packInfo.versionName;
 		} catch (NameNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

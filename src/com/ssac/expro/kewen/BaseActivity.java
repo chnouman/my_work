@@ -33,7 +33,7 @@ public abstract  class BaseActivity extends Activity {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		
-		MainService.exitApp(this);
+//		MainService.promptExit(this);
 		
 		return super.onKeyDown(keyCode, event);
 	}

@@ -1,4 +1,4 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 	<item android:state_pressed="true"	android:drawable="@color/darkgrey"/>
-	<item android:state_pressed="false"	android:drawable="@drawable/yitan"/>
+	<item android:state_pressed="false"	android:drawable="@drawable/bg_home_yitan"/>
 </selector>

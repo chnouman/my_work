@@ -13,10 +13,15 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
+
+import com.ssac.expro.kewen.ExproApplication;
 import com.ssac.expro.kewen.R;
 import com.ssac.expro.kewen.bean.AD;
 import com.ssac.expro.kewen.bean.FromType;
 import com.ssac.expro.kewen.util.AsyncImageLoader;
+import com.ssac.expro.kewen.util.ImageCacheUtil;
 import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
 
 public class ImageAdapter4GalleryTheatre extends BaseAdapter {
@@ -55,22 +60,24 @@ public class ImageAdapter4GalleryTheatre extends BaseAdapter {
 
 	    public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
 	    {
-	    	if(paramView!=null&&paramView.findViewById(R.id.imgOfHomeItem)!=null){
+	    	if(paramView!=null&&paramView.findViewById(R.id.imgOfYanChuGalleryItem)!=null){
 				Log.d("getview-----saved", "doGetView-------get TextView-----------"+paramInt);
 			}else{
 				Log.d("getview", "doGetView-------new TextView-----------"+paramInt);
 				//把xml布局文件变成View对象
-				paramView=lin.inflate(R.layout.item_home, null);
+				paramView=lin.inflate(R.layout.item_yanchu_gallery, null);
 			}
 	    	final ViewHolder vh = new ViewHolder();
-	    	vh.image = (ImageView) paramView.findViewById(R.id.imgOfHomeItem);
-//	    	vh.image.setScaleType(ImageView.ScaleType.FIT_XY);
+	    	vh.image = (ImageView) paramView.findViewById(R.id.imgOfYanChuGalleryItem);
+	    	vh.image.setLayoutParams(new LinearLayout.LayoutParams(ExproApplication.metrics.widthPixels,LayoutParams.FILL_PARENT));
+	    	vh.image.setScaleType(ImageView.ScaleType.FIT_XY);
 			// 设置数据
 			final AD Ninfo = list.get(paramInt);
 			// 取图片
 			String imageUrl = Ninfo.getImgPath();
-			
-			String tag="file";
+			ImageCacheUtil ic =new ImageCacheUtil();
+			ic.loadImageGallery(ExproApplication.imageLoader, vh.image, imageUrl,null);
+		/*	String tag="file";
 			if(imageUrl!=null&&imageUrl.indexOf("http")!=-1){
 				tag="internet";
 			}
@@ -78,26 +85,12 @@ public class ImageAdapter4GalleryTheatre extends BaseAdapter {
 				asyncloder.loadDrawable(imageUrl, new ImageCallback() {
 					@Override
 					public void imageLoaded(Bitmap bitmap, String imageUrl) {
-						
 //						vh.image.setImageBitmap(bitmap);
-						if(null!=bitmap)
+						if(null!=bitmap&&!bitmap.isRecycled())
 					vh.image.setBackgroundDrawable(new BitmapDrawable(bitmap));
 					}
 				}, tag, FromType.home);
-	      
-//				vh.image.setOnClickListener(new OnClickListener() {
-//					
-//					@Override
-//					public void onClick(View v) {
-//						// TODO Auto-generated method stub
-//						
-//						//url跳转
-//						Uri uri = Uri.parse(Ninfo.getLinkAddress());    
-//						Intent it   = new Intent(Intent.ACTION_VIEW,uri);    
-//						it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//						mContext.getApplicationContext().startActivity(it);   
-//					}
-//				});
+	      */
 
 	      return paramView;
 	    }

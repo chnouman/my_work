@@ -11,7 +11,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Gallery;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
+
+import com.ssac.expro.kewen.ExproApplication;
 import com.ssac.expro.kewen.R;
 import com.ssac.expro.kewen.bean.AD;
 import com.ssac.expro.kewen.bean.FromType;
@@ -19,6 +24,7 @@ import com.ssac.expro.kewen.service.MainService;
 import com.ssac.expro.kewen.util.AsyncImageLoader;
 import com.ssac.expro.kewen.util.BitMapUtil;
 import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
+import com.ssac.expro.kewen.util.ImageCacheUtil;
 
 public class ImageAdapter4NumberGallery extends BaseAdapter {
 
@@ -64,11 +70,12 @@ public class ImageAdapter4NumberGallery extends BaseAdapter {
 	    	final ViewHolder vh = new ViewHolder();
 	    	vh.image = (ImageView) paramView.findViewById(R.id.imgOfHomeItem);
 	    	vh.image.setScaleType(ImageView.ScaleType.FIT_XY);
+	    	vh.image.setLayoutParams(new LinearLayout.LayoutParams(ExproApplication.metrics.widthPixels,LayoutParams.FILL_PARENT));
 			// 设置数据
 			final AD Ninfo = MainService.adList.get(paramInt);
 			// 取图片
 			String imageUrl = Ninfo.getImgPath();
-			
+		/*	
 			String tag="file";
 			if(imageUrl!=null&&imageUrl.indexOf("http")!=-1){
 				tag="internet";
@@ -79,11 +86,11 @@ public class ImageAdapter4NumberGallery extends BaseAdapter {
 					public void imageLoaded(Bitmap bitmap, String imageUrl) {
 						
 //						BitmapDrawable imageDrawable =BitMapUtil.createBitMapDrawable(150, bitmap);
+						if(null!=bitmap&&!bitmap.isRecycled())
 						vh.image.setImageBitmap(bitmap);
 						
 					}
 				}, tag, FromType.home);
-	      
 //				vh.image.setOnClickListener(new OnClickListener() {
 //					
 //					@Override
@@ -96,7 +103,11 @@ public class ImageAdapter4NumberGallery extends BaseAdapter {
 //						mContext.startActivity(it);   
 //					}
 //				});
-	      return paramView;
+*/	      
+			ImageCacheUtil ic =new ImageCacheUtil();
+			ic.loadImageGallery(ExproApplication.imageLoader, vh.image, imageUrl,null);
+			Log.i("poe", imageUrl);
+			return paramView;
 	    }
 
 	    private static class ViewHolder {

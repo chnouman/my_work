@@ -41,8 +41,11 @@ public class MoreAbountDetail extends Activity {
 	void init(){
 		back		=	(ImageView) findViewById(R.id.imageLeftOfHeadMoreDetail);
 		title		=	(TextView) findViewById(R.id.textOfHeadMoreDetail);
-		title.setText("关于文博");
+		title.setText(getResources().getString(R.string.str_about));
 		mWebView=	(WebView) findViewById(R.id.webviewOfLayoutMoreAbount);
+		mWebView.getSettings().setUseWideViewPort(true);
+		mWebView.getSettings().setLoadWithOverviewMode(true);
+		mWebView.getSettings().setBuiltInZoomControls(true);
 		
 		back.setOnClickListener(new OnClickListener() {
 			

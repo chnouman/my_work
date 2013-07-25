@@ -58,7 +58,7 @@ public class ReflectionImage extends ImageView {
         //reflectionImage就是下面透明的那部分,可以设置它的高度为原始的3/4,这样效果会更好些  
         Bitmap reflectionImage = Bitmap.createBitmap(originalImage, 0, 0, width, height, matrix, false);  
         //创建一个新的bitmap,高度为原来的两倍  
-        Bitmap bitmapWithReflection = Bitmap.createBitmap(width, (height + height), Config.ARGB_8888);  
+        Bitmap bitmapWithReflection = Bitmap.createBitmap(width, (height + height), Config.RGB_565);  
         Canvas canvasRef = new Canvas(bitmapWithReflection);  
           
         //先画原始的图片  

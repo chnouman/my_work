@@ -10,10 +10,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.ssac.expro.kewen.ExproApplication;
 import com.ssac.expro.kewen.R;
 import com.ssac.expro.kewen.bean.FromType;
 import com.ssac.expro.kewen.bean.ShowInfo;
 import com.ssac.expro.kewen.util.AsyncImageLoader;
+import com.ssac.expro.kewen.util.ImageCacheUtil;
 import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
 
 public class Adapter4ShowinfoList extends BaseAdapter {
@@ -93,7 +96,8 @@ public class Adapter4ShowinfoList extends BaseAdapter {
 			ShowInfo Ninfo = list.get(paramInt);
 			// 取图片
 			String imageUrl = Ninfo.getTitleImage();
-			
+			ImageCacheUtil ic =new ImageCacheUtil();
+			ic.loadImageList(ExproApplication.imageLoader, vh.image, imageUrl);
 			String tag="file";
 			if(imageUrl!=null&&imageUrl.indexOf("http")!=-1){
 				tag="internet";
@@ -103,6 +107,7 @@ public class Adapter4ShowinfoList extends BaseAdapter {
 					@Override
 					public void imageLoaded(Bitmap bitmap, String imageUrl) {
 						
+						if(null!=bitmap&&!bitmap.isRecycled())
 						vh.image.setImageBitmap(bitmap);
 						
 					}

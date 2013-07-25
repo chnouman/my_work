@@ -11,9 +11,13 @@ import com.ssac.expro.kewen.bean.ShowInfo;
 import com.ssac.expro.kewen.service.XmlToListService;
 import com.ssac.expro.kewen.util.AsyncImageLoader;
 import com.ssac.expro.kewen.util.HttpUtil;
+import com.ssac.expro.kewen.util.ImageCacheUtil;
 import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
@@ -23,6 +27,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Bitmap.Config;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.Shader.TileMode;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,6 +37,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.webkit.WebView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,6 +47,7 @@ public class TheatreYanchuDetail extends Activity {
 	private TextView title,txt_type,txt_time,txt_price,txt_company;
 	private String filmID;//当前电影标示
 	private WebView mWebView;//电影介绍
+	private Button btn_buy;
 	
 	
 	@Override
@@ -55,6 +62,7 @@ public class TheatreYanchuDetail extends Activity {
 	
 	//初始化
 	void init(){
+		btn_buy		=	(Button) findViewById(R.id.btnBuyOfFilmDetail);
 		back		=	(ImageView) findViewById(R.id.imageLeftOfHeadTheatreDetail);
 		title		=	(TextView) findViewById(R.id.textTitleOfTheatreDetail);
 		img_theatre	=	(ImageView) findViewById(R.id.imageOfTheatreDetail);
@@ -64,6 +72,28 @@ public class TheatreYanchuDetail extends Activity {
 		txt_company	=	(TextView) findViewById(R.id.textCompanyOfTheatreDetail);
 		mWebView=	(WebView) findViewById(R.id.webviewOfTheatreDetail);
 		
+		btn_buy.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				new AlertDialog.Builder(TheatreYanchuDetail.this)
+				.setTitle("在线购票")
+				.setMessage("4008-288-299")
+				.setPositiveButton("拨打",new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Uri uri = Uri.parse("tel:4008-288-299");    
+						Intent it = new Intent(Intent.ACTION_DIAL, uri);      
+						startActivity(it);    
+					}
+				}).setNegativeButton("取消",new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.cancel();
+					}
+				}).show();
+			}
+		});
 		back.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -86,7 +116,9 @@ public class TheatreYanchuDetail extends Activity {
 		txt_time.setText(time);
 		txt_price.setText(price);
 		
-		AsyncImageLoader async =new AsyncImageLoader();
+		ImageCacheUtil ic =new ImageCacheUtil();
+		ic.loadImageList(ExproApplication.imageLoader, img_theatre, img);
+		/*AsyncImageLoader async =new AsyncImageLoader();
 		async.loadDrawable(img, new ImageCallback() {
 			
 			@Override
@@ -94,7 +126,7 @@ public class TheatreYanchuDetail extends Activity {
 				// TODO Auto-generated method stub
 				img_theatre.setImageBitmap(imageDrawable);
 			}
-		}, "internet", FromType.home);
+		}, "internet", FromType.home);*/
 		
 		//获取更详细的数据
 		task4FilmDetail ts =new task4FilmDetail();

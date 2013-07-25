@@ -23,7 +23,7 @@
 		            >
 		            	<LinearLayout 
 		            	    			android:layout_width="fill_parent"
-		            	    			android:layout_height="45dp"
+		            	    			android:layout_height="50dp"
 		            	    			android:background="@drawable/nav_brown"
 		            	    			android:gravity="center"
 		            	    			>
@@ -98,6 +98,7 @@
 								    		android:orientation="horizontal"
 								    		android:background="@drawable/selector_peixun"
 								    		android:gravity="center"
+								    		android:visibility="gone"
 								    		>
 										<TextView 
 										    		android:layout_width="wrap_content"
@@ -116,6 +117,7 @@
 								    		android:orientation="horizontal"
 								    		android:background="@drawable/selector_meishu"
 								    		android:gravity="center"
+								    		android:visibility="gone"
 								    		>
 										<TextView 
 										    		android:layout_width="wrap_content"

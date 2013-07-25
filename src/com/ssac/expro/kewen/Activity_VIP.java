@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.webkit.WebView;
 import android.widget.LinearLayout;
 
 public class Activity_VIP extends BaseActivity implements OnClickListener{
 
 	private LinearLayout lin_home,lin_art,lin_vip,lin_youhui,lin_more;
-	private LinearLayout lin_shenqing,lin_chongzhi,lin_center,lin_zongze,lin_vip_youhui;
+	private WebView webview;
 	private Context c;
 	
 	@Override
@@ -41,17 +42,15 @@ public class Activity_VIP extends BaseActivity implements OnClickListener{
 		lin_youhui.setOnClickListener(this);
 		lin_more.setOnClickListener(this);
 		
-		lin_shenqing		=	(LinearLayout) findViewById(R.id.linearVipShenqingOfMore);
-		lin_chongzhi		=	(LinearLayout) findViewById(R.id.linearVipChongzhiOfMore);
-		lin_center			=	(LinearLayout) findViewById(R.id.linearVipCenterOfMore);
-		lin_zongze			=	(LinearLayout) findViewById(R.id.linearVipZongzeOfMore);
-		lin_vip_youhui		=	(LinearLayout) findViewById(R.id.linearVipYouhuiOfMore);
+		webview = (WebView) findViewById(R.id.webviewOfVip);
 		
-		lin_shenqing.setOnClickListener(this);
-		lin_chongzhi.setOnClickListener(this);
-		lin_center.setOnClickListener(this);
-		lin_zongze.setOnClickListener(this);
-		lin_vip_youhui.setOnClickListener(this);
+		webview.getSettings().setJavaScriptEnabled(true);
+//		webview.getSettings().setUseWideViewPort(true);  
+		webview.getSettings().setLoadWithOverviewMode(true);
+		webview.getSettings().setBuiltInZoomControls(true);
+		webview.setBackgroundColor(0X000000);
+		webview.setVisibility(View.VISIBLE);
+		webview.loadUrl("file:///android_asset/vip.html");
 	}
 
 	@Override
@@ -64,14 +63,14 @@ public class Activity_VIP extends BaseActivity implements OnClickListener{
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		Intent intent = new Intent();
+		intent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
 		switch (v.getId()) {
 		case R.id.linearHOme:
-			intent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
 			intent.setClass(this, Activity_Home.class);
-			startActivity(intent);//通知服务获取ad数据
+			startActivity(intent);//通知服务获取ad数据.
+			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left); 
 			break;
 		case R.id.linearNews:
-			intent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
 			intent.setClass(this, Activity_Art.class);
 			startActivity(intent);
 			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left); 
@@ -82,17 +81,9 @@ public class Activity_VIP extends BaseActivity implements OnClickListener{
 			ExproApplication.showBuildTip(c);
 			break;
 		case R.id.linearMore:
-			intent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
 			intent.setClass(this, Activity_More.class);
 			startActivity(intent);
 			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left); 
-			break;
-		case R.id.linearVipShenqingOfMore:
-		case R.id.linearVipChongzhiOfMore:
-		case R.id.linearVipCenterOfMore:
-		case R.id.linearVipZongzeOfMore:
-		case R.id.linearVipYouhuiOfMore:
-			ExproApplication.showBuildTip(c);
 			break;
 		default:
 			break;

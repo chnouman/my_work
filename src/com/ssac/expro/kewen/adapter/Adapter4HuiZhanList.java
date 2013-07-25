@@ -11,10 +11,13 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.ssac.expro.kewen.ExproApplication;
 import com.ssac.expro.kewen.R;
 import com.ssac.expro.kewen.bean.FromType;
 import com.ssac.expro.kewen.bean.Huizhan;
 import com.ssac.expro.kewen.util.AsyncImageLoader;
+import com.ssac.expro.kewen.util.ImageCacheUtil;
 import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
 
 public class Adapter4HuiZhanList extends BaseAdapter {
@@ -94,8 +97,9 @@ public class Adapter4HuiZhanList extends BaseAdapter {
 			Huizhan Ninfo = list.get(paramInt);
 			// 取图片
 			String imageUrl = Ninfo.getShowImg();
-			
-			String tag="file";
+			ImageCacheUtil ic =new ImageCacheUtil();
+			ic.loadImageList(ExproApplication.imageLoader, vh.image, imageUrl);
+			/*String tag="file";
 			if(imageUrl!=null&&imageUrl.indexOf("http")!=-1){
 				tag="internet";
 			}
@@ -103,11 +107,11 @@ public class Adapter4HuiZhanList extends BaseAdapter {
 				asyncloder.loadDrawable(imageUrl, new ImageCallback() {
 					@Override
 					public void imageLoaded(Bitmap bitmap, String imageUrl) {
-						
+						if(null!=bitmap&&!bitmap.isRecycled())
 						vh.image.setImageBitmap(bitmap);
 						
 					}
-				}, tag, FromType.home);
+				}, tag, FromType.home);*/
 	      
 				vh.title.setText(Ninfo.getShowTitle());
 				vh.address.setText(Ninfo.getAddress());

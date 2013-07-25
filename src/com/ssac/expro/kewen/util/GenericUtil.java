@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import android.webkit.CacheManager;
 
 public class GenericUtil {
 
@@ -115,13 +116,13 @@ public class GenericUtil {
 	 */
 	public static void clearnCache() {
 		
-//		File file = CacheManager.getCacheFileBaseDir();
-//		if (file != null && file.exists() && file.isDirectory()) {
-//			for (File item : file.listFiles()) {
-//				item.delete();
-//			}
-//			file.delete();
-//		}
+		File file = CacheManager.getCacheFileBaseDir();
+		if (file != null && file.exists() && file.isDirectory()) {
+			for (File item : file.listFiles()) {
+				item.delete();
+			}
+			file.delete();
+		}
 		
 	}
 	

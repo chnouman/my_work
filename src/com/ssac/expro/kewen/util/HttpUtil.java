@@ -208,7 +208,7 @@ public class HttpUtil {
 			success = true;
 			try {
 				conn.connect();
-			} catch (IOException e) {
+			} catch (Exception e) {
 				count++;
 				success = false;
 			}

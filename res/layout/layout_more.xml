@@ -39,28 +39,30 @@
 									  >	
 									
 									    	<ImageView 
-												    		android:layout_width="20dp"
-												    		android:layout_height="20dp"
-												    		android:src="@drawable/about"
+												    		android:layout_width="30dp"
+												    		android:layout_height="30dp"
+												    		android:src="@drawable/more_about"
+												    		android:scaleType="fitXY"
 												    		/>
 												<LinearLayout 
 															android:layout_width="fill_parent"
-															android:layout_height="wrap_content"
+															android:layout_height="fill_parent"
 															android:gravity="center"
 															android:layout_weight="1"
 															>
 														<TextView 
 																  android:text="@string/str_about"
 																  android:layout_width="fill_parent"
-																  android:layout_height="wrap_content"
+																  android:layout_height="fill_parent"
 																  android:gravity="center_vertical|left"
 																  style="@style/RecordText"
 																  />
 												</LinearLayout>
 												<TextView 
 												    		android:layout_width="20dp"
-												    		android:layout_height="20dp"
+												    		android:layout_height="fill_parent"
 												    		android:text=">"
+												    		android:layout_marginBottom="5dp"
 												    		 style="@style/arrow_right"
 												    		/>
 												
@@ -94,28 +96,29 @@
 								    	android:gravity="center_vertical"
 								    	>
 								    	<ImageView 
-											    		android:layout_width="20dp"
-											    		android:layout_height="20dp"
-											    		android:src="@drawable/map"
+											    		android:layout_width="30dp"
+											    		android:layout_height="30dp"
+											    		android:src="@drawable/more_communicate"
 											    		/>
 											<LinearLayout 
 														android:layout_width="fill_parent"
-														android:layout_height="wrap_content"
+														android:layout_height="fill_parent"
 														android:gravity="center"
 														android:layout_weight="1"
 														>
 													<TextView 
 															  android:text="@string/str_more_map"
 															  android:layout_width="fill_parent"
-															  android:layout_height="wrap_content"
+															  android:layout_height="fill_parent"
 															  android:gravity="center_vertical|left"
 															  style="@style/RecordText"
 															  />
 											</LinearLayout>
 											<TextView 
 											    		android:layout_width="20dp"
-											    		android:layout_height="20dp"
+											    		android:layout_height="fill_parent"
 											    		android:text=">"
+											    		android:layout_marginBottom="5dp"
 											    		 style="@style/arrow_right"
 											    		/>
 											
@@ -145,28 +148,29 @@
 									  >	
 									
 									    	<ImageView 
-												    		android:layout_width="20dp"
-												    		android:layout_height="20dp"
-												    		android:src="@drawable/ic_help"
+												    		android:layout_width="30dp"
+												    		android:layout_height="30dp"
+												    		android:src="@drawable/more_contact"
 												    		/>
 												<LinearLayout 
 															android:layout_width="fill_parent"
-															android:layout_height="wrap_content"
+															android:layout_height="fill_parent"
 															android:gravity="center"
 															android:layout_weight="1"
 															>
 														<TextView 
 																  android:text="@string/str_more_contact"
 																  android:layout_width="fill_parent"
-																  android:layout_height="wrap_content"
+																  android:layout_height="fill_parent"
 																  android:gravity="center_vertical|left"
 																  style="@style/RecordText"
 																  />
 												</LinearLayout>
 												<TextView 
 												    		android:layout_width="20dp"
-												    		android:layout_height="20dp"
+												    		android:layout_height="fill_parent"
 												    		android:text=">"
+												    		android:layout_marginBottom="5dp"
 												    		 style="@style/arrow_right"
 												    		/>
 												
@@ -193,79 +197,31 @@
 									  >	
 									
 									    	<ImageView 
-												    		android:layout_width="20dp"
-												    		android:layout_height="20dp"
-												    		android:src="@drawable/ic_help"
+												    		android:layout_width="30dp"
+												    		android:layout_height="30dp"
+												    		android:src="@drawable/more_version"
 												    		/>
 												<LinearLayout 
 															android:layout_width="fill_parent"
-															android:layout_height="wrap_content"
+															android:layout_height="fill_parent"
 															android:gravity="center"
 															android:layout_weight="1"
 															>
 														<TextView 
 																  android:text="@string/str_more_version"
 																  android:layout_width="fill_parent"
-																  android:layout_height="wrap_content"
+																  android:layout_height="fill_parent"
 																  android:gravity="center_vertical|left"
 																  style="@style/RecordText"
 																  />
 												</LinearLayout>
 												<TextView 
 												    		android:layout_width="20dp"
-												    		android:layout_height="20dp"
+												    		android:layout_height="fill_parent"
 												    		android:text=">"
+												    		android:layout_marginBottom="5dp"
 												    		 style="@style/arrow_right"
 												    		/>
-												
-						</LinearLayout>
-						<LinearLayout 
-								    android:layout_width="fill_parent"
-								    android:layout_height="wrap_content"
-								    android:background="@drawable/iphone_bottom_line_bg"
-								    />
-						
-						<LinearLayout 
-								android:layout_width="fill_parent"
-								android:layout_height="wrap_content"
-								android:background="@drawable/iphone_top_line_bg"
-								android:layout_marginTop="30dp"
-								/>
-						<LinearLayout 
-									 android:id="@+id/linearSystemSetOfMore"
-									 android:layout_width="fill_parent"
-									 android:layout_height="wrap_content"
-									 android:orientation="horizontal"
-									 android:background="@drawable/iphone_table_lne_bg"
-									 android:padding="5dp"
-									  >	
-									
-									    	<ImageView 
-												    		android:layout_width="20dp"
-												    		android:layout_height="20dp"
-												    		android:src="@drawable/setting"
-												    		/>
-												<LinearLayout 
-															android:layout_width="fill_parent"
-															android:layout_height="wrap_content"
-															android:gravity="center"
-															android:layout_weight="1"
-															>
-														<TextView 
-																  android:text="@string/str_system_set"
-																  android:layout_width="fill_parent"
-																  android:layout_height="wrap_content"
-																  android:gravity="center_vertical|left"
-																  style="@style/RecordText"
-																  />
-												</LinearLayout>
-												<TextView 
-												    		android:layout_width="20dp"
-												    		android:layout_height="20dp"
-												    		android:text=">"
-												    		 style="@style/arrow_right"
-												    		/>
-												
 						</LinearLayout>
 						<LinearLayout 
 								    android:layout_width="fill_parent"

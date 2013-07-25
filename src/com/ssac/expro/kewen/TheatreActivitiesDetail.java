@@ -7,6 +7,7 @@ import com.ssac.expro.kewen.bean.Theatre;
 import com.ssac.expro.kewen.service.XmlToListService;
 import com.ssac.expro.kewen.util.AsyncImageLoader;
 import com.ssac.expro.kewen.util.HttpUtil;
+import com.ssac.expro.kewen.util.ImageCacheUtil;
 import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -67,6 +68,9 @@ public class TheatreActivitiesDetail extends Activity {
 		txt_title.setText(titlename);
 		txt_released.setText(releaseDate);
 		
+		ImageCacheUtil ic =new ImageCacheUtil();
+		ic.loadImageList(ExproApplication.imageLoader, img, str_img);
+		/*
 		AsyncImageLoader async =new AsyncImageLoader();
 		async.loadDrawable(str_img, new ImageCallback() {
 			
@@ -75,7 +79,7 @@ public class TheatreActivitiesDetail extends Activity {
 				// TODO Auto-generated method stub
 				img.setImageBitmap(imageDrawable);
 			}
-		}, "internet", FromType.home);
+		}, "internet", FromType.home);*/
 		
 		//获取更详细的数据
 		task4FilmDetail ts =new task4FilmDetail();

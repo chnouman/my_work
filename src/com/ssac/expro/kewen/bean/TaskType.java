@@ -2,10 +2,16 @@ package com.ssac.expro.kewen.bean;
 
 public class TaskType {
 	
-//	public static final int VERIFY_USER = 00; 					
+	public static final int UPDATA_CLIENT = 01;//更新客戶端
+
+	public static final int GET_UNDATAINFO_ERROR = 02;//獲取服務端更新信息失敗
+
+	public static final int DOWN_ERROR = 03;//下载apk出错
+
+	public static final int NO_UPDATE = 04;//没有更新
+	
 	//首页
 	public static final int GET_HOME	=	10;				//首页的 图片广告		
-	
 	public static final int GET_YANCHU = 20;			
 	public static final int GET_YANCHU_ZX				= 21 ;		
 	public static final int GET_JUYUAN_HUODONG	= 22 ;		
@@ -22,15 +28,7 @@ public class TaskType {
 	public static final int GET_YITAN = 70;		
 	
 	public static final int GET_ART = 100;//每月易迅
-	
-	
-//	public static final int PROTECT_DUE_CUSTOMER = 12;				
-//	
-//	public static final int PENDING_CHECK_CONTRACT = 13;			
-//	
-//	public static final int PENDING_DISTRIBUTE_CUTOMER = 14 ;		
-	
-	
+
 	
 	
 }

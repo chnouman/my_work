@@ -15,7 +15,7 @@
  				>
 		    <com.ssac.expro.kewen.view.SlowFlipGallery
 		        						android:id="@+id/galleryOfShowInfo" 
-		        						android:layout_width="480dp" 
+		        						android:layout_width="fill_parent" 
 		        						android:layout_height="150dp" 
 		        						/>
 		    <LinearLayout 

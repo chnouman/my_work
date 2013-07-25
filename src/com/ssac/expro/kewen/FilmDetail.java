@@ -11,9 +11,14 @@ import com.ssac.expro.kewen.bean.FromType;
 import com.ssac.expro.kewen.service.XmlToListService;
 import com.ssac.expro.kewen.util.AsyncImageLoader;
 import com.ssac.expro.kewen.util.HttpUtil;
+import com.ssac.expro.kewen.util.ImageCacheUtil;
 import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
+import com.ssac.expro.kewen.util.ImageCacheUtil;
+
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -34,6 +39,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.webkit.WebView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
@@ -49,6 +55,7 @@ public class FilmDetail extends Activity {
 	private LinearLayout linear_Schedule;
 	private Context c;
 	private RatingBar ratingbar;
+	private Button btn_buy;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +72,7 @@ public class FilmDetail extends Activity {
 	void init() {
 		filmID = getIntent().getStringExtra("filmID");
 
+		btn_buy	= (Button) findViewById(R.id.btnBuyOfFilmDetail);
 		back = (ImageView) findViewById(R.id.imageLeftOfHeadFilmDetail);
 		title = (TextView) findViewById(R.id.textNameOfHeadFilmDetail);
 		img_film = (ImageView) findViewById(R.id.imageOfFileDetail);
@@ -78,8 +86,30 @@ public class FilmDetail extends Activity {
 		mWebView = (WebView) findViewById(R.id.webviewOfFilmDetail);
 		linear_Schedule = (LinearLayout) findViewById(R.id.linearFilmSchedule);
 		
+		btn_buy.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				new AlertDialog.Builder(FilmDetail.this)
+				.setTitle("在线购票")
+				.setMessage("4008-288-299")
+				.setPositiveButton("拨打",new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Uri uri = Uri.parse("tel:4008-288-299");    
+						Intent it = new Intent(Intent.ACTION_DIAL, uri);      
+						startActivity(it);    
+					}
+				}).setNegativeButton("取消",new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.cancel();
+					}
+				}).show();
+			}
+		});
+		
 		back.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -101,7 +131,9 @@ public class FilmDetail extends Activity {
 		txt_zhuy.setText(zhuyan);
 		txt_released.setText(releaseDate);
 
-		AsyncImageLoader async = new AsyncImageLoader();
+		ImageCacheUtil ic =new ImageCacheUtil();
+		ic.loadImageList(ExproApplication.imageLoader, img_film, img);
+		/*AsyncImageLoader async = new AsyncImageLoader();
 		async.loadDrawable(img, new ImageCallback() {
 
 			@Override
@@ -109,7 +141,7 @@ public class FilmDetail extends Activity {
 				// TODO Auto-generated method stub
 				img_film.setImageBitmap(imageDrawable);
 			}
-		}, "internet", FromType.home);
+		}, "internet", FromType.home);*/
 
 		// 获取更详细的数据
 		task4FilmDetail ts = new task4FilmDetail();

@@ -2,6 +2,8 @@ package com.ssac.expro.kewen.bean;
 
 public class Constants {
 
+	public static String UPDATE_VERSION="http://www.sscac.com.cn:8080/fy/AndroidVersion";
+	
 	public static String LOCAPIC_NEWS_PATH="/expro/pic/home";
 	
 	public static final String RESOURCE_PREFIX="http://www.sscac.com.cn/cmsattachment/";//图片的存放路径

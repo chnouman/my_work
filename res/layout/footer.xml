@@ -32,6 +32,7 @@
 					android:layout_height="fill_parent"
 					android:id="@+id/linearYouHui"
 					android:background="@drawable/selector_blue_to_red"
+					android:visibility="gone"
 					>
 		<ImageView 	android:src="@drawable/benefit"
 					android:layout_weight="2"

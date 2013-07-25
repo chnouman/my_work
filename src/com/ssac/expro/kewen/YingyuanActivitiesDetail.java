@@ -7,6 +7,7 @@ import com.ssac.expro.kewen.bean.FromType;
 import com.ssac.expro.kewen.service.XmlToListService;
 import com.ssac.expro.kewen.util.AsyncImageLoader;
 import com.ssac.expro.kewen.util.HttpUtil;
+import com.ssac.expro.kewen.util.ImageCacheUtil;
 import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -65,7 +66,10 @@ public class YingyuanActivitiesDetail extends Activity {
 		
 		txt_title.setText(titlename);
 		
-		AsyncImageLoader async =new AsyncImageLoader();
+		ImageCacheUtil ic =new ImageCacheUtil();
+		ic.loadImageList(ExproApplication.imageLoader, img_film, img);
+		
+		/*AsyncImageLoader async =new AsyncImageLoader();
 		async.loadDrawable(img, new ImageCallback() {
 			
 			@Override
@@ -73,7 +77,7 @@ public class YingyuanActivitiesDetail extends Activity {
 				// TODO Auto-generated method stub
 				img_film.setImageBitmap(imageDrawable);
 			}
-		}, "internet", FromType.home);
+		}, "internet", FromType.home);*/
 		
 		//获取更详细的数据
 		task4HuodongDetail ts =new task4HuodongDetail();

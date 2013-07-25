@@ -12,46 +12,38 @@
 				/>   
  <ScrollView 
      			android:layout_width="fill_parent"
-     			android:layout_height="fill_parent"
+     			android:layout_height="wrap_content"
      			android:background="#FFFFFF"
      			android:layout_below="@id/headerOfLayoutFilmDetail"
      			>
-     
  <LinearLayout 
 			    android:layout_width="fill_parent"
-			    android:layout_height="fill_parent"
+			    android:layout_height="wrap_content"
 			    android:orientation="vertical" 
 			    android:background="#FFFFFF"
 			    > 
      		<LinearLayout 
 					    android:layout_width="fill_parent"
-					    android:layout_height="170dp"
+					    android:layout_height="wrap_content"
 					    android:orientation="horizontal" 
-					    android:background="@drawable/dy_detail_back"
+					    android:background="@drawable/dy_detail_back2"
 					    android:baselineAligned="false"
 					    > 
-	     		    <LinearLayout 
-						    android:layout_width="fill_parent"
-						    android:layout_height="fill_parent"
-						    android:orientation="vertical" 
-						    android:layout_weight="2"
-						    > 
-				    		<ImageView 
-				    		    		android:id="@+id/imageOfFileDetail"
-				    		    		android:layout_width="fill_parent"
-				    		    		android:layout_height="fill_parent"
-				    		    		android:scaleType="fitXY"
-				    		    		android:src="@drawable/back_home"
-				    		    		android:layout_margin="5dp"
-				    		    		/>
-	     		
-	   				</LinearLayout>
+				   <ImageView 
+				    		   android:id="@+id/imageOfFileDetail"
+				    		    android:layout_width="fill_parent"
+				    		    android:layout_height="fill_parent"
+				    		    android:scaleType="centerInside"
+				    		    android:src="@drawable/back_home"
+				    		    android:layout_margin="5dp"
+				    		    android:layout_weight="2"
+				    		    />
 	   				 <LinearLayout 
 						    android:layout_width="fill_parent"
-						    android:layout_height="fill_parent"
+						    android:layout_height="wrap_content"
 						    android:orientation="vertical" 
 						    android:layout_weight="1"
-						    android:padding="10dp"
+						    android:padding="5dp"
 						    > 
 				    		<LinearLayout 
 									    android:layout_width="fill_parent"
@@ -61,10 +53,11 @@
 									    > 
 				    					<TextView 	
 								 		    		android:layout_width="wrap_content"
-								 		    		android:layout_height="wrap_content"
+								 		    		android:layout_height="fill_parent"
 								 		    		android:padding="1dp"
 								 		    		android:text="推荐指数："
 								 		    		style="@style/yingpian_generate_text"
+								 		    		android:gravity="center_vertical"
 								 		    		/>
 	     								<RatingBar 
 										         android:id="@+id/ratingBar1"
@@ -72,7 +65,7 @@
 										         android:layout_width="wrap_content"
 										         android:layout_height="wrap_content" 
 										         android:numStars="5"
-										         android:stepSize="1.5"/>
+										         android:stepSize="4"/>
 	   						</LinearLayout>
 	     					<LinearLayout 
 					 		    		android:layout_width="fill_parent"
@@ -175,11 +168,13 @@
 					 		</LinearLayout>
 					 		<Button 	
 					 		    	android:id="@+id/btnBuyOfFilmDetail"
-					 		    	android:layout_width="wrap_content"
-					 		    	android:layout_height="wrap_content"
-					 		    	android:text="@string/str_film_detail_buy"
-					 		    	android:background="#e96c00"
-					 		    	android:layout_marginTop="5dp"
+					 		    	android:layout_width="100dp"
+					 		    	android:layout_height="50dp"
+					 		    	android:text="@string/str_theatre_dail"
+					 		    	android:background="@drawable/selector_btn_buy"
+					 		    	android:layout_marginTop="15dp"
+					 		    	android:padding="5dp"
+					 		    	android:textSize="15sp"
 					 		    	/>
 					 		
 	   				</LinearLayout>

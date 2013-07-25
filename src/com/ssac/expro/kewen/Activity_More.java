@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 
 public class Activity_More extends BaseActivity implements OnClickListener{
 
-	private LinearLayout linearAbount,linearMap,linearContact,linearVersion,linearSystem;
+	private LinearLayout linearAbount,linearMap,linearContact,linearVersion;
 	private ImageView home;
 	private String point ="31.321087, 120.701845";//地图定位中心点 文化博览中心
 	
@@ -49,13 +49,11 @@ public class Activity_More extends BaseActivity implements OnClickListener{
 		 linearMap		=	(LinearLayout) findViewById(R.id.linearMapOfMore);
 		 linearContact	=	(LinearLayout) findViewById(R.id.linearContactOfMore);
 		 linearVersion	=	(LinearLayout) findViewById(R.id.linearVersionOfMore);
-		 linearSystem	=	(LinearLayout) findViewById(R.id.linearSystemSetOfMore);
 		 
 		 linearAbount.setOnClickListener(this);
 		 linearMap.setOnClickListener(this);
 		 linearContact.setOnClickListener(this);
 		 linearVersion.setOnClickListener(this);
-		 linearSystem.setOnClickListener(this);
 	}
 
 	@Override
@@ -74,25 +72,14 @@ public class Activity_More extends BaseActivity implements OnClickListener{
 		case R.id.linearMapOfMore:
 			Intent i = new Intent(Intent.ACTION_VIEW, Uri .parse("http://ditu.google.cn/maps?hl=zh&mrt=loc&q="+point));   
 			startActivity(i);   
-//			Uri uri = Uri.parse("geo:"+point);    
-//			Intent it = new Intent(Intent.ACTION_VIEW,uri);    
-//			startActivity(it);    
 			break;
 		case R.id.linearContactOfMore:
+			startActivity(new Intent(Activity_More.this,MoreContactDetail.class));
+			break;
 		case R.id.linearVersionOfMore:
-		case R.id.linearSystemSetOfMore:
+			startActivity(new Intent(Activity_More.this,MoreVersionUpdateDetail.class));
+			break;
 		default:
-			//弹出提示框
-			new AlertDialog.Builder(Activity_More.this)
-						.setTitle("提示")
-						.setMessage("正在建设中...")
-						.setPositiveButton("OK",new DialogInterface.OnClickListener() {
-							
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								dialog.cancel();
-							}
-						}).show();
 			break;
 		}
 	}

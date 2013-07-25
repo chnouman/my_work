@@ -28,6 +28,7 @@ import android.graphics.Rect;
 import android.graphics.Region.Op;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -427,6 +428,11 @@ public class SlideHolder extends FrameLayout {
 				
 				canvas.drawBitmap(mCachedBitmap, mOffset, 0, mCachedPaint);
 			} else {
+					
+//				View main = getChildAt(1);
+//				mCachedCanvas.drawColor(Color.TRANSPARENT, Mode.CLEAR);
+//				main.draw(mCachedCanvas);
+				
 				if(!mAlwaysOpened && mMode == MODE_READY) {
 		        	mMenuView.setVisibility(View.GONE);
 		        }
@@ -569,7 +575,8 @@ public class SlideHolder extends FrameLayout {
 		
 		mOffset = mStartOffset;
 		
-		if(mCachedBitmap == null || mCachedBitmap.isRecycled() || mCachedBitmap.getWidth() != v.getWidth()||mCachedBitmap.isRecycled()) {
+		if(mCachedBitmap == null || mCachedBitmap.isRecycled() || mCachedBitmap.getWidth() != v.getWidth()) {
+			Log.i("poe", "initSlideHolder=============================== bitmap.createBitmap()");
 			mCachedBitmap = Bitmap.createBitmap(v.getWidth(), v.getHeight(), Bitmap.Config.ARGB_8888);
 			mCachedCanvas = new Canvas(mCachedBitmap);
 		} else {
@@ -583,7 +590,7 @@ public class SlideHolder extends FrameLayout {
 		
 		mMode = MODE_SLIDE;
 		
-		mMenuView.setVisibility(View.VISIBLE);
+		mMenuView.setVisibility(View.GONE);
 	}
 	
 	private boolean isSlideAllowed() {

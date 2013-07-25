@@ -12,6 +12,7 @@ import com.ssac.expro.kewen.service.XmlToListService;
 import com.ssac.expro.kewen.util.AsyncImageLoader;
 import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
 import com.ssac.expro.kewen.util.HttpUtil;
+import com.ssac.expro.kewen.util.ImageCacheUtil;
 import com.ssac.expro.kewen.view.MyViewPager;
 import com.ssac.expro.kewen.view.SlideHolder;
 import android.annotation.SuppressLint;
@@ -156,7 +157,8 @@ public class FragementYiTan extends Fragment implements OnClickListener {
 				R.id.expandListviewOfYiwenketang);
 		listview2 = (ExpandableListView) views.get(1).findViewById(
 				R.id.expandListviewOfYiwenhuodong);
-
+		listview.setGroupIndicator(getResources().getDrawable(R.drawable.group_icon_selector));
+		listview2.setGroupIndicator(getResources().getDrawable(R.drawable.group_icon_selector));
 		listview.setOnGroupClickListener(new OnGroupClickListener() {
 
 			@Override
@@ -336,6 +338,10 @@ public class FragementYiTan extends Fragment implements OnClickListener {
 				} else {
 					listAdapter.notifyDataSetChanged();
 				}
+			}
+			
+			if(mSlideHolder.isOpened()){
+				mSlideHolder.toggle();
 			}
 		}
 	}
@@ -651,17 +657,19 @@ public class FragementYiTan extends Fragment implements OnClickListener {
 			// set data
 			title.setText(art.getContentTitle());
 			content.setText(art.getSummary());
-			AsyncImageLoader asyn = new AsyncImageLoader();
-			asyn.loadDrawable(art.getTitleImageName(), new ImageCallback() {
-
-				@Override
-				public void imageLoaded(Bitmap imageDrawable, String imageUrl) {
-					// TODO Auto-generated method stub
-					if (null != imageDrawable) {
-						img.setImageBitmap(imageDrawable);
-					}
-				}
-			}, "internet", FromType.home);
+			ImageCacheUtil ic =new ImageCacheUtil();
+			ic.loadImageList(ExproApplication.imageLoader, img, art.getTitleImageName());
+//			AsyncImageLoader asyn = new AsyncImageLoader();
+//			asyn.loadDrawable(art.getTitleImageName(), new ImageCallback() {
+//
+//				@Override
+//				public void imageLoaded(Bitmap imageDrawable, String imageUrl) {
+//					// TODO Auto-generated method stub
+//					if (null != imageDrawable) {
+//						img.setImageBitmap(imageDrawable);
+//					}
+//				}
+//			}, "internet", FromType.home);
 
 			return convertView;
 		}
@@ -783,7 +791,9 @@ public class FragementYiTan extends Fragment implements OnClickListener {
 			// set data
 			title.setText(art.getContentTitle());
 			content.setText(art.getSummary());
-			AsyncImageLoader asyn = new AsyncImageLoader();
+			ImageCacheUtil ic =new ImageCacheUtil();
+			ic.loadImageList(ExproApplication.imageLoader, img, art.getTitleImageName());
+			/*AsyncImageLoader asyn = new AsyncImageLoader();
 			asyn.loadDrawable(art.getTitleImageName(), new ImageCallback() {
 
 				@Override
@@ -793,7 +803,7 @@ public class FragementYiTan extends Fragment implements OnClickListener {
 						img.setImageBitmap(imageDrawable);
 					}
 				}
-			}, "internet", FromType.home);
+			}, "internet", FromType.home);*/
 
 			return convertView;
 		}

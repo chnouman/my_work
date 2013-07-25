@@ -3,8 +3,8 @@ package com.ssac.expro.kewen;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.ssac.expro.kewen.FragementYiTan.expandableadapter;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import com.ssac.expro.kewen.adapter.Adapter4Yingyuan;
 import com.ssac.expro.kewen.adapter.Adapter4YingyuanActivities;
 import com.ssac.expro.kewen.adapter.Adapter4YingyuanActivities.lastIndexLoad;
@@ -12,12 +12,9 @@ import com.ssac.expro.kewen.adapter.PaperAdapter;
 import com.ssac.expro.kewen.bean.ArtLesson;
 import com.ssac.expro.kewen.bean.Constants;
 import com.ssac.expro.kewen.bean.Film;
-import com.ssac.expro.kewen.bean.FromType;
 import com.ssac.expro.kewen.service.XmlToListService;
-import com.ssac.expro.kewen.util.AsyncImageLoader;
-import com.ssac.expro.kewen.util.AsyncImageLoader.ImageCallback;
+import com.ssac.expro.kewen.util.ImageCacheUtil;
 import com.ssac.expro.kewen.util.HttpUtil;
-import com.ssac.expro.kewen.view.CoverFlow;
 import com.ssac.expro.kewen.view.MirrorView;
 import com.ssac.expro.kewen.view.ReflectionImage;
 import com.ssac.expro.kewen.view.SlideHolder;
@@ -25,7 +22,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
 import android.graphics.Matrix;
@@ -56,8 +52,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.ImageView.ScaleType;
-
 /**
  * 演出
  * 
@@ -223,7 +217,7 @@ public class FragementFilm extends Fragment implements OnClickListener {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				// TODO Auto-generated method stub
-				Film f = filmList.get(arg2);
+				Film f = filmList.get(arg2%filmList.size());
 				Intent intent = new Intent(mContext, FilmDetail.class);
 				intent.putExtra("filmName", f.getFilmName());
 				intent.putExtra("img", f.getTitleImageName());
@@ -246,7 +240,6 @@ public class FragementFilm extends Fragment implements OnClickListener {
 
 		task4YingPian ts1 = new task4YingPian();
 		ts1.execute();
-
 		// 影院
 		listview = (ListView) views.get(1)
 				.findViewById(R.id.listviewOfYingyuan);
@@ -386,7 +379,7 @@ public class FragementFilm extends Fragment implements OnClickListener {
 			if (filmList != null && filmList.size() > 0) {
 				filmAdapter = new ImageAdapter(mContext);
 				mirrorGallery.setAdapter(filmAdapter);
-
+				mirrorGallery.setSelection(filmList.size()*30);
 				// 提一条影片数据
 				title.setText(filmList.get(0).getFilmName());
 				date.setText(filmList.get(0).getReleaseDte());
@@ -397,6 +390,9 @@ public class FragementFilm extends Fragment implements OnClickListener {
 				Log.i("poe", "获取广告数据失败！");
 			}
 			// progressbar.setVisibility(View.VISIBLE);
+			if(mSlideHoler.isOpened()){
+				mSlideHoler.toggle();
+			}
 		}
 	}
 
@@ -418,7 +414,7 @@ public class FragementFilm extends Fragment implements OnClickListener {
 
 		// Create a new bitmap with same width but taller to fit reflection
 		Bitmap bitmapWithReflection = Bitmap.createBitmap(width,
-				(height + height / 2), Config.ARGB_8888);
+				(height + height / 2), Config.RGB_565);
 
 		// Create a new Canvas with the bitmap that's big enough for
 		// the image plus gap plus reflection
@@ -461,13 +457,13 @@ public class FragementFilm extends Fragment implements OnClickListener {
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			return filmList.size();
+			return Integer.MAX_VALUE;//filmList.size();
 		}
 
 		@Override
 		public Object getItem(int position) {
 			// TODO Auto-generated method stub
-			return filmList.get(position);
+			return filmList.get(position%filmList.size());
 		}
 
 		@Override
@@ -479,17 +475,51 @@ public class FragementFilm extends Fragment implements OnClickListener {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			// TODO Auto-generated method stub
-			Film ad = filmList.get(position);
+			Film ad = filmList.get(position%filmList.size());
 			final ReflectionImage image = new ReflectionImage(mContext);
 			image.setImageResource(R.drawable.placeholder_high);
-
-			image.setLayoutParams(new MirrorView.LayoutParams(120, 220));
+			ImageCacheUtil ic =new ImageCacheUtil();
+			ic.loadImageGallery2(ExproApplication.imageLoader, image, ad.getTitleImageName(),new ImageLoadingListener() {
+				
+				@Override
+				public void onLoadingStarted(String imageUri, View view) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+					// TODO Auto-generated method stub
+					//加载reflect图片
+					ReflectionImage image2 = new ReflectionImage(mContext);
+					image2.setImageBitmap(loadedImage);
+					image2.setLayoutParams(new MirrorView.LayoutParams(200,400 ));
+					image2.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+					// Make sure we set anti-aliasing otherwise we get jaggies
+					BitmapDrawable drawable = (BitmapDrawable) image.getDrawable();
+					drawable.setAntiAlias(true);
+					
+					image.setImageDrawable(drawable);
+				}
+				
+				@Override
+				public void onLoadingCancelled(String imageUri, View view) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+			image.setLayoutParams(new MirrorView.LayoutParams(200,400 ));
 			image.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-			// Make sure we set anti-aliasing otherwise we get jaggies
 			BitmapDrawable drawable = (BitmapDrawable) image.getDrawable();
 			drawable.setAntiAlias(true);
-
-			AsyncImageLoader async = new AsyncImageLoader();
+			
+			/*AsyncImageLoader async = new AsyncImageLoader();
 
 			async.loadDrawable(ad.getTitleImageName(), new ImageCallback() {
 
@@ -500,7 +530,7 @@ public class FragementFilm extends Fragment implements OnClickListener {
 						image.setImageBitmap(createReflectedImages(imageDrawable));// createReflectedImages(imageDrawable)
 					}
 				}
-			}, "internet", FromType.home);
+			}, "internet", FromType.home);*/
 
 			return image;
 		}

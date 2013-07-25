@@ -20,7 +20,8 @@
     <string name="str_home_huizhan">会展</string>
     <string name="str_home_suyipeixun">苏艺培训</string>
     <string name="str_home_jinjihu">金鸡湖美术馆</string>
-    <string name="str_home_jinjihu2">金鸡湖艺坛</string>
+    <string name="str_home_jinjihu2">艺坛</string>
+    <string name="str_fram_yitan">金鸡湖艺坛</string>
     <string name="copyright">苏州文化博览中心有限公司 版权所有</string>
     <string name="swipe">swipe from left to right</string>
     
@@ -39,9 +40,8 @@
     
     <string name="str_theatre_report">艺文周刊</string>
     
-    
     <string name="str_yitan_yskt">艺术课堂</string>
-    <string name="str_yitan_ywzk">艺文周刊</string>
+    <string name="str_yitan_ywzk">艺文活动</string>
     
     
     <string name="str_film_city">电影</string>
@@ -79,7 +79,7 @@
     <string name="str_vip_youhui">我的优惠</string>
     
     
-    <string name="str_about">关于文博</string>
+    <string name="str_about">关于苏艺</string>
     <string name="str_system_set">系统设置</string>
     <string name="str_more_map">交通信息</string>
     <string name="str_more_contact">联系我们</string>

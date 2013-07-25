@@ -45,7 +45,6 @@
 			    		  android:orientation="horizontal"
 			    		  android:layout_weight="1"
 			    		  android:gravity="center"
-			    		  android:background="@drawable/yanchu_backtop"
 			    		  >
     				<TextView 
     				    		android:layout_width="wrap_content"
@@ -53,6 +52,8 @@
     				    		android:id="@+id/txtShowInfoOfTheatre"
     				    		android:text="@string/str_theatre_info"
     				    		android:textColor="#FFFFFF"
+    				    		android:background="@drawable/yanchu_backtop"
+    				    		android:gravity="center"
     				    		/>
     	
  			</LinearLayout>
@@ -70,26 +71,9 @@
     				    		android:id="@+id/txtShowActiveOfTheatre"
     				    		android:text="@string/str_theatre_activie"
     				    		android:textColor="#FFFFFF"
+    				    		android:gravity="center"
     				    		/>
     	
  			</LinearLayout>
- 			<LinearLayout 
-			    		  android:id="@+id/linearYiwenZKOfTheatre"
-			    		  android:layout_width="fill_parent"
-			    		  android:layout_height="wrap_content"
-			    		  android:orientation="horizontal"
-			    		  android:layout_weight="1"
-			    		  android:gravity="center"
-			    		  >
-    				<TextView 
-    				    		android:layout_width="wrap_content"
-    				    		android:layout_height="wrap_content"
-    				    		android:id="@+id/txtShowReportOfTheatre"
-    				    		android:text="@string/str_theatre_report"
-    				    		android:textColor="#FFFFFF"
-    				    		/>
-    	
- 			</LinearLayout>
-    
  </LinearLayout>
 </LinearLayout>

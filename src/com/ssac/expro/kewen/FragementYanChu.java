@@ -45,6 +45,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 /**
  * 演出
  * @author poe
@@ -57,7 +58,8 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 	private List<ShowInfo> showList = new ArrayList<ShowInfo>();
 	private List<Theatre> theatreList =new ArrayList<Theatre>();
 	private MyViewPager mViewPager;
-	private LinearLayout lin_ycxy, lin_jyhd, lin_ywzk;
+	private LinearLayout lin_ycxy, lin_jyhd;
+	private TextView txt_show_info,txt_show_activities;
 	private LayoutInflater lin;
 //	private LinearLayout progressbar;
 	private PagerAdapter adapter;
@@ -130,11 +132,10 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 				.findViewById(R.id.linearYanchuXYOfTheatre);
 		lin_jyhd = (LinearLayout) container
 				.findViewById(R.id.linearJuyuanHDOfTheatre);
-		lin_ywzk = (LinearLayout) container
-				.findViewById(R.id.linearYiwenZKOfTheatre);
+		txt_show_info	=	(TextView) container.findViewById(R.id.txtShowInfoOfTheatre);
+		txt_show_activities	=	(TextView) container.findViewById(R.id.txtShowActiveOfTheatre);
 		lin_jyhd.setOnClickListener(this);
 		lin_ycxy.setOnClickListener(this);
-		lin_ywzk.setOnClickListener(this);
 		ImageView img_back=(ImageView) container.findViewById(R.id.imageLeftOfHeadTheatre);
 		img_back.setOnClickListener(this);
 //		progressbar = (LinearLayout) container
@@ -283,25 +284,16 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 		switch (position) {
 
 		case 0:
-			lin_ycxy.setBackgroundResource(R.drawable.yanchu_backtop);
-			lin_jyhd.setBackgroundDrawable(null);
-			lin_ywzk.setBackgroundDrawable(null);
+			txt_show_info.setBackgroundResource(R.drawable.yanchu_backtop);
+			txt_show_activities.setBackgroundDrawable(null);
 			break;
 		case 1:
-			lin_ycxy.setBackgroundDrawable(null);
-			lin_jyhd.setBackgroundResource(R.drawable.yanchu_backtop);
-			lin_ywzk.setBackgroundDrawable(null);
+			txt_show_info.setBackgroundDrawable(null);
+			txt_show_activities.setBackgroundResource(R.drawable.yanchu_backtop);
 			if(listAdapter2==null){
-			
 				task4TheatreActivities ts=new task4TheatreActivities();
 				ts.execute();
-				
 			}
-			break;
-		case 2:
-			lin_ycxy.setBackgroundDrawable(null);
-			lin_jyhd.setBackgroundDrawable(null);
-			lin_ywzk.setBackgroundResource(R.drawable.yanchu_backtop);
 			break;
 		}
 		
@@ -317,9 +309,6 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 			break;
 		case R.id.linearJuyuanHDOfTheatre:// 剧院活动
 			toId = 1;
-			break;
-		case R.id.linearYiwenZKOfTheatre:// 艺文周刊
-			toId = 2;
 			break;
 		case R.id.imageLeftOfHeadTheatre://show menue
 			mSlideHolder.toggle();
@@ -361,6 +350,7 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
+//			mSlideHolder.toggle();
 			// 处理结果
 			if(adList!=null&&adList.size()>0){
 				fillGallery();
@@ -380,6 +370,10 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 						}
 					});
 					listview.setAdapter(listAdapter);
+			}
+			
+			if(mSlideHolder.isOpened()){
+				mSlideHolder.toggle();
 			}
 		}
 	}
