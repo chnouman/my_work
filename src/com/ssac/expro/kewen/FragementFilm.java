@@ -94,11 +94,11 @@ public class FragementFilm extends Fragment implements OnClickListener {
 			super.handleMessage(msg);
 
 			// 更新textview的内容
-			if (position < filmList.size()) {
-				title.setText(filmList.get(position).getFilmName());
-				date.setText(filmList.get(position).getReleaseDte());
-				daoyan.setText(filmList.get(position).getProperty1());
-				zhuyan.setText(filmList.get(position).getProperty2());
+			if (position >0) {
+				title.setText(filmList.get(position%filmList.size()).getFilmName());
+				date.setText(filmList.get(position%filmList.size()).getReleaseDte());
+				daoyan.setText(filmList.get(position%filmList.size()).getProperty1());
+				zhuyan.setText(filmList.get(position%filmList.size()).getProperty2());
 			}
 		}
 
@@ -209,7 +209,7 @@ public class FragementFilm extends Fragment implements OnClickListener {
 					int arg2, long arg3) {
 				// TODO Auto-generated method stub
 				position = arg2;
-				handler_yingpian.sendEmptyMessage(0);
+				handler_yingpian.sendMessage(handler_yingpian.obtainMessage(0, arg2));
 			}
 
 			@Override
