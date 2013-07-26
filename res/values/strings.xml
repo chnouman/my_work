@@ -1,7 +1,5 @@
 <resources>
-
-    <string name="app_name">expro</string>
-    <string name="exitshow">确定退出么？</string>
+    <string name="exitshow">确定退出么？</string><string name="app_name">苏州文化艺术中心</string>
     <string name="confirm">确定</string>
     <string name="cancel">取消</string>
     
