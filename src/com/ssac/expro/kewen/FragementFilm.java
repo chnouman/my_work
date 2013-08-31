@@ -12,6 +12,7 @@ import com.ssac.expro.kewen.adapter.PaperAdapter;
 import com.ssac.expro.kewen.bean.ArtLesson;
 import com.ssac.expro.kewen.bean.Constants;
 import com.ssac.expro.kewen.bean.Film;
+import com.ssac.expro.kewen.bean.ShowInfo;
 import com.ssac.expro.kewen.service.XmlToListService;
 import com.ssac.expro.kewen.util.ImageCacheUtil;
 import com.ssac.expro.kewen.util.HttpUtil;
@@ -52,6 +53,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 /**
  * 演出
  * 
@@ -83,7 +85,7 @@ public class FragementFilm extends Fragment implements OnClickListener {
 	private List<String> yingyuanList = new ArrayList<String>();
 	// 影院活动
 	private ListView listview2;
-	private BaseAdapter listAdapter2;
+	private Adapter4YingyuanActivities listAdapter2;
 	private List<ArtLesson> artList = new ArrayList<ArtLesson>();
 
 	private Handler handler_yingpian = new Handler() {
@@ -182,7 +184,7 @@ public class FragementFilm extends Fragment implements OnClickListener {
 			public void onPageSelected(int arg0) {
 				// TODO Auto-generated method stub
 				// 1.设置背景颜色
-				updateTextColorBefore(toId);
+//				updateTextColorBefore(toId);
 			}
 
 			@Override
@@ -277,7 +279,7 @@ public class FragementFilm extends Fragment implements OnClickListener {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				// TODO Auto-generated method stub
-				if (arg3 > 0) {
+				if (arg3 > -1) {
 					ArtLesson al = artList.get(arg2);
 					// 跳转到详细页面
 					Intent intent = new Intent(mContext,
@@ -542,20 +544,20 @@ public class FragementFilm extends Fragment implements OnClickListener {
 		return Math.max(0, 1.0f / (float) Math.pow(2, Math.abs(offset)));
 	}
 
-	// 1.艺术分享
+	// 1.影院活动
 	private class task1 extends AsyncTask<String, String, String> {
-
+		private List<ArtLesson> sList;
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			ExproApplication.throwTips("加载数据...");
+			ExproApplication.throwTips("加载活动数据...");
 		}
 
 		@Override
 		protected String doInBackground(String... params) {
 			try {
-				artList = XmlToListService.GetYiwenKetang(HttpUtil
+				sList  = XmlToListService.GetYiwenKetang(HttpUtil
 						.sendGetRequest(null, Constants.YINGCHENG_ACTIVITIES
 								+ PageSize + "/" + PageIndex3));
 
@@ -576,13 +578,12 @@ public class FragementFilm extends Fragment implements OnClickListener {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
 
-			if (artList != null && artList.size() > 0) {
+			if (sList != null && sList.size() > 0) {
 
+				artList.addAll(sList);
 				if (listAdapter2 == null) {
-
 					listAdapter2 = new Adapter4YingyuanActivities(mContext,
 							artList, new lastIndexLoad() {
-
 								@Override
 								public void loadData() {
 									// TODO Auto-generated method stub
@@ -593,10 +594,12 @@ public class FragementFilm extends Fragment implements OnClickListener {
 							});
 
 					listview2.setAdapter(listAdapter2);
+					
 				} else {
 					listAdapter2.notifyDataSetChanged();
 				}
 			}
+			
 		}
 	}
 }

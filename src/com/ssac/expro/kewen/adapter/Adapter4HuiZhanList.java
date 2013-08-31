@@ -27,7 +27,7 @@ public class Adapter4HuiZhanList extends BaseAdapter {
 	 private lastIndexLoad mLastIndexLoad;
 	 private Context c;
 
-	    public Adapter4HuiZhanList(Context mContext,List<Huizhan> list,lastIndexLoad mLastIndexLoad)
+		public Adapter4HuiZhanList(Context mContext,List<Huizhan> list,lastIndexLoad mLastIndexLoad)
 	    {
 	    	c=mContext;
 	      lin = LayoutInflater.from(mContext);

@@ -15,7 +15,6 @@ public class Adapter4Yingyuan extends BaseAdapter {
 	private LayoutInflater lin;
 	private List<String> list;
 	private Context c;
-
 	public Adapter4Yingyuan(Context mContext, List<String> list
 			) {
 		c = mContext;

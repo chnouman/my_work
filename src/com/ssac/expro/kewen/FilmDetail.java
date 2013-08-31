@@ -167,7 +167,7 @@ public class FilmDetail extends Activity {
 				mWebView.loadDataWithBaseURL(null, film.getFilmDesc(), "text/html", "utf-8", null);
 				if(film.getStar()!=null&&Float.parseFloat(film.getStar())>0){
 					
-					ratingbar.setStepSize(Float.parseFloat(film.getStar()));
+					ratingbar.setRating(Float.parseFloat(film.getStar()));
 					
 				}
 			}

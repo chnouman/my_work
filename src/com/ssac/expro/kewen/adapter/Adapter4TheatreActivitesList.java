@@ -2,7 +2,6 @@ package com.ssac.expro.kewen.adapter;
 
 import java.util.List;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.ssac.expro.kewen.ExproApplication;
 import com.ssac.expro.kewen.R;
 import com.ssac.expro.kewen.bean.Theatre;
@@ -22,7 +20,6 @@ public class Adapter4TheatreActivitesList extends BaseAdapter {
 	 private List<Theatre> list;
 	 private lastIndexLoad4Activities mLastLoad;
 	 private Context c;
-
 	    public Adapter4TheatreActivitesList(Context mContext,List<Theatre> list,lastIndexLoad4Activities mLastLoad)
 	    {
 	    	c=mContext;

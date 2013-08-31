@@ -64,7 +64,7 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 	private LayoutInflater lin;
 //	private LinearLayout progressbar;
 	private PagerAdapter adapter;
-	private int toId = 0, fromId = 0;
+	private int toId = 0;
 	private int PageSize = 10,PageSize2=10;
 	private int PageIndex = 1,PageIndex2=1;// 从1开始
 	// gallery
@@ -177,8 +177,7 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 			public void onPageSelected(int arg0) {
 				// TODO Auto-generated method stub
 				// 1.设置背景颜色
-				updateTextColorBefore(toId);
-				fromId = arg0;
+//				updateTextColorBefore(toId);
 			}
 
 			@Override
@@ -288,6 +287,10 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 		},  10*1000, 2500);
 	 }
 	  
+	 /**
+	  * tabbar choose then change the textcolor
+	  * @param position
+	  */
 	@SuppressWarnings("deprecation")
 	private void updateTextColorBefore(int position) {
 
@@ -300,13 +303,12 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 		case 1:
 			txt_show_info.setBackgroundDrawable(null);
 			txt_show_activities.setBackgroundResource(R.drawable.yanchu_backtop);
-			if(listAdapter2==null){
-				task4TheatreActivities ts=new task4TheatreActivities();
-				ts.execute();
-			}
 			break;
 		}
-		
+		if(listAdapter2==null){
+			task4TheatreActivities ts=new task4TheatreActivities();
+			ts.execute();
+		}
 		mViewPager.setCurrentItem(position);
 	}
 
@@ -481,6 +483,7 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 						@Override
 						public void loadData() {
 							// TODO Auto-generated method stub
+							
 							PageIndex2++;
 							task4TheatreActivities ts =new task4TheatreActivities();
 							ts.execute();

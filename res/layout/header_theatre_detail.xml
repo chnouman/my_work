@@ -22,7 +22,7 @@
         		android:layout_width="match_parent"
         		android:layout_height="wrap_content"
         		android:gravity="center"
-        		android:text="地图"
+        		android:text="@string/str_theatre_detail_info"
         		android:textColor="#FFFFFF"
         		android:textStyle="bold"
         		android:textSize="17sp"

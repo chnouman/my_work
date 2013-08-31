@@ -23,7 +23,6 @@ public class Adapter4ShowinfoList extends BaseAdapter {
 	 private List<ShowInfo> list;
 	 private lastIndexLoad mLastIndexLoad;
 	 private Context c;
-
 	    public Adapter4ShowinfoList(Context mContext,List<ShowInfo> list,lastIndexLoad mLastIndexLoad)
 	    {
 	    	c=mContext;
