@@ -107,6 +107,11 @@
             android:name=".MoreContactDetail"
             android:screenOrientation="portrait" >
         </activity>
+        
+         <activity
+            android:name=".Activity_Yetai"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

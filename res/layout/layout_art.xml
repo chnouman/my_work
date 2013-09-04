@@ -1,40 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-     	xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/headerOfLayoutArt"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" 
-        android:orientation="vertical"
-        android:gravity="bottom"
-        >
-       <include 	layout="@layout/header_art"
-					android:layout_width="fill_parent"
-					android:layout_height="50dp"
-					/>
-        	<LinearLayout 
-            			android:layout_width="fill_parent"
-            			android:layout_height="fill_parent"
-            			android:layout_weight="1"
-            			android:orientation="vertical"
-            			>
-           		 			<LinearLayout 
-				        			android:id="@+id/progressOfArt"
-				        			android:layout_width="fill_parent"
-				        			android:layout_height="fill_parent"
-				        			>
-				         		<include layout="@layout/myprogress" />
-   					 		</LinearLayout>
-   					 		<WebView
-								    android:id="@+id/webviewOfArt"
-								    android:layout_width="fill_parent"
-								    android:layout_height="fill_parent"
-								    android:layout_weight="1"
-								    android:scaleType="fitXY"
-							     	/>
+        android:layout_height="50dp"
+        layout="@layout/header_art" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/headerOfLayoutArt"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/progressOfArt"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+            <include layout="@layout/myprogress" />
         </LinearLayout>
-		
-		<include 	layout="@layout/footer"
-					android:layout_width="fill_parent"
-					android:layout_height="60dp"
-					/>
-    </LinearLayout>	  
- 
+
+        <WebView
+            android:id="@+id/webviewOfArt"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY" />
+    </LinearLayout>
+
+</RelativeLayout>

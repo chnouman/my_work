@@ -12,7 +12,7 @@
 					android:id="@+id/linearHOme"
 					android:background="@drawable/selector_blue_to_red"
 					>
-		<ImageView 	android:src="@drawable/home"
+		<ImageView 	android:src="@drawable/icon_home"
 					android:layout_weight="2"
 					android:id="@+id/imageHome" 
 					android:paddingTop="12px"
@@ -30,11 +30,10 @@
 					android:layout_weight="1"
 					android:layout_width="fill_parent" 
 					android:layout_height="fill_parent"
-					android:id="@+id/linearYouHui"
+					android:id="@+id/linearYetai"
 					android:background="@drawable/selector_blue_to_red"
-					android:visibility="gone"
 					>
-		<ImageView 	android:src="@drawable/benefit"
+		<ImageView 	android:src="@drawable/icon_yetai"
 					android:layout_weight="2"
 					android:id="@+id/imageMap" 
 					android:paddingTop="12px"
@@ -44,7 +43,7 @@
 		<TextView 	android:layout_width="fill_parent"
 					android:layout_weight="3"
 					android:layout_height="fill_parent"
-					android:text="@string/str_youhui" 
+					android:text="@string/str_yetai" 
 					style="@style/footer_text" 
 					/>
 	</LinearLayout>
@@ -55,7 +54,7 @@
 					android:id="@+id/linearVip"
 					android:background="@drawable/selector_blue_to_red"
 					>
-		<ImageView 	android:src="@drawable/vip"
+		<ImageView 	android:src="@drawable/icon_vip"
 					android:layout_weight="2"
 					android:id="@+id/imageVip" 
 					android:paddingTop="12px"
@@ -74,10 +73,11 @@
 					android:layout_weight="1"
 					android:layout_width="fill_parent" 
 					android:layout_height="fill_parent"
-					android:id="@+id/linearNews"
+					android:id="@+id/linearSearch"
 					android:background="@drawable/selector_blue_to_red"
+					
 					>
-		<ImageView 	android:src="@drawable/news"
+		<ImageView 	android:src="@drawable/icon_search"
 					android:layout_weight="2"
 					android:id="@+id/imageNews" 
 					android:paddingTop="12px"
@@ -87,7 +87,7 @@
 		<TextView 	android:layout_width="fill_parent"
 					android:layout_weight="3"
 					android:layout_height="fill_parent"
-					android:text="@string/str_news" 
+					android:text="@string/str_search" 
 					style="@style/footer_text"
 					 />
 	</LinearLayout>
@@ -98,7 +98,7 @@
 					android:id="@+id/linearMore"
 					android:background="@drawable/selector_blue_to_red"
 					>
-		<ImageView 	android:src="@drawable/more"
+		<ImageView 	android:src="@drawable/icon_more"
 					android:layout_weight="2"
 					android:id="@+id/imageMore" 
 					android:paddingTop="12px"

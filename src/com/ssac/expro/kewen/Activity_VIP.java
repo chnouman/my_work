@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 
 public class Activity_VIP extends BaseActivity implements OnClickListener{
 
-	private LinearLayout lin_home,lin_art,lin_vip,lin_youhui,lin_more;
+	private LinearLayout lin_home, lin_yetai, lin_vip, lin_search, lin_more;
 	private WebView webview;
 	private Context c;
 	
@@ -31,15 +31,15 @@ public class Activity_VIP extends BaseActivity implements OnClickListener{
 	public void init() {
 		// TODO Auto-generated method stub
 		lin_home=	(LinearLayout) findViewById(R.id.linearHOme);
-		lin_art	= 	(LinearLayout) findViewById(R.id.linearNews);
+		lin_yetai	= 	(LinearLayout) findViewById(R.id.linearYetai);
 		lin_vip	=	(LinearLayout) findViewById(R.id.linearVip);
-		lin_youhui	=	(LinearLayout) findViewById(R.id.linearYouHui);
+		lin_search	=	(LinearLayout) findViewById(R.id.linearSearch);
 		lin_more=	(LinearLayout) findViewById(R.id.linearMore);
 		
 		lin_home.setOnClickListener(this);
-		lin_art.setOnClickListener(this);
+		lin_yetai.setOnClickListener(this);
 		lin_vip.setOnClickListener(this);
-		lin_youhui.setOnClickListener(this);
+		lin_search.setOnClickListener(this);
 		lin_more.setOnClickListener(this);
 		
 		webview = (WebView) findViewById(R.id.webviewOfVip);
@@ -70,14 +70,14 @@ public class Activity_VIP extends BaseActivity implements OnClickListener{
 			startActivity(intent);//通知服务获取ad数据.
 			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left); 
 			break;
-		case R.id.linearNews:
-			intent.setClass(this, Activity_Art.class);
+		case R.id.linearYetai:
+			intent.setClass(this, Activity_Yetai.class);
 			startActivity(intent);
-			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left); 
+			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			break;
 		case R.id.linearVip:
 			break;
-		case R.id.linearYouHui:
+		case R.id.linearSearch:
 			ExproApplication.showBuildTip(c);
 			break;
 		case R.id.linearMore:

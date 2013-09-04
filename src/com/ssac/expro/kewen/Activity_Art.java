@@ -27,7 +27,7 @@ import com.ssac.expro.kewen.util.GetPicFromURL;
 public class Activity_Art extends BaseActivity implements OnClickListener {
 
 	private ImageView imageView;
-	private LinearLayout lin_home, lin_art, lin_vip, lin_youhui, lin_more;
+	private LinearLayout lin_home, lin_yetai, lin_vip, lin_search, lin_more;
 	private WebView webView=null;
 	private LinearLayout progressbar;
 	final static int PROGRESS_DIALOG_CONNECTING = 1000;
@@ -64,15 +64,15 @@ public class Activity_Art extends BaseActivity implements OnClickListener {
 		imageView = (ImageView) findViewById(R.id.imageLeftOfHeadArt);
 		webView = (WebView) findViewById(R.id.webviewOfArt);
 		lin_home = (LinearLayout) findViewById(R.id.linearHOme);
-		lin_art = (LinearLayout) findViewById(R.id.linearNews);
+		lin_yetai = (LinearLayout) findViewById(R.id.linearYetai);
 		lin_vip = (LinearLayout) findViewById(R.id.linearVip);
-		lin_youhui = (LinearLayout) findViewById(R.id.linearYouHui);
+		lin_search = (LinearLayout) findViewById(R.id.linearSearch);
 		lin_more = (LinearLayout) findViewById(R.id.linearMore);
 
 		lin_home.setOnClickListener(this);
-		lin_art.setOnClickListener(this);
+		lin_yetai.setOnClickListener(this);
 		lin_vip.setOnClickListener(this);
-		lin_youhui.setOnClickListener(this);
+		lin_search.setOnClickListener(this);
 		lin_more.setOnClickListener(this);
 
 		// webView.getSettings().setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);
@@ -207,10 +207,11 @@ public class Activity_Art extends BaseActivity implements OnClickListener {
 		case R.id.linearHOme:
 			intent.setClass(this, Activity_Home.class);
 			startActivity(intent);
-//			MainService.removeActivity(Activity_Art.this);
-//			finish();
 			break;
-		case R.id.linearNews:
+		case R.id.linearYetai:
+			intent.setClass(this, Activity_Yetai.class);
+			startActivity(intent);
+			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			break;
 		case R.id.linearVip:
 			intent.setClass(this, Activity_VIP.class);
@@ -218,7 +219,7 @@ public class Activity_Art extends BaseActivity implements OnClickListener {
 //			MainService.removeActivity(Activity_Art.this);
 //			finish();
 			break;
-		case R.id.linearYouHui:
+		case R.id.linearSearch:
 			ExproApplication.showBuildTip(Activity_Art.this);
 			break;
 		case R.id.linearMore:

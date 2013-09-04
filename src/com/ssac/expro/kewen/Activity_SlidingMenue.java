@@ -27,8 +27,8 @@ public class Activity_SlidingMenue extends FragmentActivity implements
 		OnClickListener {
 
 	private SlideHolder mSlideHolder;
-	private LinearLayout lin_home, lin_art, lin_vip, lin_youhui, lin_more;
-	private LinearLayout lin_yc, lin_dy, lin_hz, lin_px, lin_msg, lin_yt;
+	private LinearLayout lin_home, lin_yetai, lin_vip, lin_search, lin_more;
+	private LinearLayout lin_yc, lin_dy, lin_hz, lin_news, lin_msg, lin_yt;
 	private String from = "yanchu";
 	private Context c;
 
@@ -55,27 +55,27 @@ public class Activity_SlidingMenue extends FragmentActivity implements
 		mSlideHolder.setAllowInterceptTouch(false);
 		
 		lin_home = (LinearLayout) findViewById(R.id.linearHOme);
-		lin_art = (LinearLayout) findViewById(R.id.linearNews);
+		lin_yetai = (LinearLayout) findViewById(R.id.linearYetai);
 		lin_vip = (LinearLayout) findViewById(R.id.linearVip);
-		lin_youhui = (LinearLayout) findViewById(R.id.linearYouHui);
 		lin_more = (LinearLayout) findViewById(R.id.linearMore);
+		lin_search=(LinearLayout)findViewById(R.id.linearSearch);
 
 		lin_home.setOnClickListener(this);
-		lin_art.setOnClickListener(this);
+		lin_yetai.setOnClickListener(this);
 		lin_vip.setOnClickListener(this);
-//		lin_map.setOnClickListener(this);
 		lin_more.setOnClickListener(this);
+		lin_search.setOnClickListener(this);
 
 		// 下面点击button的效果
 		lin_yc = (LinearLayout) findViewById(R.id.linearYanchuOfSlidingMenue);
 		lin_dy = (LinearLayout) findViewById(R.id.linearDianYingOfSlidingMenue);
 		lin_hz = (LinearLayout) findViewById(R.id.linearHuiZhanOfSlidingMenue);
-		lin_px = (LinearLayout) findViewById(R.id.linearPeiXunOfSlidingMenue);
+		lin_news = (LinearLayout) findViewById(R.id.linearMonthInfoOfSlidingMenue);
 		lin_msg = (LinearLayout) findViewById(R.id.linearMeiShuOfSlidingMenue);
 		lin_yt = (LinearLayout) findViewById(R.id.linearYiTanOfSlidingMenue);
 
 		lin_hz.setOnClickListener(this);
-		lin_px.setOnClickListener(this);
+		lin_news.setOnClickListener(this);
 		lin_msg.setOnClickListener(this);
 		lin_yt.setOnClickListener(this);
 		lin_yc.setOnClickListener(this);
@@ -111,9 +111,9 @@ public class Activity_SlidingMenue extends FragmentActivity implements
 				if ("huizhan".equals(from)) {
 					ts = new Task(TaskType.GET_HUIZHAN, hm);
 				} else
-				// 4.培训
-				if ("peixun".equals(from)) {
-					ts = new Task(TaskType.GET_PEIXUN, hm);
+				// 4.每月易迅
+				if ("news".equals(from)) {
+					ts = new Task(TaskType.GET_NEWS, hm);
 				} else
 				// 5.金鸡湖美术馆
 				if ("meishuguan".equals(from)) {
@@ -157,8 +157,8 @@ public class Activity_SlidingMenue extends FragmentActivity implements
 			transaction.replace(R.id.linearcontent, frag);
 			transaction.commit();
 			break;
-		case TaskType.GET_PEIXUN:
-			frag = new FragementPeiXun(c,mSlideHolder);
+		case TaskType.GET_NEWS:// news art info
+			frag = new FragementNews(c,mSlideHolder);
 			transaction.replace(R.id.linearcontent, frag);
 			transaction.commit();
 			break;
@@ -191,20 +191,22 @@ public class Activity_SlidingMenue extends FragmentActivity implements
 			startActivity(intent);
 			finish();
 			break;
-		case R.id.linearNews:
-			intent.setClass(this, Activity_Art.class);
-			startActivity(intent);
-			finish();
+		case R.id.linearYetai:
+//			intent.setClass(this, Activity_Art.class);
+//			startActivity(intent);
+//			finish();
+			ExproApplication.showBuildTip(c);
+			break;
+		case R.id.linearSearch:
+//			intent.setClass(this, Activity_Art.class);
+//			startActivity(intent);
+//			finish();
+			ExproApplication.showBuildTip(c);
 			break;
 		case R.id.linearVip:
 			intent.setClass(this, Activity_VIP.class);
 			startActivity(intent);
 			finish();
-			break;
-		case R.id.linearYouHui:
-//			intent.setClass(this, this);
-//			startActivity(intent);
-			ExproApplication.showBuildTip(c);
 			break;
 		case R.id.linearMore:
 			intent.setClass(this, Activity_More.class);
@@ -224,8 +226,8 @@ public class Activity_SlidingMenue extends FragmentActivity implements
 			from= "huizhan";
 			loadFragment(from);
 			break;
-		case R.id.linearPeiXunOfSlidingMenue:
-			from="peixun";
+		case R.id.linearMonthInfoOfSlidingMenue:
+			from="news";
 			loadFragment(from);
 			break;
 		case R.id.linearMeiShuOfSlidingMenue:

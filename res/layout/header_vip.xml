@@ -3,7 +3,7 @@
 			    android:layout_width="match_parent"
 			    android:layout_height="50dp"
 			    android:orientation="horizontal"
-			    android:background="@drawable/nav_red"
+			    android:background="@drawable/home_titlebar"
 			    android:gravity="center"
 			    >
     <ImageView 
@@ -11,6 +11,7 @@
         		android:id="@+id/imageLeftOfHeadArt"
         		android:layout_height="fill_parent"
         		android:src="@drawable/back_red"
+        		android:visibility="gone"
         		/>
     <TextView 
         		android:layout_width="match_parent"

@@ -9,7 +9,8 @@
     <string name="str_news">每月艺讯</string>
     <string name="str_map">交通信息</string>
     <string name="str_more">更多</string>
-    <string name="str_youhui">优惠活动</string>
+    <string name="str_yetai">业态</string>
+    <string name="str_search">搜索</string>
     <!-- 首页的字符串 -->
     <string name="str_navgate">栏目</string>
     <string name="str_home_title">苏州文化艺术中心</string>

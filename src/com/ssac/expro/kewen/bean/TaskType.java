@@ -21,7 +21,7 @@ public class TaskType {
 	
 	public static final int GET_HUIZHAN = 40;		
 	
-	public static final int GET_PEIXUN = 50;			
+	public static final int GET_NEWS = 50;			
 	
 	public static final int GET_MEISHUGUAN = 60;	
 	

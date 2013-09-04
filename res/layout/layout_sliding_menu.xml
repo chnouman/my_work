@@ -36,6 +36,24 @@
 										    		android:textStyle="bold"
 										    		/>	
 		            	</LinearLayout>
+		            	<LinearLayout 
+								    		android:id="@+id/linearMonthInfoOfSlidingMenue"
+								    		android:layout_width="fill_parent"
+								    		android:layout_height="45dp"
+								    		android:orientation="horizontal"
+								    		android:background="@drawable/selector_month_info"
+								    		android:gravity="center"
+								    		>
+										<TextView 
+										    		android:layout_width="wrap_content"
+										    		android:layout_height="wrap_content"
+										    		android:text="@string/str_news"
+										    		android:textSize="17sp"
+										    		android:textColor="#FFFFFF"
+										    		android:textStyle="bold"
+										    		/>
+					    			
+								</LinearLayout>
            				<LinearLayout 
 								    		android:id="@+id/linearYanchuOfSlidingMenue"
 								    		android:layout_width="fill_parent"
@@ -115,7 +133,7 @@
 								    		android:layout_width="fill_parent"
 								    		android:layout_height="45dp"
 								    		android:orientation="horizontal"
-								    		android:background="@drawable/selector_meishu"
+								    		android:background="@drawable/selector_month_info"
 								    		android:gravity="center"
 								    		android:visibility="gone"
 								    		>

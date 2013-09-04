@@ -20,9 +20,16 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.ssac.expro.kewen.adapter.Adapter4HomeFilm;
+import com.ssac.expro.kewen.adapter.Adapter4HomeShow;
 import com.ssac.expro.kewen.adapter.ImageAdapter4NumberGallery;
+import com.ssac.expro.kewen.bean.Film;
+import com.ssac.expro.kewen.bean.ShowInfo;
 import com.ssac.expro.kewen.bean.Task;
 import com.ssac.expro.kewen.bean.TaskType;
 import com.ssac.expro.kewen.service.MainService;
@@ -33,17 +40,21 @@ import com.ssac.expro.kewen.view.SlowFlipGallery;
 
 public class Activity_Home extends BaseActivity implements OnClickListener {
 
-	private LinearLayout lin_home, lin_art, lin_vip, lin_youhui, lin_more;
-	private LinearLayout lin_yc, lin_dy, lin_yt;
+	private LinearLayout lin_home, lin_yetai, lin_vip, lin_search, lin_more;
 	private LinearLayout progressbar;
 	private GestureDetector gestureDetector;
 	private NumberDotImageView mDotImageView;
 	private SlowFlipGallery mGallery;
 	// private Gallery mGallery;
 	private ImageAdapter4NumberGallery mImageAdapter;
+	private BaseAdapter adapterShow,adapterFilm;
 	private int postion = 0;
 	private Context mContext;
 	private Timer timer;
+	//new add
+	private TextView more1,more2;
+	private Gallery galleryShow,galleryFilm;
+	
 
 	private Handler handler = new Handler() {
 
@@ -108,24 +119,22 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 
 		progressbar = (LinearLayout) findViewById(R.id.progressbarOfHome);
 		lin_home = (LinearLayout) findViewById(R.id.linearHOme);
-		lin_art = (LinearLayout) findViewById(R.id.linearNews);
+		lin_yetai = (LinearLayout) findViewById(R.id.linearYetai);
 		lin_vip = (LinearLayout) findViewById(R.id.linearVip);
-		lin_youhui = (LinearLayout) findViewById(R.id.linearYouHui);
+		lin_search = (LinearLayout) findViewById(R.id.linearSearch);
 		lin_more = (LinearLayout) findViewById(R.id.linearMore);
 
 		lin_home.setOnClickListener(this);
-		lin_art.setOnClickListener(this);
+		lin_yetai.setOnClickListener(this);
 		lin_vip.setOnClickListener(this);
-		lin_youhui.setOnClickListener(this);
+		lin_search.setOnClickListener(this);
 		lin_more.setOnClickListener(this);
 
 		// 下面点击button的效果
-		lin_yc = (LinearLayout) findViewById(R.id.linearYanChuOfHome);
-		lin_dy = (LinearLayout) findViewById(R.id.linearDianYingOfHome);
-		lin_yt = (LinearLayout) findViewById(R.id.linearYiTanOfHome);
-		lin_yt.setOnClickListener(this);
-		lin_yc.setOnClickListener(this);
-		lin_dy.setOnClickListener(this);
+		more1 = (TextView) findViewById(R.id.txtMore1);
+		more2 = (TextView) findViewById(R.id.txtMore2);
+		more1.setOnClickListener(this);
+		more2.setOnClickListener(this);
 
 		this.gestureDetector = new GestureDetector(new DefaultGestureDetector());
 		this.mDotImageView = ((NumberDotImageView) findViewById(R.id.dot_imageview));
@@ -150,6 +159,46 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 			}
 		});
 
+		
+		galleryShow = (Gallery) findViewById(R.id.galleryYanchuOfHome);
+		galleryFilm 	= (Gallery) findViewById(R.id.galleryDianYingOfHome);
+		
+		
+		galleryShow.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+				// TODO Auto-generated method stub
+				ShowInfo sinfo=MainService.showList.get(arg2);
+				Intent intent =new Intent(mContext,TheatreYanchuDetail.class);
+				intent.putExtra("filmID",sinfo.getDramaID() );
+				intent.putExtra("img", sinfo.getTitleImage());
+				intent.putExtra("title", sinfo.getDramaName());
+				intent.putExtra("type", sinfo.getDramaType());
+				intent.putExtra("time", sinfo.getShowTime());
+				intent.putExtra("price", sinfo.getPrice());
+				
+				startActivity(intent);
+			}
+		});
+		
+		galleryFilm.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+				// TODO Auto-generated method stub
+				Film f = MainService.filmList.get(arg2);
+				Intent intent = new Intent(mContext, FilmDetail.class);
+				intent.putExtra("filmName", f.getFilmName());
+				intent.putExtra("img", f.getTitleImageName());
+				intent.putExtra("daoyan", f.getProperty1());
+				intent.putExtra("zhuyan", f.getProperty2());
+				intent.putExtra("realeaseDate", f.getReleaseDte());
+				intent.putExtra("filmID", f.getFilmID());
+
+				startActivity(intent);
+			}
+		});
 		// 通知服务获取ad数据
 		HashMap<String, Object> hm = new HashMap<String, Object>();
 		Task ts = new Task(TaskType.GET_HOME, hm);
@@ -159,11 +208,39 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 	@Override
 	public void refresh(Object... param) {
 		// TODO Auto-generated method stub
+		//ad
 		if (MainService.adList.size() > 0) {
 			fillGallery();
 		}
+		
+		//showinfo
+		if(MainService.showList.size()>0){
+			fillGalleryShow();
+		}
+		//film
+		if(MainService.filmList.size()>0){
+			fillGalleryFilm();
+		}
 
 		progressbar.setVisibility(View.GONE);
+	}
+
+	private void fillGalleryFilm() {
+		if(null==adapterFilm){
+			adapterFilm = new Adapter4HomeFilm(mContext);
+			galleryFilm.setAdapter(adapterFilm);
+		}else{
+			adapterFilm.notifyDataSetChanged();
+		}
+	}
+
+	private void fillGalleryShow() {
+		if(null==adapterShow){
+			adapterShow = new Adapter4HomeShow(mContext);
+			galleryShow.setAdapter(adapterShow);
+		}else{
+			adapterShow.notifyDataSetChanged();
+		}
 	}
 
 	// 给 gallery 放数据。
@@ -208,8 +285,8 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 			// overridePendingTransition(R.anim.in_from_right,
 			// R.anim.out_to_left);
 			break;
-		case R.id.linearNews:
-			intent.setClass(this, Activity_Art.class);
+		case R.id.linearYetai:
+			intent.setClass(this, Activity_Yetai.class);
 			startActivity(intent);
 			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			break;
@@ -218,7 +295,7 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 			startActivity(intent);
 			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			break;
-		case R.id.linearYouHui:
+		case R.id.linearSearch:
 			// intent.setClass(this, Activity_Map.class);
 			ExproApplication.showBuildTip(mContext);
 			break;
@@ -228,20 +305,14 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			break;
 		// 子选项的跳转
-		case R.id.linearYanChuOfHome:
+		case R.id.txtMore1:
 			intent.putExtra("tag", "yanchu");
 			intent.setClass(this, Activity_SlidingMenue.class);
 			startActivity(intent);
 			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			break;
-		case R.id.linearDianYingOfHome:
+		case R.id.txtMore2:
 			intent.putExtra("tag", "dianying");
-			intent.setClass(this, Activity_SlidingMenue.class);
-			startActivity(intent);
-			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
-			break;
-		case R.id.linearYiTanOfHome:
-			intent.putExtra("tag", "yitan");
 			intent.setClass(this, Activity_SlidingMenue.class);
 			startActivity(intent);
 			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);

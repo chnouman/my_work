@@ -1,170 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    			xmlns:android="http://schemas.android.com/apk/res/android"
-			    android:layout_width="match_parent"
-			    android:layout_height="match_parent"
-			    android:orientation="vertical" 
-			    android:focusable="false"
-			    android:background="#cb6894"
-			    >
-		<include 	layout="@layout/header_home"
-					android:layout_width="fill_parent"
-					android:layout_height="50dp"
-					/>
-		<include 	
-		    		android:id="@+id/progressbarOfHome"
-		    		layout="@layout/progress_bar"
-					android:layout_width="fill_parent"
-					android:layout_height="fill_parent"
-					android:visibility="gone"
-					/>
-		    		<RelativeLayout
-		    			android:id="@+id/help_layout" 
-		    			android:layout_width="fill_parent" 
-		    			android:layout_height="150dp"
-		    			android:focusable="false"
-		    			android:background="#666666"
-		 				>
-				    <com.ssac.expro.kewen.view.SlowFlipGallery
-				        						android:id="@+id/gallery" 
-				        						android:layout_width="fill_parent" 
-				        						android:layout_height="150dp" 
-				        						/>
-				   <LinearLayout 
-				        		android:id="@+id/dot_linearlayout" 
-				        		android:background="#55000000" 
-				        		android:paddingBottom="1.0dip" 
-				        		android:layout_width="fill_parent" 
-				        		android:layout_height="20dp" 
-				        		android:layout_alignParentBottom="true"
-				        		>
-				        <com.ssac.expro.kewen.view.NumberDotImageView 
-				            				android:id="@+id/dot_imageview" 
-				            				android:layout_width="fill_parent" 
-				            				android:layout_height="wrap_content" 
-				            				/>
-				    </LinearLayout>
-				</RelativeLayout>
-		
-		<LinearLayout 
-		    		android:layout_width="fill_parent"
-		    		android:layout_height="fill_parent"
-		    		android:orientation="vertical"
-		    		android:layout_weight="1"
-		    		>
-					<LinearLayout 
-					    		android:layout_width="match_parent"
-					    		android:layout_height="match_parent"
-					    		android:orientation="horizontal"
-					    		android:layout_weight="1"
-					    		android:padding="10dp"
-					    		>
-								<LinearLayout 
-								    		android:id="@+id/linearYanChuOfHome"
-								    		android:layout_width="fill_parent"
-								    		android:layout_height="fill_parent"
-								    		android:orientation="horizontal"
-								    		android:layout_weight="1"
-								    		android:background="@drawable/selector_yanchu"
-								    		android:gravity="center"
-								    		>
-										<ImageView
-										    		android:layout_width="fill_parent"
-										    		android:layout_height="fill_parent"
-										    		android:src="@drawable/img_home_yanchu"
-										    		android:layout_weight="1"
-										    		android:scaleType="fitXY"
-										    		/>
-										<TextView 
-										    		android:layout_width="fill_parent"
-										    		android:layout_height="fill_parent"
-										    		android:layout_weight="3"
-								    				android:gravity="center"
-										    		android:text="@string/str_home_yanchu"
-										    		android:textSize="17sp"
-										    		android:textColor="#FFFFFF"
-										    		android:textStyle="bold"
-										    		/>
-								</LinearLayout>
-					    		
-					</LinearLayout>
-					<LinearLayout 
-					    		android:layout_width="match_parent"
-					    		android:layout_height="match_parent"
-					    		android:orientation="horizontal"
-					    		android:layout_weight="1"
-					    		android:padding="10dp"
-					    		>
-								<LinearLayout 
-								    		android:id="@+id/linearDianYingOfHome"
-								    		android:layout_width="fill_parent"
-								    		android:layout_height="fill_parent"
-								    		android:orientation="horizontal"
-								    		android:layout_weight="1"
-								    		android:background="@drawable/selector_dianying"
-								    		android:gravity="center"
-								    		>
-										
-										<ImageView
-										    		android:layout_width="fill_parent"
-										    		android:layout_height="fill_parent"
-										    		android:src="@drawable/img_home_film"
-										    		android:layout_weight="1"
-										    		android:scaleType="fitXY"
-										    		/>
-										<TextView 
-										    		android:layout_width="fill_parent"
-										    		android:layout_height="fill_parent"
-										    		android:layout_weight="3"
-								    				android:gravity="center"
-										    		android:text="@string/str_home_dianying"
-										    		android:textSize="17sp"
-										    		android:textColor="#FFFFFF"
-										    		android:textStyle="bold"
-										    		/>
-								</LinearLayout>
-					    		
-					</LinearLayout>
-					<LinearLayout 
-					    		android:layout_width="match_parent"
-					    		android:layout_height="match_parent"
-					    		android:orientation="horizontal"
-					    		android:layout_weight="1"
-					    		android:padding="10dp"
-					    		>
-								<LinearLayout 
-								    		android:id="@+id/linearYiTanOfHome"
-								    		android:layout_width="fill_parent"
-								    		android:layout_height="fill_parent"
-								    		android:orientation="horizontal"
-								    		android:background="@drawable/selector_yitan"
-								    		>
-										<ImageView 
-										    		android:layout_width="fill_parent"
-										    		android:layout_height="fill_parent"
-										    		android:src="@drawable/img_home_yitan"
-										    		android:layout_weight="1"
-										    		android:scaleType="fitXY"
-										    		/>
-										<TextView 
-										    		android:layout_width="fill_parent"
-										    		android:layout_height="fill_parent"
-										    		android:layout_weight="3"
-								    				android:gravity="center"
-										    		android:text="@string/str_home_jinjihu2"
-										    		android:textSize="17sp"
-										    		android:textColor="#FFFFFF"
-										    		android:textStyle="bold"
-										    		/>
-								</LinearLayout>
-					    		
-					</LinearLayout>
-		    
-		</LinearLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home"
+    android:focusable="false"
+    android:orientation="vertical" >
 
-	
-  		<include 	layout="@layout/footer"
-					android:layout_width="fill_parent"
-					android:layout_height="60dp"
-					/>
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        layout="@layout/header_home" />
+
+    <include
+        android:id="@+id/progressbarOfHome"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        layout="@layout/progress_bar"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/help_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:background="#666666"
+        android:focusable="false" >
+
+        <com.ssac.expro.kewen.view.SlowFlipGallery
+            android:id="@+id/gallery"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp" />
+
+        <LinearLayout
+            android:id="@+id/dot_linearlayout"
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+            android:layout_alignParentBottom="true"
+            android:background="#55000000"
+            android:paddingBottom="1.0dip" >
+
+            <com.ssac.expro.kewen.view.NumberDotImageView
+                android:id="@+id/dot_imageview"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+         <ScrollView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	         >
+             <LinearLayout
+					        android:layout_width="fill_parent"
+					        android:layout_height="wrap_content"
+					        android:orientation="vertical" 
+					        >
+					        
+                  <LinearLayout
+					        android:layout_width="fill_parent"
+					        android:layout_height="wrap_content"
+					        android:background="@drawable/home_titlebar2"
+					        android:orientation="horizontal"
+					        >
+					        <TextView 
+					            		android:layout_width="wrap_content"
+					            		android:layout_height="wrap_content"
+					            		style="@style/tab_home_bottom"
+					            		android:text="@string/str_home_yanchu"
+					            		/>
+					        <TextView 
+					            		android:id="@+id/txtMore1"
+					            		android:layout_width="fill_parent"
+					            		android:layout_height="wrap_content"
+					            		style="@style/tab_home_bottom2"
+					            		android:text=">  更多"
+					            		/>
+			 		</LinearLayout>
+			 		<Gallery 
+			 		    		
+			 		    		android:layout_width="fill_parent"
+			 		    		android:layout_height="150dp"
+			 		    		android:id="@+id/galleryYanchuOfHome"
+			 		    		android:background="#00000000"
+			 		    		android:spacing="30dp"
+			 		    		/>
+					 <LinearLayout
+					        android:layout_width="fill_parent"
+					        android:layout_height="wrap_content"
+					        android:background="@drawable/home_titlebar2"
+					        android:orientation="horizontal"
+					        >
+					        <TextView 
+					            		android:layout_width="wrap_content"
+					            		android:layout_height="wrap_content"
+					            		style="@style/tab_home_bottom"
+					            		android:text="@string/str_home_dianying"
+					            		/>
+					        <TextView 
+					            		android:id="@+id/txtMore2"
+					            		android:layout_width="fill_parent"
+					            		android:layout_height="wrap_content"
+					            		style="@style/tab_home_bottom2"
+					            		android:text=">  更多"
+					            		/>
+			 		</LinearLayout>
+			 		<Gallery 
+			 		    		
+			 		    		android:layout_width="fill_parent"
+			 		    		android:layout_height="150dp"
+			 		    		android:id="@+id/galleryDianYingOfHome"
+			 		    		android:background="#00000000"
+			 		    		android:spacing="30dp"
+			 		    		/>        
+			 </LinearLayout>
+         </ScrollView>
+    </LinearLayout>
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        layout="@layout/footer" />
 </LinearLayout>

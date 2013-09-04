@@ -31,7 +31,7 @@ import android.widget.ImageView.ScaleType;
 /**
  * 演出
  * @author poe
- */
+ */ 
 public class FragementPeiXun extends Fragment implements OnClickListener {
 
 	private List<Huizhan> filmList= new ArrayList<Huizhan>();

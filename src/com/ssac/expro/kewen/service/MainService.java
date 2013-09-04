@@ -26,6 +26,8 @@ import com.ssac.expro.kewen.R;
 import com.ssac.expro.kewen.bean.AD;
 import com.ssac.expro.kewen.bean.Art;
 import com.ssac.expro.kewen.bean.Constants;
+import com.ssac.expro.kewen.bean.Film;
+import com.ssac.expro.kewen.bean.ShowInfo;
 import com.ssac.expro.kewen.bean.Task;
 import com.ssac.expro.kewen.bean.TaskType;
 import com.ssac.expro.kewen.util.GenericUtil;
@@ -38,10 +40,10 @@ public class MainService extends Service implements Runnable {
 	public static boolean isrun = false;
 	private static Queue<Task> allTask = new LinkedList<Task>();
 	private static ArrayList<BaseActivity> allActivity = new ArrayList<BaseActivity>();
-	
 	public static List<AD> adList = new ArrayList<AD>();
 	public static List<Art> artList= new ArrayList<Art>();
-
+	public static List<ShowInfo> showList=new ArrayList<ShowInfo>();//home show info
+	public static List<Film> filmList =new ArrayList<Film>();//home film info
 	@Override
 	public IBinder onBind(Intent intent) {
 		return null;
@@ -118,7 +120,6 @@ public class MainService extends Service implements Runnable {
 			case TaskType.GET_YANCHU_ZX: 
 			case TaskType.GET_DIANYING://首页 广告信息获取
 			case TaskType.GET_HUIZHAN://首页 广告信息获取
-			case TaskType.GET_PEIXUN://首页 广告信息获取
 			case TaskType.GET_MEISHUGUAN://首页 广告信息获取
 			case TaskType.GET_YITAN://首页 广告信息获取
 			if (MainService.getActivityByName("Activity_SlidingMenue") != null){
@@ -149,26 +150,53 @@ public class MainService extends Service implements Runnable {
 		switch (ts.getTaskID()) {
 
 		case TaskType.GET_HOME://首页 广告信息获取
-			
+			try{
 			List<AD> list_ad = XmlToListService.GetAD(
 								HttpUtil.sendGetRequest(null,Constants.HOME_AD)
 								);
-			
 			if(null!=list_ad){
-				
 				MainService.adList.clear();
-				
 				MainService.adList.addAll(list_ad);
-				
 			}
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+			
+			//演出
+			try{
+				List<ShowInfo> sList = XmlToListService.GetShowInfo(HttpUtil
+						.sendGetRequest(null, Constants.YANCHU_ZIXUN + 5
+								+ "/" + 1));
+				
+				if(null!=sList){
+					showList.clear();
+					showList.addAll(sList);
+				}
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+			//电影
+			
+			try {
+				List<Film>fList = XmlToListService.GetFilms(HttpUtil.sendGetRequest(
+						null, Constants.DIANYING_LIST + 5 + "/"+ 1));
+				if(null!=fList){
+					filmList.clear();
+					filmList.addAll(fList);
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			break;
 		case TaskType.GET_YANCHU://首页 广告信息获取
 				break;
 		case TaskType.GET_DIANYING://首页 广告信息获取
 			break;
 		case TaskType.GET_HUIZHAN://首页 广告信息获取
-			break;
-		case TaskType.GET_PEIXUN://首页 广告信息获取
 			break;
 		case TaskType.GET_MEISHUGUAN://首页 广告信息获取
 			break;
