@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:orientation="vertical"
+    android:background="@drawable/weibo_back"
+    >
+ 	<include 		
+      			layout="@layout/header_sina_weibo"
+				android:layout_width="fill_parent"
+				android:layout_height="50dp"
+				/>   
+    <TextView
+        android:id="@+id/show"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:hint="hintAuthText"
+        android:textSize="15dp" />
+    <ListView 
+        	android:layout_width="fill_parent"
+        	android:layout_height="fill_parent"
+        	android:id="@+id/listviewOfSinaWeibo"
+        	android:cacheColorHint="#FFFFFF"
+        	/>
+</LinearLayout>
