@@ -152,7 +152,7 @@ public class MainService extends Service implements Runnable {
 		case TaskType.GET_HOME://首页 广告信息获取
 			try{
 			List<AD> list_ad = XmlToListService.GetAD(
-								HttpUtil.sendGetRequest(null,Constants.HOME_AD)
+								HttpUtil.sendGetRequest(Constants.HOME_AD)
 								);
 			if(null!=list_ad){
 				MainService.adList.clear();
@@ -166,7 +166,7 @@ public class MainService extends Service implements Runnable {
 			//演出
 			try{
 				List<ShowInfo> sList = XmlToListService.GetShowInfo(HttpUtil
-						.sendGetRequest(null, Constants.YANCHU_ZIXUN + 5
+						.sendGetRequest( Constants.YANCHU_ZIXUN + 5
 								+ "/" + 1));
 				
 				if(null!=sList){
@@ -181,7 +181,7 @@ public class MainService extends Service implements Runnable {
 			
 			try {
 				List<Film>fList = XmlToListService.GetFilms(HttpUtil.sendGetRequest(
-						null, Constants.DIANYING_LIST + 5 + "/"+ 1));
+						 Constants.DIANYING_LIST + 5 + "/"+ 1));
 				if(null!=fList){
 					filmList.clear();
 					filmList.addAll(fList);
@@ -203,7 +203,7 @@ public class MainService extends Service implements Runnable {
 		case TaskType.GET_YITAN://首页 广告信息获取
 			break;
 		case TaskType.GET_ART://每月易迅
-			Art art=XmlToListService.GetArt(HttpUtil.sendGetRequest(null,Constants.MONTH_ART));
+			Art art=XmlToListService.GetArt(HttpUtil.sendGetRequest(Constants.MONTH_ART));
 			artList.add(art);
 			break;
 		}

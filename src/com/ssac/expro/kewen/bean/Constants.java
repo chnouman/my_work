@@ -77,4 +77,51 @@ public class Constants {
 	
 	public static final String ABOUNT_WENBO="http://www.sscac.com.cn:8080/fy/Description/ZTJS";
 	
+	
+	//weibo string 
+	//应用的key 请到官方申请正式的appkey替换APP_KEY
+		public static final String APP_KEY="3983929670";//"1992416536";//"2045436852";
+		//app secret
+		public static final String APP_SECRET="1e1d6d877ce9962b4aee4dc3c14d7d43";//"3b8aca8963d083f6ab82ee4901875993";
+		//替换为开发者REDIRECT_URL
+		public static final String REDIRECT_URL = "http://www.cnsaas.com";//"http://www.sina.com";
+		//新支持scope 支持传入多个scope权限，用逗号分隔
+		public static final String SCOPE = "email,direct_messages_read,direct_messages_write," +
+				"friendships_groups_read,friendships_groups_write,statuses_to_me_read," +
+					"follow_app_official_microblog";
+		
+		public static final String API_SERVER="https://api.weibo.com/oauth2/access_token";
+		
+		public static final String CLIENT_ID = "client_id";
+		
+		public static final String CLIENT_SECRET="client_secret";
+		
+		public static final String GRANT_TYPE="grant_type";
+		
+		public static final String AUTHORIZATION_CODE="authorization_code";
+		
+		public static final String CODE="code";
+		
+		public static final String RESPONSE_TYPE = "response_type";
+		
+		public static final String USER_REDIRECT_URL = "redirect_uri";
+		
+		public static final String DISPLAY = "display";
+		
+		public static final String USER_SCOPE = "scope";
+		
+		public static final String PACKAGE_NAME = "packagename";
+		
+		public static final String KEY_HASH = "key_hash";
+		
+		public static final String URL_WEIBO_TIME_BACH="https://api.weibo.com/2/statuses/timeline_batch.json";
+		
+		public static final String UIDS="uids";
+		
+		public static final String  ACCESS_TOKEN="access_token";
+		
+		
+		//shared weibo id
+		public static final String WEIBO_SINA_THEATRE_ID="1914016804";//剧院
+		public static final String WEIBO_SINA_FILM_ID="1849261382";//电影
 }

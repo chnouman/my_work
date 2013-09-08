@@ -343,10 +343,10 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 		@Override
 		protected String doInBackground(String... params) {
 			try {
-				adList = XmlToListService.GetAD(HttpUtil.sendGetRequest(null,
+				adList = XmlToListService.GetAD(HttpUtil.sendGetRequest(
 						Constants.YANCHU_AD));
 				showList = XmlToListService.GetShowInfo(HttpUtil
-						.sendGetRequest(null, Constants.YANCHU_ZIXUN + PageSize
+						.sendGetRequest( Constants.YANCHU_ZIXUN + PageSize
 								+ "/" + PageIndex));
 
 			} catch (IOException e) {
@@ -404,7 +404,7 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 		protected String doInBackground(String... params) {
 			try {
 				sList = XmlToListService.GetShowInfo(HttpUtil
-						.sendGetRequest(null, Constants.YANCHU_ZIXUN + PageSize
+						.sendGetRequest( Constants.YANCHU_ZIXUN + PageSize
 								+ "/" + PageIndex));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -456,7 +456,7 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 
 			try {
 				tlist = XmlToListService.GetTheatre(HttpUtil
-						.sendGetRequest(null, Constants.JUYUAN_ACTIVITIES + PageSize2
+						.sendGetRequest( Constants.JUYUAN_ACTIVITIES + PageSize2
 								+ "/" + PageIndex2));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

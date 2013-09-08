@@ -142,7 +142,7 @@ public class FilmDetail extends Activity {
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
 			try {
-				film = XmlToListService.GetFilmDetail(HttpUtil.sendGetRequest(null, Constants.DIANYING_LIST + filmID));
+				film = XmlToListService.GetFilmDetail(HttpUtil.sendGetRequest( Constants.DIANYING_LIST + filmID));
 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -191,7 +191,7 @@ public class FilmDetail extends Activity {
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
 			try {
-				sList = XmlToListService.GetFilmScheduleList(HttpUtil.sendGetRequest(null, Constants.DIANYING_SCHEDUL + filmID));
+				sList = XmlToListService.GetFilmScheduleList(HttpUtil.sendGetRequest( Constants.DIANYING_SCHEDUL + filmID));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

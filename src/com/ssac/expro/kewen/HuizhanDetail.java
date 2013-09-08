@@ -122,7 +122,7 @@ public class HuizhanDetail extends Activity {
 			protected String doInBackground(String... params) {
 				// TODO Auto-generated method stub
 				try {
-					film = XmlToListService.GetHuiZhanDetail(HttpUtil.sendGetRequest(null,
+					film = XmlToListService.GetHuiZhanDetail(HttpUtil.sendGetRequest(
 							Constants.HUIZHAN_DETAIL+showID));
 
 				} catch (IOException e) {

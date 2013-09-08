@@ -125,7 +125,7 @@ public class TheatreYanchuDetail extends Activity {
 			protected String doInBackground(String... params) {
 				// TODO Auto-generated method stub
 				try {
-					showinfo = XmlToListService.GetShowInfoDetail(HttpUtil.sendGetRequest(null,
+					showinfo = XmlToListService.GetShowInfoDetail(HttpUtil.sendGetRequest(
 							Constants.YANCHU_ZIXUN+filmID));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block

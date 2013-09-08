@@ -71,7 +71,7 @@ public class MoreAbountDetail extends Activity {
 			protected String doInBackground(String... params) {
 				// TODO Auto-generated method stub
 				try {
-					content =XmlToListService.getString(HttpUtil.sendGetRequest(null,
+					content =XmlToListService.getString(HttpUtil.sendGetRequest(
 							Constants.ABOUNT_WENBO));
 
 				} catch (IOException e) {

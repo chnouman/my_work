@@ -5,6 +5,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 
 import android.util.Xml;
@@ -19,6 +22,8 @@ import com.ssac.expro.kewen.bean.FilmSchedule;
 import com.ssac.expro.kewen.bean.Huizhan;
 import com.ssac.expro.kewen.bean.ShowInfo;
 import com.ssac.expro.kewen.bean.Theatre;
+import com.ssac.expro.kewen.bean.UserSina;
+import com.ssac.expro.kewen.bean.WeiboSina;
 
 /**
  * 采用 pull解析
@@ -1037,4 +1042,116 @@ public class XmlToListService {
 		return showList;
 	}
 	
+	
+	/**
+	 * 微博信息电影json解析 
+	 * @param str
+	 * @return
+	 */
+	public static List<WeiboSina> GetWeiboList(String str)  {
+
+		if (str == null || "".equals(str))
+			return null;
+
+		List<WeiboSina> showList = new ArrayList<WeiboSina>();
+		WeiboSina weibo =null;
+		UserSina user=null;
+		
+		try {
+			
+			JSONObject jsonAll =new JSONObject(str);
+			
+			JSONArray jsonarray=jsonAll.getJSONArray("statuses");
+			
+			if(jsonarray.length()>0){
+				
+				for(int i=0;i<jsonarray.length();i++	){
+					JSONObject json=jsonarray.getJSONObject(i);
+					
+					JSONObject json_user=json.getJSONObject("user");
+					
+					user=new UserSina();
+					user.setBi_followers_count(json_user.getString("bi_followers_count"));
+					user.setCreated_at(json_user.getString("created_at"));
+					user.setLocation(json_user.getString("location"));
+					user.setDescription(json_user.getString("description"));
+					user.setGender(json_user.getString("gender"));
+					user.setProfile_image_url(json_user.getString("profile_image_url"));
+					
+					weibo =new WeiboSina();
+					weibo.setUser(user);
+					weibo.setId(json.getString("id"));
+					weibo.setCreate_time(json.getString("created_at"));
+					weibo.setText(json.getString("text"));
+					weibo.setSource(json.getString("source"));
+					weibo.setThumbnail_pic(json.getString("thumbnail_pic"));
+					weibo.setBmiddle_pic(json.getString("bmiddle_pic"));
+					weibo.setOriginal_pic(json.getString("original_pic"));
+					
+					showList.add(weibo);
+				}
+			}
+			
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return showList;
+	}
+	
+	/**
+	 * 微博信息剧院json解析 
+	 * @param str
+	 * @return
+	 */
+	public static List<WeiboSina> GetWeiboTheatreList(String str)  {
+
+		if (str == null || "".equals(str))
+			return null;
+
+		List<WeiboSina> showList = new ArrayList<WeiboSina>();
+		WeiboSina weibo =null;
+		UserSina user=null;
+		
+		try {
+			
+			JSONObject jsonAll =new JSONObject(str);
+			
+			JSONArray jsonarray=jsonAll.getJSONArray("statuses");
+			
+			if(jsonarray.length()>0){
+				
+				for(int i=0;i<jsonarray.length();i++	){
+					JSONObject json=jsonarray.getJSONObject(i).getJSONObject("retweeted_status");
+					
+					JSONObject json_user=json.getJSONObject("user");
+					
+					user=new UserSina();
+					user.setBi_followers_count(json_user.getString("bi_followers_count"));
+					user.setCreated_at(json_user.getString("created_at"));
+					user.setLocation(json_user.getString("location"));
+					user.setDescription(json_user.getString("description"));
+					user.setGender(json_user.getString("gender"));
+					user.setProfile_image_url(json_user.getString("profile_image_url"));
+					
+					weibo =new WeiboSina();
+					weibo.setUser(user);
+					weibo.setId(json.getString("id"));
+					weibo.setCreate_time(json.getString("created_at"));
+					weibo.setText(json.getString("text"));
+					weibo.setSource(json.getString("source"));
+					weibo.setThumbnail_pic(json.getString("thumbnail_pic"));
+					weibo.setBmiddle_pic(json.getString("bmiddle_pic"));
+					weibo.setOriginal_pic(json.getString("original_pic"));
+					
+					showList.add(weibo);
+				}
+			}
+			
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return showList;
+	}
 }

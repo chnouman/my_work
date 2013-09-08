@@ -88,7 +88,7 @@ public class TheatreActivitiesDetail extends Activity {
 			protected String doInBackground(String... params) {
 				// TODO Auto-generated method stub
 				try {
-					film = XmlToListService.GetTheatreDetail(HttpUtil.sendGetRequest(null,
+					film = XmlToListService.GetTheatreDetail(HttpUtil.sendGetRequest(
 							Constants.JUYUAN_ACTIVITIES_DETAIL+contentID));
 
 				} catch (IOException e) {

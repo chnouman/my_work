@@ -310,7 +310,7 @@ public class FragementYiTan extends Fragment implements OnClickListener {
 		protected String doInBackground(String... params) {
 			try {
 				artList = XmlToListService.GetYiwenKetang(HttpUtil
-						.sendGetRequest(null, Constants.YITAN_YISHU_SHARE
+						.sendGetRequest( Constants.YITAN_YISHU_SHARE
 								+ PageSize + "/" + PageIndex));
 
 			} catch (Exception e) {
@@ -354,7 +354,7 @@ public class FragementYiTan extends Fragment implements OnClickListener {
 		protected String doInBackground(String... params) {
 			try {
 				artList2 = XmlToListService.GetYiwenKetang(HttpUtil
-						.sendGetRequest(null, Constants.YITAN_WENHUA_SHIYE
+						.sendGetRequest( Constants.YITAN_WENHUA_SHIYE
 								+ PageSize + "/" + PageIndex));
 
 			} catch (Exception e) {
@@ -395,7 +395,7 @@ public class FragementYiTan extends Fragment implements OnClickListener {
 		protected String doInBackground(String... params) {
 			try {
 				artList3 = XmlToListService.GetYiwenKetang(HttpUtil
-						.sendGetRequest(null, Constants.YITAN_MEIYU_CHUANBO
+						.sendGetRequest( Constants.YITAN_MEIYU_CHUANBO
 								+ PageSize + "/" + PageIndex));
 
 			} catch (Exception e) {
@@ -436,7 +436,7 @@ public class FragementYiTan extends Fragment implements OnClickListener {
 		protected String doInBackground(String... params) {
 			try {
 				artList4 = XmlToListService.GetYiwenKetang(HttpUtil
-						.sendGetRequest(null, Constants.YITAN_JUJIAO_MINGJIA
+						.sendGetRequest( Constants.YITAN_JUJIAO_MINGJIA
 								+ PageSize + "/" + PageIndex));
 
 			} catch (Exception e) {
@@ -477,7 +477,7 @@ public class FragementYiTan extends Fragment implements OnClickListener {
 		protected String doInBackground(String... params) {
 			try {
 				artList5 = XmlToListService.GetYiwenKetang(HttpUtil
-						.sendGetRequest(null, Constants.YITAN_YISHUHUI
+						.sendGetRequest( Constants.YITAN_YISHUHUI
 								+ PageSize + "/" + PageIndex));
 
 			} catch (Exception e) {
@@ -518,7 +518,7 @@ public class FragementYiTan extends Fragment implements OnClickListener {
 		protected String doInBackground(String... params) {
 			try {
 				artList6 = XmlToListService.GetYiwenKetang(HttpUtil
-						.sendGetRequest(null, Constants.YITAN_SPECIAL_ACTIVIES
+						.sendGetRequest( Constants.YITAN_SPECIAL_ACTIVIES
 								+ PageSize + "/" + PageIndex));
 
 			} catch (Exception e) {

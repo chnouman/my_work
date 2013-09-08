@@ -366,7 +366,7 @@ public class FragementFilm extends Fragment implements OnClickListener {
 			// TODO Auto-generated method stub
 			try {
 				filmList = XmlToListService.GetFilms(HttpUtil.sendGetRequest(
-						null, Constants.DIANYING_LIST + PageSize + "/"
+						 Constants.DIANYING_LIST + PageSize + "/"
 								+ PageIndex));
 
 			} catch (IOException e) {
@@ -558,7 +558,7 @@ public class FragementFilm extends Fragment implements OnClickListener {
 		protected String doInBackground(String... params) {
 			try {
 				sList  = XmlToListService.GetYiwenKetang(HttpUtil
-						.sendGetRequest(null, Constants.YINGCHENG_ACTIVITIES
+						.sendGetRequest( Constants.YINGCHENG_ACTIVITIES
 								+ PageSize + "/" + PageIndex3));
 
 				Log.i("poe", "artList.size()" + artList.size());

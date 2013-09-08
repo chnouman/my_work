@@ -102,7 +102,7 @@ public class YitanDetail extends Activity {
 			protected String doInBackground(String... params) {
 				// TODO Auto-generated method stub
 				try {
-					film = XmlToListService.GetYiwenKetangDetail(HttpUtil.sendGetRequest(null,
+					film = XmlToListService.GetYiwenKetangDetail(HttpUtil.sendGetRequest(
 							Constants.JUYUAN_ACTIVITIES_DETAIL+filmID));
 
 				} catch (IOException e) {

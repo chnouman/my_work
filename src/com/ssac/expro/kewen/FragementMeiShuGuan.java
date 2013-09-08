@@ -137,7 +137,7 @@ public class FragementMeiShuGuan extends Fragment implements OnClickListener {
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
 			try {
-				hlist = XmlToListService.GetHuiZhan(HttpUtil.sendGetRequest(null,
+				hlist = XmlToListService.GetHuiZhan(HttpUtil.sendGetRequest(
 						Constants.HUIZHAN_LIST+PageSize+"/"+PageIndex));
 
 			} catch (Exception e) {

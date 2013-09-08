@@ -66,7 +66,7 @@ public class YingyuanDetail extends Activity {
 			protected String doInBackground(String... params) {
 				// TODO Auto-generated method stub
 				try {
-					content =XmlToListService.getString(HttpUtil.sendGetRequest(null,
+					content =XmlToListService.getString(HttpUtil.sendGetRequest(
 							Constants.YINGCHENG_DESCRIPTION));
 
 				} catch (IOException e) {
