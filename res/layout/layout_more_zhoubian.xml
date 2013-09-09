@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    >
+    
+  <include 		android:id="@+id/headerOfLayoutMoreAbount"
+      			layout="@layout/header_more_detail"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				/>   
+ <ScrollView 
+     			android:layout_width="fill_parent"
+     			android:layout_height="wrap_content"
+     			android:background="#FFFFFF"
+     			android:layout_below="@id/headerOfLayoutMoreAbount"
+     			>
+     	<LinearLayout 
+     	    		android:layout_width="fill_parent"
+     	    		android:layout_height="wrap_content"
+     	    		android:orientation="vertical"
+     	    		android:padding="10dp"
+     	    		android:background="@drawable/iphone_bg"
+     	    		>
+     	    		<LinearLayout 
+		     	    		    android:layout_width="fill_parent"
+			     	    		android:layout_height="wrap_content"
+			     	    		android:orientation="vertical"
+     	    		    		>
+		     	    <TextView
+		                style="@style/RecordText"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="机场AIRPORT：" 
+		                />
+		     	     <TextView
+		                 android:paddingLeft="20dp"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="上海虹桥机场、上海浦东机场、无锡硕放机场、南京禄口机场、杭州萧山机场、常州奔牛机场" 
+		                />
+		   			<TextView
+		                style="@style/RecordText"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="铁路RAILWAY：" 
+		                 android:layout_marginTop="10dp"
+		                />
+		   			<TextView
+		                android:paddingLeft="20dp"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="苏州站、苏州北站、苏州园区站、苏州新区站" 
+		                />
+		   			<TextView
+		                style="@style/RecordText"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="公交线路BUS：" 
+		                android:layout_marginTop="10dp"
+		                />
+		   			<TextView
+		   			    android:paddingLeft="20dp"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="100、106、108、120、129、156、206、215、219、258、2、47、812、夜2路、快线2号" 
+		                />
+		   			<TextView
+		                style="@style/RecordText"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="轨道交通RAIL TRANSIT：一号线" 
+		                 android:layout_marginTop="10dp"
+		                />
+		   			<TextView
+		                style="@style/RecordText"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="停车位PARKING：" 
+		                 android:layout_marginTop="10dp"
+		                />
+		   			<TextView
+		                style="@style/RecordText"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="车辆种类	停车区域	    数量	收费标准" 
+		                />
+		   			<TextView
+		                android:paddingLeft="20dp"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="私家车	     地下（博览中心）840	暂不收费" 
+		                />
+		   			<TextView
+		                android:paddingLeft="20dp"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="	                 地面（艺术中心）142	暂不收费" 
+		                />
+		   			<TextView
+		                android:paddingLeft="20dp"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="	                 地下（艺术中心）239	暂不收费" 
+		                />
+		   			<TextView
+		                android:paddingLeft="20dp"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="旅游大巴    地面（艺术中心）	15	暂不收费" 
+		                />
+		   			<TextView
+		                android:paddingLeft="20dp"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="	                 地下（艺术中心）	239	暂不收费" 
+		                />
+		   			</LinearLayout>
+		   			<LinearLayout 
+		   			    	android:layout_width="fill_parent"
+		   			    	android:layout_height="1dp"
+		   			    	android:background="@drawable/dianying_line_h"
+		   			    	android:layout_margin="10dp"
+		   			    	/>
+		   			<ImageView 
+		   			    		android:layout_width="60dp"
+		   			    		android:layout_height="40dp"
+		   			    		android:background="@drawable/luyouzhusu"
+		   			    		/>
+		   			<LinearLayout 
+		   			    	android:layout_width="fill_parent"
+		   			    	android:layout_height="1dp"
+		   			    	android:background="@drawable/dianying_line_h"
+		   			    	android:layout_margin="10dp"
+		   			    	/>
+		   			<LinearLayout 
+		     	    		    android:layout_width="fill_parent"
+			     	    		android:layout_height="wrap_content"
+			     	    		android:orientation="vertical"
+     	    		    		>
+		   			<TextView
+		                style="@style/RecordText"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="苏州金鸡湖新罗酒店" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="电话:0512-62968888   五星    "
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="客房数量:307间    携程价格:900-1000元  " 
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="距离文博中心:1.6公里" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			
+		   			<TextView
+		                style="@style/RecordText"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="苏州中茵皇冠假日酒店" 
+		                android:layout_marginTop="10dp"
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="电话:0512-67616688   五星    "
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="客房数量:344间    携程价格:1300-2600元" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="距离文博中心:2.9公里" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			
+		   			<TextView
+		                style="@style/RecordText"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="苏州洲际酒店" 
+		                android:layout_marginTop="10dp"
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="电话：0512-62858888   五星    "
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="客房数量:432间    携程价格:1600-2300元" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="距离文博中心:1.6公里" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			
+		   			<TextView
+		                style="@style/RecordText"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="苏州金鸡湖大酒店" 
+		                android:layout_marginTop="10dp"
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="电话：0512-62887878   五星    "
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="客房数量:171间    携程价格:1000-2500元" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="距离文博中心:9.1公里" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			
+		   			
+		   			<TextView
+		                style="@style/RecordText"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="苏州金鸡湖凯宾斯基大酒店" 
+		                android:layout_marginTop="10dp"
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="电话：0512-62897888   五星    "
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="客房数量:458间    携程价格:800-3500元" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="距离文博中心:8.9公里" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			
+		   			
+		   			<TextView
+		                style="@style/RecordText"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="苏州雅戈尔雷迪森广场" 
+		                android:layout_marginTop="10dp"
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="电话：0512-69172222   四星    "
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="客房数量:270间    携程价格:600-1000元" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="距离文博中心:1.8公里" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			
+		   			
+		   			<TextView
+		                style="@style/RecordText"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="苏州建屋国际酒店" 
+		                android:layout_marginTop="10dp"
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="电话：0512-62966666   四星    "
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="客房数量:176间    携程价格:600-1000元" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="距离文博中心:2.4公里" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			
+		   			<TextView
+		                style="@style/RecordText"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="宜必思" 
+		                android:layout_marginTop="10dp"
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="电话：0512-81879966   三星    "
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="客房数量:171间    携程价格:300元" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="距离文博中心:3.3公里" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			
+		   			
+		   			<TextView
+		                style="@style/RecordText"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="沃姆酒店连锁" 
+		                android:layout_marginTop="10dp"
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="电话：0512-62953688   三星    "
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="客房数量:131间    携程价格:300元" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			<TextView
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center_vertical|left"
+		                android:text="距离文博中心:2公里" 
+		                android:paddingLeft="25dp" 
+		                />
+		   			</LinearLayout>
+		   			<LinearLayout 
+		   			    	android:layout_width="fill_parent"
+		   			    	android:layout_height="1dp"
+		   			    	android:background="@drawable/dianying_line_h"
+		   			    	android:layout_margin="10dp"
+		   			    	/>
+		   			<ImageView 
+		   			    		android:layout_width="60dp"
+		   			    		android:layout_height="40dp"
+		   			    		android:background="@drawable/food_special"
+		   			    		/>
+		   			<LinearLayout 
+		   			    	android:layout_width="fill_parent"
+		   			    	android:layout_height="1dp"
+		   			    	android:background="@drawable/dianying_line_h"
+		   			    	android:layout_margin="10dp"
+		   			    	/>
+		   				<TextView
+			                style="@style/RecordText"
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="松鹤楼" 
+			                android:layout_marginTop="10dp"
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="电话：0512-69567779   中高    "
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="适宜人群:商务宴请    人均消费:200人/元" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="距离文博中心:700米" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			
+			   			<TextView
+			                style="@style/RecordText"
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="采蝶轩" 
+			                android:layout_marginTop="10dp"
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="电话：0512-67634567  中高    "
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="适宜人群:商务宴请    人均消费:200人/元" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="距离文博中心:4.1公里" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			
+			   			
+			   			<TextView
+			                style="@style/RecordText"
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="海逸海鲜" 
+			                android:layout_marginTop="10dp"
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="电话：0512-69360288  高    "
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="适宜人群:高端宴请   人均消费:200人/元" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="距离文博中心:660米" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			
+			   			
+			   			<TextView
+			                style="@style/RecordText"
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="怡乡春竹鲍鱼先生" 
+			                android:layout_marginTop="10dp"
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="电话：0512-69366777  高    "
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="适宜人群:高端宴请   人均消费:200人/元" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="距离文博中心:730米" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			
+			   			
+			   			<TextView
+			                style="@style/RecordText"
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="俏江南" 
+			                android:layout_marginTop="10dp"
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="电话：0512-67901066  高    "
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="适宜人群:高端宴请   人均消费:300人/元" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="距离文博中心:8.1公里" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			
+			   			
+			   				
+			   			<TextView
+			                style="@style/RecordText"
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="金海华玲珑国际会所" 
+			                android:layout_marginTop="10dp"
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="电话：0512-62890766  中   "
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="适宜人群:商务宴请   人均消费:200人/元" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="距离文博中心:900米" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			
+			   			
+			   			<TextView
+			                style="@style/RecordText"
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="湘恋餐饮" 
+			                android:layout_marginTop="10dp"
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="电话：0512-69565777  低   "
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="适宜人群:普通用餐   人均消费:80人/元" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="距离文博中心:700米" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			
+			   			
+			   			<TextView
+			                style="@style/RecordText"
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="蔻兰咖啡厅" 
+			                android:layout_marginTop="10dp"
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="电话：0512-62899672  中   "
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="适宜人群:会议包场   人均消费:60人/元" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="距离文博中心:630米" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			
+			   			<TextView
+			                style="@style/RecordText"
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="春蕾茶庄" 
+			                android:layout_marginTop="10dp"
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="电话：0512-62858266  中   "
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="适宜人群:餐后饮茶   人均消费:80人/元" 
+			                android:paddingLeft="25dp" 
+			                />
+			   			<TextView
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+			                android:gravity="center_vertical|left"
+			                android:text="距离文博中心:6.6公里" 
+			                android:paddingLeft="25dp" 
+			                />
+     	</LinearLayout>
+  </ScrollView>
+</RelativeLayout>
