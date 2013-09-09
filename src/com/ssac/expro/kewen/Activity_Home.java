@@ -232,6 +232,8 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 		}else{
 			adapterFilm.notifyDataSetChanged();
 		}
+		
+		galleryFilm.scrollBy(100, 0);
 	}
 
 	private void fillGalleryShow() {
@@ -241,6 +243,8 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 		}else{
 			adapterShow.notifyDataSetChanged();
 		}
+		
+		galleryShow.scrollBy(100, 0);
 	}
 
 	// 给 gallery 放数据。

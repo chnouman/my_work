@@ -12,10 +12,11 @@ import com.ssac.expro.kewen.adapter.PaperAdapter;
 import com.ssac.expro.kewen.bean.ArtLesson;
 import com.ssac.expro.kewen.bean.Constants;
 import com.ssac.expro.kewen.bean.Film;
-import com.ssac.expro.kewen.bean.ShowInfo;
 import com.ssac.expro.kewen.service.XmlToListService;
+import com.ssac.expro.kewen.sinaweibo.SinaAcitivity;
 import com.ssac.expro.kewen.util.ImageCacheUtil;
 import com.ssac.expro.kewen.util.HttpUtil;
+import com.ssac.expro.kewen.view.CoverFlow2;
 import com.ssac.expro.kewen.view.MirrorView;
 import com.ssac.expro.kewen.view.ReflectionImage;
 import com.ssac.expro.kewen.view.SlideHolder;
@@ -23,6 +24,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
 import android.graphics.Matrix;
@@ -74,7 +76,8 @@ public class FragementFilm extends Fragment implements OnClickListener {
 	private Context mContext;
 	// 影片
 	// private CoverFlow mCoverFlow;
-	private MirrorView mirrorGallery;
+	private CoverFlow2 mirrorGallery;
+//	private MirrorView mirrorGallery;
 	private BaseAdapter filmAdapter;
 	private TextView title, date, daoyan, zhuyan, desc;
 	private int position = 0;// coverflow的滑动位置
@@ -155,7 +158,7 @@ public class FragementFilm extends Fragment implements OnClickListener {
 		lin_yingpian.setOnClickListener(this);
 		lin_huodong.setOnClickListener(this);
 		img_back_film.setOnClickListener(this);
-
+		container.findViewById(R.id.imageRightOfHeadFilm).setOnClickListener(this);
 		// progressbar = (LinearLayout) container
 		// .findViewById(R.id.progressOfTheatre);
 		// viewflipper
@@ -201,7 +204,7 @@ public class FragementFilm extends Fragment implements OnClickListener {
 		});
 
 		// 影片初始化
-		mirrorGallery = (MirrorView) views.get(0).findViewById(
+		mirrorGallery = (CoverFlow2) views.get(0).findViewById(
 				R.id.mirrorviewOfYingPian);
 
 		mirrorGallery.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -253,7 +256,8 @@ public class FragementFilm extends Fragment implements OnClickListener {
 		// 影院
 		listview = (ListView) views.get(1)
 				.findViewById(R.id.listviewOfYingyuan);
-		yingyuanList.add("苏州文化艺术中心电影城");
+		yingyuanList.add("苏艺影城");
+		yingyuanList.add("东沙湖影城");
 
 		listview.setOnItemClickListener(new OnItemClickListener() {
 
@@ -262,7 +266,7 @@ public class FragementFilm extends Fragment implements OnClickListener {
 					long arg3) {
 				// TODO Auto-generated method stub
 				// 跳转到详细页面
-				if (arg3 > -1) {
+				if (arg3 ==0) {
 					Intent intent = new Intent(mContext, YingyuanDetail.class);
 					startActivity(intent);
 				}
@@ -343,6 +347,11 @@ public class FragementFilm extends Fragment implements OnClickListener {
 			break;
 		case R.id.imageLeftOfHeadFilm:
 			mSlideHoler.toggle();
+			break;
+		case R.id.imageRightOfHeadFilm:
+			Intent intent =new Intent(mContext,SinaAcitivity.class);
+			intent.putExtra("from", "film");
+			startActivity(intent);
 			break;
 		default:
 			break;
@@ -489,7 +498,7 @@ public class FragementFilm extends Fragment implements OnClickListener {
 			final ReflectionImage image = new ReflectionImage(mContext);
 			image.setImageResource(R.drawable.placeholder_high);
 			ImageCacheUtil ic =new ImageCacheUtil();
-			ic.loadImageGallery2(ExproApplication.imageLoader, image, ad.getTitleImageName(),new ImageLoadingListener() {
+			ic.loadImageGallery2(ExproApplication.imageLoader, ad.getTitleImageName(),new ImageLoadingListener() {
 				
 				@Override
 				public void onLoadingStarted(String imageUri, View view) {
@@ -508,14 +517,18 @@ public class FragementFilm extends Fragment implements OnClickListener {
 					// TODO Auto-generated method stub
 					//加载reflect图片
 					ReflectionImage image2 = new ReflectionImage(mContext);
-					image2.setImageBitmap(loadedImage);
-					image2.setLayoutParams(new MirrorView.LayoutParams(200,400 ));
+					Matrix matrix = new Matrix();
+				    matrix.postScale((float) 0.5,(float) 0.5);// 获取缩放比例
+					Bitmap newbmp =Bitmap.createBitmap(loadedImage, 0, 0, loadedImage.getWidth(), loadedImage.getHeight(),matrix, true);
+					image2.setImageBitmap(newbmp);
+					image2.setLayoutParams(new MirrorView.LayoutParams(200,400));
 					image2.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 					// Make sure we set anti-aliasing otherwise we get jaggies
-					BitmapDrawable drawable = (BitmapDrawable) image.getDrawable();
+					BitmapDrawable drawable = (BitmapDrawable) image2.getDrawable();
 					drawable.setAntiAlias(true);
 					
 					image.setImageDrawable(drawable);
+//					image.setImageBitmap(newbmp);
 				}
 				
 				@Override

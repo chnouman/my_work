@@ -14,6 +14,7 @@ import com.ssac.expro.kewen.util.ImageCacheUtil;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
@@ -79,6 +80,21 @@ public class YitanDetail extends Activity {
 		String titlename=getIntent().getStringExtra("title");
 		
 		txt_title.setText(titlename);
+		
+		final String str=titlename;
+		//share
+			findViewById(R.id.imageRightOfHeadYitanDetail).setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Intent intent_share=new Intent(Intent.ACTION_SEND);
+					intent_share.setType("text/plain");
+					intent_share.putExtra(Intent.EXTRA_SUBJECT, "分享");
+					intent_share.putExtra(Intent.EXTRA_TEXT, str+",详见苏州文化艺术中心:http://www.sscac.com.cn(分享自苏州文化艺术中心安卓客户端)");
+					startActivity(Intent.createChooser(intent_share, getTitle()));
+				}
+			});
 		ImageCacheUtil ic =new ImageCacheUtil();
 		ic.loadImageList(ExproApplication.imageLoader, img_film, img);
 		//获取更详细的数据

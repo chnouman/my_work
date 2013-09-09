@@ -1,33 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    		  android:layout_width="fill_parent"
-    		  android:layout_height="wrap_content"
-    		  android:orientation="vertical"
-    			>
-    <RelativeLayout
-			    android:layout_width="match_parent"
-			    android:layout_height="50dp"
-			    android:orientation="horizontal"
-			    android:background="@drawable/nav_green"
-			    android:gravity="center"
-			    >
-    <ImageView 
-        		android:layout_width="50dp"
-        		android:id="@+id/imageLeftOfHeadYingyuanDetail"
-        		android:layout_height="wrap_content"
-        		android:src="@drawable/selector_back_film"
-        		/>
-    <TextView 
-        		android:id="@+id/textNameOfHeadFilmDetail"
-        		android:layout_width="match_parent"
-        		android:layout_height="wrap_content"
-        		android:gravity="center"
-        		android:text="@string/str_yingyuan_detail"
-        		android:textColor="#FFFFFF"
-        		android:textStyle="bold"
-        		android:textSize="17sp"
-        		android:layout_centerInParent="true"
-        		/>
-</RelativeLayout>
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/nav_green"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imageLeftOfHeadYingyuanDetail"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_back_film" />
+
+        <TextView
+            android:id="@+id/textNameOfHeadYingyuanDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/str_yingyuan_detail"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+	<LinearLayout 
+    		  android:layout_width="fill_parent"
+    		  android:layout_height="45dp"
+    		  android:orientation="horizontal"
+    		  android:gravity="center_vertical"
+    		  android:padding="5dp"
+    		  >
+    	
+    		<LinearLayout 
+			    		  android:layout_width="fill_parent"
+			    		  android:layout_height="wrap_content"
+			    		  android:orientation="horizontal"
+			    		  android:layout_weight="1"
+			    		  android:gravity="center"
+			    		  >
+    				<TextView 
+    				    		android:layout_width="wrap_content"
+    				    		android:layout_height="20dp"
+    				    		android:id="@+id/txtTodayOfHeadYingyuanDetail"
+    				    		android:text="@string/str_theatre_info"
+    				    		android:textColor="#FFFFFF"
+    				    		android:background="@drawable/tab_film_yingyuan_date1"
+    				    		android:gravity="center"
+    				    		/>
+    	
+ 			</LinearLayout>
+ 			<LinearLayout 
+			    		  android:layout_width="fill_parent"
+			    		  android:layout_height="wrap_content"
+			    		  android:orientation="horizontal"
+			    		  android:layout_weight="1"
+			    		  android:gravity="center"
+			    		  >
+    				<TextView 
+    				    		android:layout_width="wrap_content"
+    				    		android:layout_height="20dp"
+    				    		android:id="@+id/txtNextdayOfHeadYingyuanDetail"
+    				    		android:text="@string/str_theatre_activie"
+    				    		android:textColor="#FFFFFF"
+    				    		android:gravity="center"
+    				    		android:background="@drawable/tab_film_yingyuan_date2"
+    				    		/>
+    	
+ 			</LinearLayout>
+ 			<LinearLayout 
+			    		  android:id="@+id/linearJuyuanHDOfTheatre"
+			    		  android:layout_width="fill_parent"
+			    		  android:layout_height="wrap_content"
+			    		  android:orientation="horizontal"
+			    		  android:layout_weight="1"
+			    		  android:gravity="center"
+			    		  >
+    				<TextView 
+    				    		android:layout_width="wrap_content"
+    				    		android:layout_height="20dp"
+    				    		android:id="@+id/txtHoutianOfHeadYingyuanDetail"
+    				    		android:text="@string/str_theatre_activie"
+    				    		android:textColor="#FFFFFF"
+    				    		android:gravity="center"
+    				    		android:background="@drawable/tab_film_yingyuan_date2"
+    				    		/>
+    	
+ 			</LinearLayout>
+ 		</LinearLayout>
 </LinearLayout>

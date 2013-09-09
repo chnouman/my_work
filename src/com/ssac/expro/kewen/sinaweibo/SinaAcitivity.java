@@ -16,7 +16,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,21 +47,15 @@ import com.weibo.sdk.android.util.Utility;
 public class SinaAcitivity extends Activity {
 
 	private Weibo mWeibo;
-
-	private TextView mText;
-
 	public static Oauth2AccessToken accessToken;
-
 	public static final String TAG = "sinasdk";
-
 	private List<WeiboSina> listSina;
-	/**
-	 * SsoHandler 仅当sdk支持sso时有效，
-	 */
-	private SsoHandler mSsoHandler;
 	private String from="theatre",weibo_id=Constants.WEIBO_SINA_THEATRE_ID;
 	private ListView listView;
 	private BaseAdapter adapter;
+	private ProgressBar progressbarTitle;
+	private LinearLayout progressbar;
+	private ImageView refresh;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -66,20 +63,46 @@ public class SinaAcitivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.layout_sina_weibo);
 		mWeibo = Weibo.getInstance(Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE);
-		mText 		= 	(TextView) findViewById(R.id.show);
 		listView	=	(ListView) findViewById(R.id.listviewOfSinaWeibo);
+		progressbar = (LinearLayout) findViewById(R.id.progressBarOfSinaWeibo);
 		
+		//refrsh
+		refresh		=	(ImageView) findViewById(R.id.imageRightOfHeadSinaWeibo);
+		progressbarTitle	=	(ProgressBar) findViewById(R.id.progressBarTitleOfHeadSinaWeibo);
+		
+		refresh.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				refresh.setVisibility(View.GONE);
+				progressbarTitle.setVisibility(View.VISIBLE);
+				loadWeiboTask task=new loadWeiboTask();
+				task.execute();
+			}
+		});
+		findViewById(R.id.imageLeftOfHeadSinaWeibo).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
 		initData();
 	}
 
 	//get the weibo data
 	private void initData(){
+		from = getIntent().getStringExtra("from");
 		//get the local token
 		SinaAcitivity.accessToken = AccessTokenKeeper.readAccessToken(this);
 		
 		if(from!=null){
-			if(!"theatre".equals(from)){
+			if("film".equals(from)){
 				weibo_id = Constants.WEIBO_SINA_FILM_ID;
+			}else{
+				weibo_id = Constants.WEIBO_SINA_THEATRE_ID;
 			}
 		}
 		
@@ -96,7 +119,7 @@ public class SinaAcitivity extends Activity {
 		// TODO Auto-generated method stub
 		if (SinaAcitivity.accessToken.isSessionValid()) {
 			String date = new java.text.SimpleDateFormat("yyyy/MM/dd hh:mm:ss").format(new java.util.Date(SinaAcitivity.accessToken.getExpiresTime()));
-			mText.setText("access_token 仍在有效期内,无需再次登录: \naccess_token:" + SinaAcitivity.accessToken.getToken() + "\n有效期：" + date);
+			Log.i("poe", date);
 			return true;
 		} 
 		
@@ -126,7 +149,6 @@ public class SinaAcitivity extends Activity {
 			SinaAcitivity.accessToken = new Oauth2AccessToken(token, expires_in);
 			if (SinaAcitivity.accessToken.isSessionValid()) {
 				String date = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new java.util.Date(SinaAcitivity.accessToken.getExpiresTime()));
-				mText.setText("认证成功: \r\n access_token: " + token + "\r\n" + "expires_in: " + expires_in + "\r\n有效期：" + date);
 				AccessTokenKeeper.keepAccessToken(SinaAcitivity.this, accessToken);
 				Toast.makeText(SinaAcitivity.this, "认证成功", Toast.LENGTH_SHORT).show();
 			}
@@ -153,9 +175,6 @@ public class SinaAcitivity extends Activity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		// sso 授权回调
-		if (mSsoHandler != null) {
-			mSsoHandler.authorizeCallBack(requestCode, resultCode, data);
-		}
 	}
 
 	//access the token by code task
@@ -188,9 +207,6 @@ public class SinaAcitivity extends Activity {
 				// 保存accessdtoken
 				SinaAcitivity.accessToken = new Oauth2AccessToken(token, expires_in2);
 				AccessTokenKeeper.keepAccessToken(SinaAcitivity.this, accessToken);
-				mText.setText("认证成功: \r\n access_token: " + token + "\r\n" + "expires_in: " + expires_in2 + "\r\n" + "uid:" + uid);
-				Log.i("poe", "token:" + token);
-				Log.i("poe", "uid:" + uid);
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
@@ -225,7 +241,7 @@ public class SinaAcitivity extends Activity {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
 			//show the progress bar
-			
+			progressbar.setVisibility(View.VISIBLE);
 		}
 
 		@Override
@@ -257,8 +273,6 @@ public class SinaAcitivity extends Activity {
 				//dismiss the dialog
 				if(listSina!=null&&listSina.size()>0){
 					//set the list adapter
-					mText.setText(listSina.get(0).getText());
-					
 					if(adapter!=null){
 						adapter.notifyDataSetChanged();
 					}else{
@@ -270,6 +284,10 @@ public class SinaAcitivity extends Activity {
 				//tell the user get network fialure
 				ExproApplication.throwTipLong("获取数据失败！");
 			}
+			
+			progressbar.setVisibility(View.GONE);
+			progressbarTitle.setVisibility(View.GONE);
+			refresh.setVisibility(View.VISIBLE);
 		}
 	}
 }

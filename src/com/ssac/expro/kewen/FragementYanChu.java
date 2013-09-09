@@ -17,6 +17,7 @@ import com.ssac.expro.kewen.bean.ShowInfo;
 import com.ssac.expro.kewen.bean.Theatre;
 import com.ssac.expro.kewen.service.MainService;
 import com.ssac.expro.kewen.service.XmlToListService;
+import com.ssac.expro.kewen.sinaweibo.SinaAcitivity;
 import com.ssac.expro.kewen.util.HttpUtil;
 import com.ssac.expro.kewen.util.ImageCacheUtil;
 import com.ssac.expro.kewen.view.MyViewPager;
@@ -82,7 +83,9 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 	//剧院活动
 	private ListView listView2;
 	private BaseAdapter listAdapter2;
-
+	//微博信息
+	private ImageView img_weibo;
+	
 	private Handler handler = new Handler() {
 
 		@Override
@@ -148,6 +151,9 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 		lin_ycxy.setOnClickListener(this);
 		ImageView img_back=(ImageView) container.findViewById(R.id.imageLeftOfHeadTheatre);
 		img_back.setOnClickListener(this);
+		
+		img_weibo = (ImageView) container.findViewById(R.id.imageRightOfHeadTheatre);
+		img_weibo.setOnClickListener(this);
 //		progressbar = (LinearLayout) container
 //				.findViewById(R.id.progressOfTheatre);
 		// viewflipper
@@ -324,6 +330,11 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 			break;
 		case R.id.imageLeftOfHeadTheatre://show menue
 			mSlideHolder.toggle();
+			break;
+		case R.id.imageRightOfHeadTheatre:
+			Intent intent =new Intent(mContext,SinaAcitivity.class);
+			intent.putExtra("from", "theatre");
+			startActivity(intent);
 			break;
 		default:
 			break;

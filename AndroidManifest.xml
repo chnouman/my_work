@@ -39,14 +39,15 @@
         <activity android:name=".BasicMapActivity" >
         </activity>
         <activity android:name=".sinaweibo.SinaAcitivity">
-             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
         <activity
             android:name=".Activity_Home"
             android:screenOrientation="portrait" >
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".CoverFlowExample"
@@ -74,6 +75,10 @@
         </activity>
         <activity
             android:name=".MoreAbountDetail"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".MoreZhoubianDetail"
             android:screenOrientation="portrait" >
         </activity>
         <activity

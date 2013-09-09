@@ -5,19 +5,18 @@
     android:orientation="vertical"
     android:background="@drawable/weibo_back"
     >
+
  	<include 		
       			layout="@layout/header_sina_weibo"
 				android:layout_width="fill_parent"
 				android:layout_height="50dp"
-				/>   
-    <TextView
-        android:id="@+id/show"
+				/>
+ 	<include
+        android:id="@+id/progressBarOfSinaWeibo"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:hint="hintAuthText"
-        android:textSize="15dp" />
+        android:layout_height="fill_parent"
+        layout="@layout/myprogress"
+        />   
     <ListView 
         	android:layout_width="fill_parent"
         	android:layout_height="fill_parent"

@@ -92,16 +92,18 @@ public class ImageCacheUtil {
 			}
 //			imageLoader.displayImage(fileName, iv, options2);
 			imageLoader.displayImage(fileName, iv, options2, lin);
+			
 		}
 	}
 	
-	public  void  loadImageGallery2(ImageLoader imageLoader,ImageView iv,String fileName,ImageLoadingListener lin ){
+	public  void  loadImageGallery2(ImageLoader imageLoader, String fileName,ImageLoadingListener listener ){
 		if(null!=imageLoader){
 			if(options==null){
 				init();
 			}
 //			imageLoader.displayImage(fileName, iv, options2);
-			imageLoader.displayImage(fileName, iv, options3, lin);
+//			imageLoader.displayImage(fileName, iv, options3, lin);
+			imageLoader.loadImage(fileName, options3, listener);
 		}
 	}
 	

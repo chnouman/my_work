@@ -7,6 +7,7 @@ import com.ssac.expro.kewen.service.XmlToListService;
 import com.ssac.expro.kewen.util.HttpUtil;
 import com.ssac.expro.kewen.util.ImageCacheUtil;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -64,7 +65,20 @@ public class TheatreActivitiesDetail extends Activity {
 		title.setText("剧院活动详情");
 		txt_title.setText(titlename);
 		txt_released.setText(releaseDate);
-		
+		final String str=titlename+"! 开始时间："+releaseDate;
+		//share
+			findViewById(R.id.imageRightOfHeadThreatreDetail).setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Intent intent_share=new Intent(Intent.ACTION_SEND);
+					intent_share.setType("text/plain");
+					intent_share.putExtra(Intent.EXTRA_SUBJECT, "分享");
+					intent_share.putExtra(Intent.EXTRA_TEXT, str+",详见苏州文化艺术中心:http://www.sscac.com.cn(分享自苏州文化艺术中心安卓客户端)");
+					startActivity(Intent.createChooser(intent_share, getTitle()));
+				}
+			});
 		ImageCacheUtil ic =new ImageCacheUtil();
 		ic.loadImageList(ExproApplication.imageLoader, img, str_img);
 		//获取更详细的数据

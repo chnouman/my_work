@@ -141,10 +141,10 @@ public class HttpUtil {
 			// URL("http://10.0.44.56:8002/SyncService/Request.aspx?account_no=april&acc_pwd=123456&data_type=SynBusinessAll&last_sync=2011-01-01%200:0:0");
 			URL url = new URL(address);
 			conn = (HttpURLConnection) url.openConnection();
-			conn.setConnectTimeout(5 * 1000);
-			conn.setReadTimeout(5 * 1000);
-			conn.setRequestMethod("GET");
-			connectServer(conn);
+			conn.setConnectTimeout(3 * 1000);
+//			conn.setReadTimeout(5 * 1000);
+//			conn.setRequestMethod("GET");
+//			connectServer(conn);
 			inStream = conn.getInputStream();
 
 		} catch (IOException e) {

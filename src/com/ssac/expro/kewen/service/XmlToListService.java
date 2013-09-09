@@ -1068,6 +1068,12 @@ public class XmlToListService {
 				for(int i=0;i<jsonarray.length();i++	){
 					JSONObject json=jsonarray.getJSONObject(i);
 					
+					//防止 结构变化
+					try{
+						json=jsonarray.getJSONObject(i).getJSONObject("retweeted_status");
+					}catch(JSONException e){
+						e.printStackTrace();
+					}
 					JSONObject json_user=json.getJSONObject("user");
 					
 					user=new UserSina();
@@ -1077,6 +1083,7 @@ public class XmlToListService {
 					user.setDescription(json_user.getString("description"));
 					user.setGender(json_user.getString("gender"));
 					user.setProfile_image_url(json_user.getString("profile_image_url"));
+					user.setScreen_name(json_user.getString("screen_name"));
 					
 					weibo =new WeiboSina();
 					weibo.setUser(user);
@@ -1122,7 +1129,14 @@ public class XmlToListService {
 			if(jsonarray.length()>0){
 				
 				for(int i=0;i<jsonarray.length();i++	){
-					JSONObject json=jsonarray.getJSONObject(i).getJSONObject("retweeted_status");
+					
+					JSONObject json=jsonarray.getJSONObject(i);
+					//防止 结构变化
+					try{
+						json=jsonarray.getJSONObject(i).getJSONObject("retweeted_status");
+					}catch(JSONException e){
+						e.printStackTrace();
+					}
 					
 					JSONObject json_user=json.getJSONObject("user");
 					
@@ -1133,6 +1147,7 @@ public class XmlToListService {
 					user.setDescription(json_user.getString("description"));
 					user.setGender(json_user.getString("gender"));
 					user.setProfile_image_url(json_user.getString("profile_image_url"));
+					user.setScreen_name(json_user.getString("screen_name"));
 					
 					weibo =new WeiboSina();
 					weibo.setUser(user);

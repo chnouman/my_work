@@ -15,18 +15,23 @@
 		    		>
 		    
 		</com.ssac.expro.kewen.view.CoverFlow>  
-		 -->
+		
 		<com.ssac.expro.kewen.view.MirrorView 
         android:id="@+id/mirrorviewOfYingPian" 
         android:layout_width="fill_parent"
-        android:layout_height="400dp"
+        android:layout_height="fill_parent"
+         /> 
+		 -->
+		<com.ssac.expro.kewen.view.CoverFlow2 
+        android:id="@+id/mirrorviewOfYingPian" 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
          /> 
      <LinearLayout 
  		    		android:layout_width="fill_parent"
  		    		android:layout_height="wrap_content"
  		    		android:orientation="vertical"	
  		    		android:layout_alignParentBottom="true"
- 		    		android:layout_marginBottom="50dp"
  		    		>		 
  		<TextView 	
  		    		android:id="@+id/textTitleOfYingPian"

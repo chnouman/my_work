@@ -51,6 +51,7 @@ public class Activity_More extends BaseActivity implements OnClickListener{
 		 linearMap.setOnClickListener(this);
 		 linearContact.setOnClickListener(this);
 		 linearVersion.setOnClickListener(this);
+		 findViewById(R.id.linearZhoubianOfMore).setOnClickListener(this);
 	}
 
 	@Override
@@ -74,6 +75,9 @@ public class Activity_More extends BaseActivity implements OnClickListener{
 			break;
 		case R.id.linearVersionOfMore:
 			startActivity(new Intent(Activity_More.this,MoreVersionUpdateDetail.class));
+			break;
+		case R.id.linearZhoubianOfMore:
+			startActivity(new Intent(Activity_More.this,MoreZhoubianDetail.class));
 			break;
 		default:
 			break;

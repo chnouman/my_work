@@ -28,6 +28,15 @@
         		android:textSize="17sp"
         		android:layout_centerInParent="true"
         		/>
+    <ImageView 
+        		android:layout_width="50dp"
+        		android:id="@+id/imageRightOfHeadYitanDetail"
+        		android:layout_height="fill_parent"
+        		android:src="@drawable/selector_btn_share"
+        		android:layout_alignParentRight="true"
+        		android:padding="10dp"
+        		android:contentDescription="分享"
+        		/>
 </RelativeLayout>
 
 </LinearLayout>

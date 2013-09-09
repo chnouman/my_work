@@ -113,6 +113,22 @@ public class FilmDetail extends Activity {
 		txt_zhuy.setText(zhuyan);
 		txt_released.setText(releaseDate);
 
+		final String str=titlename+"！导演："+daoyan+" 主演："+zhuyan+" 发布日期："+releaseDate;
+	//share
+		findViewById(R.id.imageRightOfHeadFilmDetail).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent_share=new Intent(Intent.ACTION_SEND);
+				intent_share.setType("text/plain");
+				intent_share.putExtra(Intent.EXTRA_SUBJECT, "分享");
+				intent_share.putExtra(Intent.EXTRA_TEXT, str+",详见苏州文化艺术中心:http://www.sscac.com.cn(分享自苏州文化艺术中心安卓客户端)");
+				startActivity(Intent.createChooser(intent_share, getTitle()));
+			}
+		});
+		
+		
 		ImageCacheUtil ic =new ImageCacheUtil();
 		ic.loadImageList(ExproApplication.imageLoader, img_film, img);
 

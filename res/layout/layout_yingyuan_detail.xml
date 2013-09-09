@@ -3,6 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
+    android:background="@drawable/dy_detail_back"
     >
     
   <include 		android:id="@+id/headerOfLayoutYingyuanDetail"
@@ -10,17 +11,13 @@
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
 				/>   
- <ScrollView 
-     			android:layout_width="fill_parent"
-     			android:layout_height="fill_parent"
-     			android:background="#FFFFFF"
-     			android:layout_below="@id/headerOfLayoutYingyuanDetail"
-     			>
-   			<WebView 
-   			    		android:layout_width="fill_parent"
-   			    		android:layout_height="wrap_content"
-   			    		android:scrollbars="none"
-   			    		android:id="@+id/webviewOfLayoutYingyuanDetail"
-   			    		/>
-  </ScrollView>
+				
+  <!-- 今天、明天、后天 tab -->
+  <ListView 
+      		android:layout_width="fill_parent"
+      		android:layout_height="fill_parent"
+      		android:id="@+id/listviewOfLayoutYingyuanDetail"
+      		android:divider="@drawable/dianying_line_h"
+      		android:layout_below="@id/headerOfLayoutYingyuanDetail"
+      		/>
 </RelativeLayout>

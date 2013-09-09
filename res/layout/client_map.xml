@@ -3,14 +3,60 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
+    <include
+        android:id="@+id/headerOfMap"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/header_more_map" />
+
     <com.baidu.mapapi.map.MapView
         android:id="@+id/MapViewOfClientMap"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_below="@id/headerOfMap"
         android:clickable="true" />
-     <include 		
-      			layout="@layout/header_more_map"
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				/>   
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/iphone_bg"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/iphone_top_line_bg" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/iphone_table_lne_bg"
+            android:orientation="horizontal" >
+
+            <TextView
+                 style="@style/RecordText" 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|left"
+                android:text="@string/str_busline"
+                />
+
+            <TextView
+                style="@style/RecordText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|left"
+                android:text="@string/str_busline_content" />
+
+        </LinearLayout>
+         <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/iphone_bottom_line_bg" 
+                android:layout_marginBottom="10dp"
+                />
+    </LinearLayout>
+
 </RelativeLayout>
