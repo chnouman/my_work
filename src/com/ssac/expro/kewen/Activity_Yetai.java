@@ -71,10 +71,6 @@ public class Activity_Yetai extends BaseActivity implements OnClickListener{
 			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left); 
 			break;
 		case R.id.linearYetai:
-//			intent.setClass(this, Activity_Art.class);
-//			startActivity(intent);
-//			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left); 
-//			ExproApplication.showBuildTip(c);
 			break;
 		case R.id.linearVip:
 			intent.setClass(this, Activity_VIP.class);
@@ -82,7 +78,9 @@ public class Activity_Yetai extends BaseActivity implements OnClickListener{
 			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			break;
 		case R.id.linearSearch:
-			ExproApplication.showBuildTip(c);
+			intent.setClass(this, Activity_Search.class);
+			startActivity(intent);
+			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			break;
 		case R.id.linearMore:
 			intent.setClass(this, Activity_More.class);

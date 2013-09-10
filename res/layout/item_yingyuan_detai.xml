@@ -8,8 +8,9 @@
 			android:id="@+id/imageOfYingyuanDetailItem"
  			android:layout_width="fill_parent"
 			android:layout_height="100dp"
-			android:layout_weight="2"
+			android:layout_weight="3"
 			android:padding="1dp"
+			android:scaleType="fitXY"
 			/>		    
 	<LinearLayout 
 	    			android:orientation="vertical"

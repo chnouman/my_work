@@ -41,6 +41,10 @@ public class Constants {
 	public static final String DIANYING_SCHEDUL="http://www.sscac.com.cn:8080/fy/IMAXFilmSchedul/";//影片详情
 	
 	public static final String DIANYING_DONGTAI="http://www.sscac.com.cn:8080/fy/ContentList/a51a82e3-3236-4480-9bce-5c152f8cb8e4";
+	//排片的电影城
+	public static final String YINGYUAN_PAIPIAN		=	"http://www.sscac.com.cn:8080/fy/CinemaList";
+	
+	public static final String YINGYUAN_PAIPIAN_DETAIL = "http://www.sscac.com.cn:8080/fy/OverallFilmSchedule";
 	//影城活动
 	public static final String YINGCHENG_ACTIVITIES="http://www.sscac.com.cn:8080/fy/ContentList/cc440b27-c0e3-4ff4-903e-b2ae5b48392f/";
 	
@@ -120,8 +124,12 @@ public class Constants {
 		
 		public static final String  ACCESS_TOKEN="access_token";
 		
-		
 		//shared weibo id
 		public static final String WEIBO_SINA_THEATRE_ID="1914016804";//剧院
 		public static final String WEIBO_SINA_FILM_ID="1849261382";//电影
+		
+		//search url
+		public static final String SEARCH_BASE_URL="http://www.sscac.com.cn:8080/fy/Search/";
+		
+		public static final String SEARCH_YANCHU_URL			=	"http://www.sscac.com.cn:8080/fy/CAShow/";
 }

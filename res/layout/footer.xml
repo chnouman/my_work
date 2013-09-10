@@ -15,9 +15,11 @@
 		<ImageView 	android:src="@drawable/icon_home"
 					android:layout_weight="2"
 					android:id="@+id/imageHome" 
-					android:paddingTop="12px"
+					android:padding="10px"
 					android:layout_height="fill_parent" 
-					android:layout_width="fill_parent">
+					android:layout_width="fill_parent"
+					android:scaleType="centerInside"
+					>
 		</ImageView>
 		<TextView 	android:layout_width="fill_parent"
 					android:layout_weight="3"
@@ -36,7 +38,7 @@
 		<ImageView 	android:src="@drawable/icon_yetai"
 					android:layout_weight="2"
 					android:id="@+id/imageMap" 
-					android:paddingTop="12px"
+					android:padding="10px"
 					android:layout_height="fill_parent" 
 					android:layout_width="fill_parent">
 		</ImageView>
@@ -57,7 +59,7 @@
 		<ImageView 	android:src="@drawable/icon_vip"
 					android:layout_weight="2"
 					android:id="@+id/imageVip" 
-					android:paddingTop="12px"
+					android:padding="10px"
 					android:layout_height="fill_parent" 
 					android:layout_width="fill_parent">
 		</ImageView>
@@ -80,7 +82,7 @@
 		<ImageView 	android:src="@drawable/icon_search"
 					android:layout_weight="2"
 					android:id="@+id/imageNews" 
-					android:paddingTop="12px"
+					android:padding="10px"
 					android:layout_height="fill_parent" 
 					android:layout_width="fill_parent">
 		</ImageView>
@@ -101,7 +103,7 @@
 		<ImageView 	android:src="@drawable/icon_more"
 					android:layout_weight="2"
 					android:id="@+id/imageMore" 
-					android:paddingTop="12px"
+					android:padding="10px"
 					android:layout_height="fill_parent" 
 					android:layout_width="fill_parent">
 		</ImageView>

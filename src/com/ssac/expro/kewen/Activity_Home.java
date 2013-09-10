@@ -100,6 +100,14 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 		if (MainService.adList.size() > 0) {
 			fillGallery();
 		}
+		
+		if(MainService.showList.size()>0){
+			fillGalleryShow();
+		}
+		
+		if(MainService.filmList.size()>0){
+			fillGalleryFilm();
+		}
 	}
 
 	@Override
@@ -146,6 +154,7 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 				// TODO Auto-generated method stub
+				
 				if (!TextUtils.isEmpty(MainService.adList.get(arg2).getLinkAddress())) {
 					Uri uri = Uri.parse(MainService.adList.get(arg2).getLinkAddress());
 					Intent it = new Intent(Intent.ACTION_VIEW, uri);
@@ -300,8 +309,9 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			break;
 		case R.id.linearSearch:
-			// intent.setClass(this, Activity_Map.class);
-			ExproApplication.showBuildTip(mContext);
+			intent.setClass(this, Activity_Search.class);
+			startActivity(intent);
+			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			break;
 		case R.id.linearMore:
 			intent.setClass(this, Activity_More.class);

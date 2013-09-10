@@ -5,8 +5,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class TimeUtil {
+	
+	
 	/**
 	 * 
 	 * @return 11:00:00
@@ -43,5 +46,26 @@ public class TimeUtil {
 		Calendar strDate = Calendar.getInstance();
 		strDate.add(strDate.DATE, count);
 		return sdf.format(strDate.getTime());
+	}
+	
+	/**
+	 * 返回 9月6
+	 * @param Gmt
+	 * @return
+	 * @throws ParseException 
+	 */
+	public static String parseGMT(String Gmt) throws ParseException{
+		
+		if(Gmt!=null){
+		 SimpleDateFormat sf = new SimpleDateFormat("EEE MMM dd hh:mm:ss z yyyy", Locale.ENGLISH); 
+		 
+		 Date date =sf.parse(Gmt);
+		 SimpleDateFormat sdf = new SimpleDateFormat("MM-dd"); 
+	     String result = sdf.format(date); 
+	     
+	     result=result.replace("-", "月");
+	     return result;
+		}
+		return null;
 	}
 }

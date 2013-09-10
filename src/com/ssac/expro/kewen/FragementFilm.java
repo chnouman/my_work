@@ -12,6 +12,7 @@ import com.ssac.expro.kewen.adapter.PaperAdapter;
 import com.ssac.expro.kewen.bean.ArtLesson;
 import com.ssac.expro.kewen.bean.Constants;
 import com.ssac.expro.kewen.bean.Film;
+import com.ssac.expro.kewen.bean.Yingyuan;
 import com.ssac.expro.kewen.service.XmlToListService;
 import com.ssac.expro.kewen.sinaweibo.SinaAcitivity;
 import com.ssac.expro.kewen.util.ImageCacheUtil;
@@ -85,7 +86,7 @@ public class FragementFilm extends Fragment implements OnClickListener {
 	// 影院
 	private ListView listview;
 	private BaseAdapter listAdapter;
-	private List<String> yingyuanList = new ArrayList<String>();
+	private List<Yingyuan> yingyuanList = new ArrayList<Yingyuan>();
 	// 影院活动
 	private ListView listview2;
 	private Adapter4YingyuanActivities listAdapter2;
@@ -256,8 +257,8 @@ public class FragementFilm extends Fragment implements OnClickListener {
 		// 影院
 		listview = (ListView) views.get(1)
 				.findViewById(R.id.listviewOfYingyuan);
-		yingyuanList.add("苏艺影城");
-		yingyuanList.add("东沙湖影城");
+//		yingyuanList.add("苏艺影城");
+//		yingyuanList.add("东沙湖影城");
 
 		listview.setOnItemClickListener(new OnItemClickListener() {
 
@@ -266,10 +267,10 @@ public class FragementFilm extends Fragment implements OnClickListener {
 					long arg3) {
 				// TODO Auto-generated method stub
 				// 跳转到详细页面
-				if (arg3 ==0) {
 					Intent intent = new Intent(mContext, YingyuanDetail.class);
+					intent.putExtra("from", yingyuanList.get(arg2).getName());
+					intent.putExtra("code", yingyuanList.get(arg2).getValue());
 					startActivity(intent);
-				}
 			}
 		});
 
@@ -313,8 +314,10 @@ public class FragementFilm extends Fragment implements OnClickListener {
 			lin_yingpian.setBackgroundDrawable(null);
 			lin_huodong.setBackgroundDrawable(null);
 			if (listAdapter == null) {
-				listAdapter = new Adapter4Yingyuan(mContext, yingyuanList);
-				listview.setAdapter(listAdapter);
+//				listAdapter = new Adapter4Yingyuan(mContext, yingyuanList);
+//				listview.setAdapter(listAdapter);
+				task2 task =new task2();
+				task.execute();
 			}
 
 			break;
@@ -615,4 +618,48 @@ public class FragementFilm extends Fragment implements OnClickListener {
 			
 		}
 	}
+	
+	/**
+	 *  2.排片
+	 * @author poe.Cai
+	 *
+	 */
+		private class task2 extends AsyncTask<String, String, String> {
+			@Override
+			protected void onPreExecute() {
+				// TODO Auto-generated method stub
+				super.onPreExecute();
+				ExproApplication.throwTips("加载影城数据...");
+			}
+
+			@Override
+			protected String doInBackground(String... params) {
+				try {
+					yingyuanList  = XmlToListService.GetYingyuanList(HttpUtil
+							.sendGetRequest( Constants.YINGYUAN_PAIPIAN));
+				} catch (Exception e) {
+					e.printStackTrace();
+					Log.e("poe", "sax解析出错！" + e.getMessage());
+				}
+				return null;
+			}
+
+			@Override
+			protected void onPostExecute(String result) {
+				// TODO Auto-generated method stub
+				super.onPostExecute(result);
+
+				if (yingyuanList != null && yingyuanList.size() > 0) {
+
+					if (listAdapter == null) {
+						listAdapter = new Adapter4Yingyuan(mContext,yingyuanList);
+						listview.setAdapter(listAdapter);
+						
+					} else {
+						listAdapter.notifyDataSetChanged();
+					}
+				}
+				
+			}
+		}
 }

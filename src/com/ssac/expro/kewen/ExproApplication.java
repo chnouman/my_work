@@ -10,6 +10,8 @@ import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources.Theme;
+import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
@@ -60,6 +62,8 @@ public class ExproApplication extends Application {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+       
 	}
 
 	// 没有网络的提示

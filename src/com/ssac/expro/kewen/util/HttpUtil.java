@@ -11,9 +11,13 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
-import org.apache.http.HttpInetConnection;
-
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.HttpConnectionParams;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -46,10 +50,10 @@ public class HttpUtil {
 	public static String sendGetRequest(String strUrl) throws IOException {
 		String result = null;
 		BufferedReader br = null;
-		InputStream instream = null;
-		if (instream == null) {
-			instream = httpgetInputsteam(strUrl);// (InputStream)
-		}
+		InputStream instream = getInputsteamByAppache(strUrl);
+//		if (instream == null) {
+//			instream = httpgetInputsteam(strUrl);// (InputStream)
+//		}
 		// http://58.210.186.110/fyservice.svc/fy/notice/1/1/xml
 		if (null != instream) {
 			br = new BufferedReader(new InputStreamReader(instream));
@@ -139,12 +143,12 @@ public class HttpUtil {
 
 			// URL url=new
 			// URL("http://10.0.44.56:8002/SyncService/Request.aspx?account_no=april&acc_pwd=123456&data_type=SynBusinessAll&last_sync=2011-01-01%200:0:0");
-			URL url = new URL(address);
+			URL url = new URL(address.trim());
 			conn = (HttpURLConnection) url.openConnection();
-			conn.setConnectTimeout(3 * 1000);
-//			conn.setReadTimeout(5 * 1000);
-//			conn.setRequestMethod("GET");
-//			connectServer(conn);
+			conn.setConnectTimeout(5 * 1000);
+			conn.setReadTimeout(5 * 1000);
+			conn.setRequestMethod("GET");
+			connectServer(conn);
 			inStream = conn.getInputStream();
 
 		} catch (IOException e) {
@@ -154,6 +158,7 @@ public class HttpUtil {
 		return inStream;
 	}
 
+	
 	public static void connectServer(HttpURLConnection conn) {
 		boolean success = false;
 		int count = 0;
@@ -167,5 +172,38 @@ public class HttpUtil {
 			}
 		}
 
+	}
+	/**
+	 * 以后所有的 输入流都采用这个 方法来获取 ，也可以 获取 字符串。
+	 * 
+	 * @param address
+	 * @return
+	 */
+	public static InputStream getInputsteamByAppache(String address) {
+		
+		InputStream inStream = null;
+
+		// 使用get请求
+		HttpGet getRequest = new HttpGet(address);
+
+		HttpClient client = new DefaultHttpClient();
+		HttpConnectionParams.setConnectionTimeout(client.getParams(),
+				3 * ONE_SECOND);
+		HttpConnectionParams.setSoTimeout(client.getParams(), 5 * ONE_SECOND);
+		try {
+			HttpResponse response = client.execute(getRequest);
+
+			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				inStream = response.getEntity().getContent();
+			}
+
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace(); // 221.224.52.112:80
+		}
+		return inStream;
 	}
 }

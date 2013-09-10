@@ -1,5 +1,6 @@
 package com.ssac.expro.kewen.adapter;
 
+import java.text.ParseException;
 import java.util.List;
 import android.content.Context;
 import android.util.Log;
@@ -15,6 +16,7 @@ import com.ssac.expro.kewen.bean.Film;
 import com.ssac.expro.kewen.bean.WeiboSina;
 import com.ssac.expro.kewen.service.MainService;
 import com.ssac.expro.kewen.util.ImageCacheUtil;
+import com.ssac.expro.kewen.util.TimeUtil;
 
 public class Adapter4WeiboSina extends BaseAdapter {
 
@@ -57,6 +59,7 @@ public class Adapter4WeiboSina extends BaseAdapter {
 			final ViewHolder vh = new ViewHolder();
 			vh.image 			= (ImageView) paramView.findViewById(R.id.imgHeaderIconOfSinaWeiboItem);
 			vh.title 			= (TextView) paramView.findViewById(R.id.textTitleOfSinaWeiboItem);
+			vh.tvDate		=	(TextView) paramView.findViewById(R.id.textDateOfSinaWeiboItem);
 			vh.content		= (TextView) paramView.findViewById(R.id.textContentOfSinaWeiboItem);
 			vh.imageDes 	= (ImageView) paramView.findViewById(R.id.imgDescriptionOfSinaWeiboItem);
 			// 设置数据
@@ -72,6 +75,16 @@ public class Adapter4WeiboSina extends BaseAdapter {
 			String imageurl2=Ninfo.getThumbnail_pic();
 			ic.loadImageList(ExproApplication.imageLoader, vh.imageDes, imageurl2);
 			
+			try {
+				String date =TimeUtil.parseGMT(Ninfo.getCreate_time());
+				if(date!=null){
+					vh.tvDate.setText(date);
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			return paramView;
 		}
 
@@ -79,6 +92,7 @@ public class Adapter4WeiboSina extends BaseAdapter {
 			ImageView image;
 			ImageView imageDes;
 			TextView title;
+			TextView tvDate;
 			TextView content;
 		}
 }

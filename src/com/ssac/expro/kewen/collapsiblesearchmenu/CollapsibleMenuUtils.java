@@ -54,7 +54,6 @@ public class CollapsibleMenuUtils {
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
       
         final View searchView = menuItem.getActionView();
-        searchView.setBackgroundResource(R.drawable.home_titlebar);
         final AutoCompleteTextView editText = (AutoCompleteTextView) searchView.findViewById(R.id.search_src_text);
         final TextWatcher textWatcher = new TextWatcher() {
 

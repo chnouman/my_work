@@ -4,11 +4,13 @@ import java.io.File;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
 import com.ssac.expro.kewen.Activity_Home;
 import com.ssac.expro.kewen.ExproApplication;
+import com.ssac.expro.kewen.bean.Constants;
 import com.ssac.expro.kewen.bean.TaskType;
 import com.ssac.expro.kewen.bean.UpdataInfo;
+import com.ssac.expro.kewen.service.XmlToListService;
+
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -17,7 +19,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.SyncStateContract.Constants;
 import android.util.Log;
 
 /**
@@ -50,12 +51,13 @@ public class VersionUpdateManager {
 				showUpdataDialog();
 				break;
 			case TaskType.GET_UNDATAINFO_ERROR:
-//				ExproApplication.throwTips("获取服务器更新信息失败");
+				ExproApplication.throwTips("获取服务器更新信息失败");
 				break;
 			case TaskType.DOWN_ERROR:
 				ExproApplication.throwTips("下载新版本失败");
 				break;
 			case TaskType.NO_UPDATE:
+				ExproApplication.throwTips("当前已经是最新版本！");
 				// 不是更新后第一次登陆
 				if (ExproApplication.getPreferenceData(ExproApplication.version) != null) {
 					// checkTask ts = new checkTask();
@@ -85,10 +87,11 @@ public class VersionUpdateManager {
 //			            URL url = new URL(com.ssac.expro.kewen.bean.Constants.UPDATE_VERSION); 
 //			            HttpURLConnection conn =  (HttpURLConnection) url.openConnection();    
 //			            conn.setConnectTimeout(3000);
-			            InputStream is =HttpUtil.httpgetInputsteam(com.ssac.expro.kewen.bean.Constants.UPDATE_VERSION);
+//			            InputStream is =HttpUtil.getInputsteamByAppache(Constants.UPDATE_VERSION);
 //			            conn.getInputStream();    
-			            UpdataInfo info =  DownLoadManager.getUpdataInfo(is);   
-			               
+//			            UpdataInfo info =  DownLoadManager.getUpdataInfo(is);   
+			          UpdataInfo info =XmlToListService.GetUpdateInfo(HttpUtil.sendGetRequest(Constants.UPDATE_VERSION));
+			          
 			            if(info.getVersion().equals(ExproApplication.version)){   
 			                Log.i("update","版本号相同无需升级");   
 			                msg.what = TaskType.NO_UPDATE; 

@@ -99,27 +99,14 @@ public class FilmDetail extends Activity {
 			}
 		});
 
-		// get date
-		String img = getIntent().getStringExtra("img");
-		String titlename = getIntent().getStringExtra("filmName");
-		String daoyan = getIntent().getStringExtra("daoyan");
-		String zhuyan = getIntent().getStringExtra("zhuyan");
-		// String type =getIntent().getStringExtra("type");
-		// String pianchang =getIntent().getStringExtra("painchang");
-		String releaseDate = getIntent().getStringExtra("realeaseDate");
-
-		title.setText(titlename);
-		txt_daoy.setText(daoyan);
-		txt_zhuy.setText(zhuyan);
-		txt_released.setText(releaseDate);
-
-		final String str=titlename+"！导演："+daoyan+" 主演："+zhuyan+" 发布日期："+releaseDate;
 	//share
 		findViewById(R.id.imageRightOfHeadFilmDetail).setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				String str=title.getText().toString()+"！导演："+txt_daoy.getText().toString()+" 主演："
+				+txt_zhuy.getText().toString()+" 发布日期："+txt_released.getText().toString();
 				Intent intent_share=new Intent(Intent.ACTION_SEND);
 				intent_share.setType("text/plain");
 				intent_share.putExtra(Intent.EXTRA_SUBJECT, "分享");
@@ -128,10 +115,6 @@ public class FilmDetail extends Activity {
 			}
 		});
 		
-		
-		ImageCacheUtil ic =new ImageCacheUtil();
-		ic.loadImageList(ExproApplication.imageLoader, img_film, img);
-
 		// 获取更详细的数据
 		task4FilmDetail ts = new task4FilmDetail();
 		ts.execute();
@@ -178,8 +161,17 @@ public class FilmDetail extends Activity {
 			super.onPostExecute(result);
 			// 处理结果
 			if (film != null) {
+				// get date
+				title.setText(film.getFilmName());
+				txt_daoy.setText(film.getProperty1());
+				txt_zhuy.setText(film.getProperty2());
+				txt_released.setText(film.getReleaseDte());
 				txt_type.setText(film.getType());
 				txt_shic.setText(film.getTotalTime() + " 分钟");
+				
+				ImageCacheUtil ic =new ImageCacheUtil();
+				ic.loadImageList(ExproApplication.imageLoader, img_film, film.getTitleImageName());
+				
 				mWebView.loadDataWithBaseURL(null, film.getFilmDesc(), "text/html", "utf-8", null);
 				if(film.getStar()!=null&&Float.parseFloat(film.getStar())>0){
 					

@@ -9,13 +9,19 @@ public class Film {
 	private String releaseDte;//上映时间
 	private String property1;//导演
 	private String property2;//主演
+	private String schedule;//排片信息专用 10:00 |11:00
 	
 	private String filmDesc;//电影介绍
 	private String star;//得分1-5：5颗星 等级最高
 	private String totalTime;//片长 单位：分钟
 	private String type;//影片类型 动作片：恐怖片
 	
-	
+	public String getSchedule() {
+		return schedule;
+	}
+	public void setSchedule(String schedule) {
+		this.schedule = schedule;
+	}
 	public String getFilmDesc() {
 		return filmDesc;
 	}

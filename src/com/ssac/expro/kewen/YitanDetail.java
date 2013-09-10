@@ -76,12 +76,11 @@ public class YitanDetail extends Activity {
 		
 		//get date
 		filmID	= getIntent().getStringExtra("contentID");
-		String img=getIntent().getStringExtra("img");
-		String titlename=getIntent().getStringExtra("title");
-		
-		txt_title.setText(titlename);
-		
-		final String str=titlename;
+//		String img=getIntent().getStringExtra("img");
+//		String titlename=getIntent().getStringExtra("title");
+//		
+//		txt_title.setText(titlename);
+//		
 		//share
 			findViewById(R.id.imageRightOfHeadYitanDetail).setOnClickListener(new OnClickListener() {
 				
@@ -91,12 +90,10 @@ public class YitanDetail extends Activity {
 					Intent intent_share=new Intent(Intent.ACTION_SEND);
 					intent_share.setType("text/plain");
 					intent_share.putExtra(Intent.EXTRA_SUBJECT, "分享");
-					intent_share.putExtra(Intent.EXTRA_TEXT, str+",详见苏州文化艺术中心:http://www.sscac.com.cn(分享自苏州文化艺术中心安卓客户端)");
+					intent_share.putExtra(Intent.EXTRA_TEXT, txt_title.getText().toString()+",详见苏州文化艺术中心:http://www.sscac.com.cn(分享自苏州文化艺术中心安卓客户端)");
 					startActivity(Intent.createChooser(intent_share, getTitle()));
 				}
 			});
-		ImageCacheUtil ic =new ImageCacheUtil();
-		ic.loadImageList(ExproApplication.imageLoader, img_film, img);
 		//获取更详细的数据
 		task4YitanDetail ts =new task4YitanDetail();
 		ts.execute();
@@ -141,6 +138,11 @@ public class YitanDetail extends Activity {
 				// 处理结果
 				if(film!=null){
 						txt_effect_time.setText(film.getEffectTime());
+						txt_title.setText(film.getContentTitle());
+						
+						ImageCacheUtil ic =new ImageCacheUtil();
+						ic.loadImageList(ExproApplication.imageLoader, img_film, film.getTitleImageName());
+						
 						mWebView.loadDataWithBaseURL(null, film.getDesc(), "text/html", "utf-8", null);
 				}
 			}

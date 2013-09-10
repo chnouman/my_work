@@ -20,8 +20,10 @@ import com.ssac.expro.kewen.bean.Constants;
 import com.ssac.expro.kewen.bean.Film;
 import com.ssac.expro.kewen.bean.FilmSchedule;
 import com.ssac.expro.kewen.bean.Huizhan;
+import com.ssac.expro.kewen.bean.SearchBean;
 import com.ssac.expro.kewen.bean.ShowInfo;
 import com.ssac.expro.kewen.bean.Theatre;
+import com.ssac.expro.kewen.bean.UpdataInfo;
 import com.ssac.expro.kewen.bean.UserSina;
 import com.ssac.expro.kewen.bean.WeiboSina;
 import com.ssac.expro.kewen.bean.Yingyuan;
@@ -34,6 +36,53 @@ import com.ssac.expro.kewen.bean.Yingyuan;
  */
 public class XmlToListService {
 
+	
+	/**
+	 * 获取首页的广告数据
+	 * 
+	 * @param str
+	 * @return
+	 * @throws Exception
+	 */
+	public static UpdataInfo GetUpdateInfo(String str) throws Exception {
+
+		if (str == null || "".equals(str))
+			return null;
+		UpdataInfo info = null;
+		XmlPullParser parser = Xml.newPullParser();
+		InputStream inputStream = new ByteArrayInputStream(str.getBytes());
+		parser.setInput(inputStream, "UTF-8");
+		int eventType = parser.getEventType();
+		while (eventType != XmlPullParser.END_DOCUMENT) {
+			switch (eventType) {
+			case XmlPullParser.START_DOCUMENT:
+				info = new UpdataInfo();
+				break;
+			case XmlPullParser.START_TAG:
+
+				String name = parser.getName();
+
+				if (info != null) {
+
+					if ("Versioncode".equals(parser.getName())) {
+						info.setVersion(parser.getText()); // 获取版本号
+					} else if ("Url".equals(parser.getName())) {
+						// info.setUrl(parser.nextText()); //获取要升级的APK文件
+						info.setUrl(parser.getText()); // 获取要升级的APK文件
+					} else if ("Message".equals(parser.getName())) {
+						info.setDescription(parser.getText()); // 获取该文件的信息
+					}
+				}
+
+				break;
+			case XmlPullParser.END_TAG:
+				break;
+			}
+			eventType = parser.next();
+		}
+
+		return info;
+	}
 	/**
 	 * 获取首页的广告数据
 	 * 
@@ -198,26 +247,15 @@ public class XmlToListService {
 		while (eventType != XmlPullParser.END_DOCUMENT) {
 			switch (eventType) {
 			case XmlPullParser.START_DOCUMENT:
+				sinfo = new ShowInfo();
 				break;
 			case XmlPullParser.START_TAG:
 
 				String name = parser.getName();
-
-				if ("CMSDramaInfo".equals(name)) {
-
-					sinfo = new ShowInfo();
-
-				}
-
+				
 				if (sinfo != null) {
 
-					if ("_dramaid".equals(name)) {
-						sinfo.setDramaID(parser.nextText());
-					} else if ("_dramaname".equals(name)) {
-						sinfo.setDramaName(parser.nextText());
-					} else if ("_hashfoldername".equals(name)) {
-						sinfo.setHashFolderName(parser.nextText());
-					} else if ("TitleImageName".equals(name)) {
+					if ("TitleImageName".equals(name)) {
 						sinfo.setTitleImage(parser.nextText());
 					} else if ("ShowTime".equals(name)) {
 						sinfo.setShowTime(parser.nextText());
@@ -225,25 +263,31 @@ public class XmlToListService {
 						sinfo.setPrice(parser.nextText());
 					} else if ("DramaTypeText".equals(name)) {
 						sinfo.setDramaType(parser.nextText());
-					} else if ("_link".equals(name)) {
+					} else if ("_dramaid".equals(name)) {
+						sinfo.setDramaID(parser.nextText());
+					} else if ("_dramaname".equals(name)) {
+						sinfo.setDramaName(parser.nextText());
+					} else if ("_hashfoldername".equals(name)) {
+						sinfo.setHashFolderName(parser.nextText());
+					} else  if ("_link".equals(name)) {
 						sinfo.setLinkAddress(parser.nextText());
 					} else if("_repertoire".equals(name)){
 						sinfo.setDesc(parser.nextText());
 					} else if("_company".equals(name)){
 						sinfo.setPublishCompany(parser.nextText());
-					}
+					} else if ("_titleimagename".equals(name)) {
+						sinfo.setTitleImage(parser.nextText());
+					} else if ("_showtime".equals(name)) {
+						sinfo.setShowTime(parser.nextText());
+					} else if ("_price".equals(name)) {
+						sinfo.setPrice(parser.nextText());
+					} else if ("_dramatype".equals(name)) {
+						sinfo.setDramaType(parser.nextText());
+					} 
 				}
 
 				break;
-
 			case XmlPullParser.END_TAG:
-
-				if ("CMSDramaInfo".equals(parser.getName())) {
-					if(null!=sinfo){
-					sinfo.setTitleImage(Constants.RESOURCE_PREFIX
-								+ sinfo.getHashFolderName()+"/"+sinfo.getTitleImage());
-					}
-				}
 				break;
 			}
 			eventType = parser.next();
@@ -251,6 +295,11 @@ public class XmlToListService {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		
+		if(null!=sinfo){
+			sinfo.setTitleImage(Constants.RESOURCE_PREFIX
+						+ sinfo.getHashFolderName()+"/"+sinfo.getTitleImage());
+			}
 		return sinfo;
 	}
 
@@ -626,17 +675,11 @@ public class XmlToListService {
 		while (eventType != XmlPullParser.END_DOCUMENT) {
 			switch (eventType) {
 			case XmlPullParser.START_DOCUMENT:
+				sinfo = new Film();
 				break;
 			case XmlPullParser.START_TAG:
-
 				String name = parser.getName();
-
-				if ("CMSFilmInfo".equals(name)) {
-
-					sinfo = new Film();
-
-				}
-
+				
 				if (sinfo != null) {
 
 					if ("FilmID".equals(name)) {
@@ -655,25 +698,32 @@ public class XmlToListService {
 						sinfo.setProperty2(parser.nextText());
 					} else if ("_repertoire".equals(name)) {
 						sinfo.setFilmDesc(parser.nextText());
-					} else if ("_length".equals(name)) {//片长 N分钟
+					}  else if ("_length".equals(name)) {//片长 N分钟
 						sinfo.setTotalTime(parser.nextText());
 					} else if ("_summary".equals(name)) {//评分 4颗星
 						sinfo.setStar(parser.nextText());
 					} else if ("_filmtype".equals(name)) {//评分 4颗星
 						sinfo.setType(parser.nextText());
+					} else if ("_filmid".equals(name)) {
+						sinfo.setFilmID(parser.nextText());
+					} else if ("_filmname".equals(name)) {
+						sinfo.setFilmName(parser.nextText());
+					} else if ("_hashfoldername".equals(name)) {
+						sinfo.setHashFolderName(parser.nextText());
+					} else if ("_titleimagename".equals(name)) {
+						sinfo.setTitleImageName(parser.nextText());
+					} else if ("_releasedate".equals(name)) {
+						sinfo.setReleaseDte(parser.nextText());
+					} else if ("_property1".equals(name)) {
+						sinfo.setProperty1(parser.nextText());
+					} else if ("_property2".equals(name)) {
+						sinfo.setProperty2(parser.nextText());
 					} 
 				}
 
 				break;
 
 			case XmlPullParser.END_TAG:
-
-				if ("detail".equals(parser.getName())) {
-					if(sinfo!=null){
-						sinfo.setTitleImageName(Constants.RESOURCE_PREFIX
-								+ sinfo.getHashFolderName()+"/"+sinfo.getTitleImageName());
-					}
-				}
 				break;
 			}
 			eventType = parser.next();
@@ -681,6 +731,11 @@ public class XmlToListService {
 		
 		}catch(Exception e){
 			e.printStackTrace();
+		}
+		
+		if(sinfo!=null){
+			sinfo.setTitleImageName(Constants.RESOURCE_PREFIX
+					+ sinfo.getHashFolderName()+"/"+sinfo.getTitleImageName());
 		}
 		return sinfo;
 	}
@@ -1054,6 +1109,18 @@ public class XmlToListService {
 						sinfo.setEffectTime(parser.nextText());
 					} else if ("_createtime".equals(name)) {
 						sinfo.setCreateTime(parser.nextText());
+					} else if ("_contentid".equals(name)) {
+						sinfo.setContentID(parser.nextText());
+					} else if ("_contenttitle".equals(name)) {
+						sinfo.setContentTitle(parser.nextText());
+					} else if ("_hashfoldername".equals(name)) {
+						sinfo.setHashFolderName(parser.nextText());
+					} else if ("_titleimagename".equals(name)) {
+						sinfo.setTitleImageName(parser.nextText());
+					} else if ("_summary".equals(name)) {
+						sinfo.setSummary(parser.nextText());
+					}  else if ("_customlinks".equals(name)) {
+						sinfo.setCustomlinks(parser.nextText());
 					} 
 				}
 
@@ -1068,6 +1135,12 @@ public class XmlToListService {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		
+		if(sinfo!=null){
+			sinfo.setTitleImageName(Constants.RESOURCE_PREFIX
+					+ sinfo.getHashFolderName()+"/"+sinfo.getTitleImageName());
+		}
+		
 		return sinfo;
 	}
 	
@@ -1296,6 +1369,58 @@ public class XmlToListService {
 			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return showList;
+	}
+	
+	public static List<SearchBean> GetSearchDataList(String str)  {
+
+		if (str == null || "".equals(str))
+			return null;
+
+		List<SearchBean> showList = null;
+		SearchBean sinfo = null;
+		
+		try{
+		XmlPullParser parser = Xml.newPullParser();
+		InputStream inputStream = new ByteArrayInputStream(str.getBytes());
+		parser.setInput(inputStream, "UTF-8");
+		int eventType = parser.getEventType();
+		
+		while (eventType != XmlPullParser.END_DOCUMENT) {
+			switch (eventType) {
+			case XmlPullParser.START_DOCUMENT:
+				showList = new ArrayList<SearchBean>();
+				break;
+			case XmlPullParser.START_TAG:
+				String name = parser.getName();
+				if ("Search".equals(name)) {
+					sinfo = new SearchBean();
+				}
+
+				if (sinfo != null) {
+					if ("ID".equals(name)) {
+						sinfo.setId(parser.nextText());
+					} else if ("Title".equals(name)) {
+						sinfo.setTitle(parser.nextText());
+					} else if ("Type".equals(name)) {
+						sinfo.setType(parser.nextText());
+					} 
+				}
+				break;
+			case XmlPullParser.END_TAG:
+				if ("Search".equals(parser.getName())) {
+					if(null!=sinfo){
+					showList.add(sinfo);
+					sinfo = null;
+					}
+				}
+				break;
+			}
+			eventType = parser.next();
+		}
+		}catch(Exception e){
 			e.printStackTrace();
 		}
 		return showList;

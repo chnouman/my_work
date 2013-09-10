@@ -9,13 +9,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.ssac.expro.kewen.R;
+import com.ssac.expro.kewen.bean.Yingyuan;
 
 public class Adapter4Yingyuan extends BaseAdapter {
 
 	private LayoutInflater lin;
-	private List<String> list;
+	private List<Yingyuan> list;
 	private Context c;
-	public Adapter4Yingyuan(Context mContext, List<String> list
+	public Adapter4Yingyuan(Context mContext, List<Yingyuan> list
 			) {
 		c = mContext;
 		lin = LayoutInflater.from(mContext);
@@ -53,10 +54,11 @@ public class Adapter4Yingyuan extends BaseAdapter {
 				paramView = lin.inflate(R.layout.item_yingyuan, null);
 			}
 			
+			Yingyuan yingyuan =list.get(paramInt);
 			final ViewHolder vh = new ViewHolder();
 			vh.title = (TextView) paramView
 					.findViewById(R.id.texttitleOfYingyuanItem);
-			vh.title.setText(list.get(paramInt));
+			vh.title.setText(yingyuan.getName());
 			
 		return paramView;
 	}

@@ -192,16 +192,14 @@ public class Activity_SlidingMenue extends FragmentActivity implements
 			finish();
 			break;
 		case R.id.linearYetai:
-//			intent.setClass(this, Activity_Art.class);
-//			startActivity(intent);
-//			finish();
-			ExproApplication.showBuildTip(c);
+			intent.setClass(this, Activity_Yetai.class);
+			startActivity(intent);
+			finish();
 			break;
 		case R.id.linearSearch:
-//			intent.setClass(this, Activity_Art.class);
-//			startActivity(intent);
-//			finish();
-			ExproApplication.showBuildTip(c);
+			intent.setClass(this, Activity_Yetai.class);
+			startActivity(intent);
+			finish();
 			break;
 		case R.id.linearVip:
 			intent.setClass(this, Activity_VIP.class);

@@ -78,7 +78,9 @@ public class Activity_VIP extends BaseActivity implements OnClickListener{
 		case R.id.linearVip:
 			break;
 		case R.id.linearSearch:
-			ExproApplication.showBuildTip(c);
+			intent.setClass(this, Activity_Search.class);
+			startActivity(intent);
+			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			break;
 		case R.id.linearMore:
 			intent.setClass(this, Activity_More.class);

@@ -20,4 +20,13 @@
       		android:divider="@drawable/dianying_line_h"
       		android:layout_below="@id/headerOfLayoutYingyuanDetail"
       		/>
+
+  <ProgressBar
+      android:id="@+id/progressBarOfYingyuanDetail"
+      style="?android:attr/progressBarStyleLarge"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+       />
+
 </RelativeLayout>

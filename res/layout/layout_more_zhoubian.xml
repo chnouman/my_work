@@ -36,7 +36,7 @@
 		                android:text="机场AIRPORT：" 
 		                />
 		     	     <TextView
-		                 android:paddingLeft="20dp"
+		                style="@style/zhoubian_text_content"
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
@@ -51,7 +51,7 @@
 		                 android:layout_marginTop="10dp"
 		                />
 		   			<TextView
-		                android:paddingLeft="20dp"
+		               style="@style/zhoubian_text_content"
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
@@ -66,7 +66,7 @@
 		                android:layout_marginTop="10dp"
 		                />
 		   			<TextView
-		   			    android:paddingLeft="20dp"
+		   			   style="@style/zhoubian_text_content"
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
@@ -96,35 +96,35 @@
 		                android:text="车辆种类	停车区域	    数量	收费标准" 
 		                />
 		   			<TextView
-		                android:paddingLeft="20dp"
+		               style="@style/zhoubian_text_content"
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="私家车	     地下（博览中心）840	暂不收费" 
 		                />
 		   			<TextView
-		                android:paddingLeft="20dp"
+		               style="@style/zhoubian_text_content"
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="	                 地面（艺术中心）142	暂不收费" 
 		                />
 		   			<TextView
-		                android:paddingLeft="20dp"
+		               style="@style/zhoubian_text_content"
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="	                 地下（艺术中心）239	暂不收费" 
 		                />
 		   			<TextView
-		                android:paddingLeft="20dp"
+		               style="@style/zhoubian_text_content"
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
-		                android:text="旅游大巴    地面（艺术中心）	15	暂不收费" 
+		                android:text="旅游大巴 地面（艺术中心）15	暂不收费" 
 		                />
 		   			<TextView
-		                android:paddingLeft="20dp"
+		               style="@style/zhoubian_text_content"
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
@@ -165,21 +165,21 @@
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="电话:0512-62968888   五星    "
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="客房数量:307间    携程价格:900-1000元  " 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="距离文博中心:1.6公里" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			
 		   			<TextView
@@ -195,21 +195,21 @@
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="电话:0512-67616688   五星    "
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="客房数量:344间    携程价格:1300-2600元" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="距离文博中心:2.9公里" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			
 		   			<TextView
@@ -225,21 +225,21 @@
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="电话：0512-62858888   五星    "
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="客房数量:432间    携程价格:1600-2300元" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="距离文博中心:1.6公里" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			
 		   			<TextView
@@ -255,21 +255,21 @@
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="电话：0512-62887878   五星    "
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="客房数量:171间    携程价格:1000-2500元" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="距离文博中心:9.1公里" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			
 		   			
@@ -286,21 +286,21 @@
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="电话：0512-62897888   五星    "
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="客房数量:458间    携程价格:800-3500元" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="距离文博中心:8.9公里" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			
 		   			
@@ -317,21 +317,21 @@
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="电话：0512-69172222   四星    "
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="客房数量:270间    携程价格:600-1000元" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="距离文博中心:1.8公里" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			
 		   			
@@ -348,21 +348,21 @@
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="电话：0512-62966666   四星    "
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="客房数量:176间    携程价格:600-1000元" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="距离文博中心:2.4公里" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			
 		   			<TextView
@@ -378,21 +378,21 @@
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="电话：0512-81879966   三星    "
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="客房数量:171间    携程价格:300元" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="距离文博中心:3.3公里" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			
 		   			
@@ -409,21 +409,21 @@
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="电话：0512-62953688   三星    "
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="客房数量:131间    携程价格:300元" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			<TextView
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:gravity="center_vertical|left"
 		                android:text="距离文博中心:2公里" 
-		                android:paddingLeft="25dp" 
+		                style="@style/zhoubian_text_content"
 		                />
 		   			</LinearLayout>
 		   			<LinearLayout 
@@ -456,21 +456,21 @@
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="电话：0512-69567779   中高    "
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="适宜人群:商务宴请    人均消费:200人/元" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="距离文博中心:700米" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			
 			   			<TextView
@@ -486,21 +486,21 @@
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="电话：0512-67634567  中高    "
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="适宜人群:商务宴请    人均消费:200人/元" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="距离文博中心:4.1公里" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			
 			   			
@@ -517,21 +517,21 @@
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="电话：0512-69360288  高    "
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="适宜人群:高端宴请   人均消费:200人/元" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="距离文博中心:660米" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			
 			   			
@@ -548,21 +548,21 @@
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="电话：0512-69366777  高    "
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="适宜人群:高端宴请   人均消费:200人/元" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="距离文博中心:730米" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			
 			   			
@@ -579,21 +579,21 @@
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="电话：0512-67901066  高    "
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="适宜人群:高端宴请   人均消费:300人/元" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="距离文博中心:8.1公里" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			
 			   			
@@ -611,21 +611,21 @@
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="电话：0512-62890766  中   "
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="适宜人群:商务宴请   人均消费:200人/元" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="距离文博中心:900米" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			
 			   			
@@ -642,21 +642,21 @@
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="电话：0512-69565777  低   "
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="适宜人群:普通用餐   人均消费:80人/元" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="距离文博中心:700米" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			
 			   			
@@ -673,21 +673,21 @@
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="电话：0512-62899672  中   "
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="适宜人群:会议包场   人均消费:60人/元" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="距离文博中心:630米" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			
 			   			<TextView
@@ -703,21 +703,21 @@
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="电话：0512-62858266  中   "
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="适宜人群:餐后饮茶   人均消费:80人/元" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
 			   			<TextView
 			                android:layout_width="fill_parent"
 			                android:layout_height="wrap_content"
 			                android:gravity="center_vertical|left"
 			                android:text="距离文博中心:6.6公里" 
-			                android:paddingLeft="25dp" 
+			                style="@style/zhoubian_text_content"
 			                />
      	</LinearLayout>
   </ScrollView>
