@@ -73,7 +73,7 @@ public class MainService extends Service implements Runnable {
 	public void run() {
 		while (isrun) {
 			Task task = null;
-			if (!allTask.isEmpty()) {
+			if (null!=allTask&&!allTask.isEmpty()) {
 				task = allTask.poll();
 				if (null != task) {
 					try {

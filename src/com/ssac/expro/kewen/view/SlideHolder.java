@@ -452,6 +452,8 @@ public class SlideHolder extends FrameLayout {
 	
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
+		Log.i("poe", "SlideHolder:dispatchTouchEvent(MotionEvent ev)");
+		
 		if(((!mEnabled || !mInterceptTouch) && mMode == MODE_READY) || mAlwaysOpened) {
 			return super.dispatchTouchEvent(ev);
 		}
@@ -553,6 +555,8 @@ public class SlideHolder extends FrameLayout {
 	
 	@Override
 	public boolean onTouchEvent(MotionEvent ev) {
+		
+		Log.i("poe", "SlideHolder:onTouchEvent(MotionEvent ev)");
 		boolean handled = handleTouchEvent(ev);
 		
 		invalidate();

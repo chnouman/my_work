@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import com.ssac.expro.kewen.bean.Task;
 import com.ssac.expro.kewen.bean.TaskType;
@@ -53,6 +54,7 @@ public class Activity_SlidingMenue extends FragmentActivity implements
 		from = getIntent().getStringExtra("tag");
 		mSlideHolder = (SlideHolder) findViewById(R.id.slideHolder);
 		mSlideHolder.setAllowInterceptTouch(false);
+		mSlideHolder.setEnabled(false);
 		
 		lin_home = (LinearLayout) findViewById(R.id.linearHOme);
 		lin_yetai = (LinearLayout) findViewById(R.id.linearYetai);
