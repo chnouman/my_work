@@ -24,6 +24,7 @@ import com.ssac.expro.kewen.bean.ShowInfo;
 import com.ssac.expro.kewen.bean.Theatre;
 import com.ssac.expro.kewen.bean.UserSina;
 import com.ssac.expro.kewen.bean.WeiboSina;
+import com.ssac.expro.kewen.bean.Yingyuan;
 
 /**
  * 采用 pull解析
@@ -512,7 +513,9 @@ public class XmlToListService {
 						sinfo.setTotalTime(parser.nextText());
 					} else if ("_summary".equals(name)) {//评分 4颗星
 						sinfo.setStar(parser.nextText());
-					} 
+					} else if("Schedul".equals(name)){//排片 schedule
+						sinfo.setSchedule(parser.nextText());
+					}
 				}
 
 				break;
@@ -538,6 +541,76 @@ public class XmlToListService {
 		return showList;
 	}
 	
+	public static List<Film> GetFilms4Schedule(String str)  {
+
+		if (str == null || "".equals(str))
+			return null;
+
+		List<Film> showList = null;
+		Film sinfo = null;
+		try{	
+		XmlPullParser parser = Xml.newPullParser();
+		InputStream inputStream = new ByteArrayInputStream(str.getBytes());
+		parser.setInput(inputStream, "UTF-8");
+		int eventType = parser.getEventType();
+		while (eventType != XmlPullParser.END_DOCUMENT) {
+			switch (eventType) {
+			case XmlPullParser.START_DOCUMENT:
+				showList = new ArrayList<Film>();
+				break;
+			case XmlPullParser.START_TAG:
+
+				String name = parser.getName();
+
+				if ("OverallSchedul".equals(name)) {
+
+					sinfo = new Film();
+
+				}
+
+				if (sinfo != null) {
+
+					if ("FilmID".equals(name)) {
+						sinfo.setFilmID(parser.nextText());
+					} else if ("Name".equals(name)) {
+						sinfo.setFilmName(parser.nextText());
+					} else if ("HashFolderName".equals(name)) {
+						sinfo.setHashFolderName(parser.nextText());
+					} else if ("TitleImageName".equals(name)) {
+						sinfo.setTitleImageName(parser.nextText());
+					} else if ("ReleaseDate".equals(name)) {
+						sinfo.setReleaseDte(parser.nextText());
+					} else if ("Property1".equals(name)) {
+						sinfo.setProperty1(parser.nextText());
+					} else if ("Property2".equals(name)) {
+						sinfo.setProperty2(parser.nextText());
+					} else if("Schedul".equals(name)){//排片 schedule
+						sinfo.setSchedule(parser.nextText());
+					}
+				}
+
+				break;
+
+			case XmlPullParser.END_TAG:
+
+				if ("OverallSchedul".equals(parser.getName())) {
+					if(sinfo!=null){
+						sinfo.setTitleImageName(Constants.RESOURCE_PREFIX
+								+ sinfo.getHashFolderName()+"/"+sinfo.getTitleImageName());
+						showList.add(sinfo);
+						sinfo = null;
+					}
+				}
+				break;
+			}
+			eventType = parser.next();
+		}
+		
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return showList;
+	}
 	
 	public static Film GetFilmDetail(String str)  {
 
@@ -858,6 +931,64 @@ public class XmlToListService {
 					if(sinfo!=null){
 						sinfo.setTitleImageName(Constants.RESOURCE_PREFIX
 								+ sinfo.getHashFolderName()+"/"+sinfo.getTitleImageName());
+						showList.add(sinfo);
+						sinfo = null;
+					}
+				}
+				break;
+			}
+			eventType = parser.next();
+		}
+		
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return showList;
+	}
+	
+	
+	public static List<Yingyuan> GetYingyuanList(String str)  {
+
+		if (str == null || "".equals(str))
+			return null;
+
+		List<Yingyuan> showList = null;
+		Yingyuan sinfo = null;
+		try{	
+		XmlPullParser parser = Xml.newPullParser();
+		InputStream inputStream = new ByteArrayInputStream(str.getBytes());
+		parser.setInput(inputStream, "UTF-8");
+		int eventType = parser.getEventType();
+		while (eventType != XmlPullParser.END_DOCUMENT) {
+			switch (eventType) {
+			case XmlPullParser.START_DOCUMENT:
+				showList = new ArrayList<Yingyuan>();
+				break;
+			case XmlPullParser.START_TAG:
+
+				String name = parser.getName();
+
+				if ("Dictionary".equals(name)) {
+
+					sinfo = new Yingyuan();
+
+				}
+
+				if (sinfo != null) {
+					
+					if ("Name".equals(name)) {
+						sinfo.setName(parser.nextText());
+					} else if ("Value".equals(name)) {
+						sinfo.setValue(parser.nextText());
+					} 
+				}
+
+				break;
+
+			case XmlPullParser.END_TAG:
+
+				if ("Dictionary".equals(parser.getName())) {
+					if(sinfo!=null){
 						showList.add(sinfo);
 						sinfo = null;
 					}
