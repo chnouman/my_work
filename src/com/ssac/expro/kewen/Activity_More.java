@@ -37,8 +37,9 @@ public class Activity_More extends BaseActivity implements OnClickListener{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(Activity_More.this,Activity_Home.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
+				intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 				startActivity(intent);
+				overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			}
 		});
 		

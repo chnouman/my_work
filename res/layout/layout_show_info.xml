@@ -4,8 +4,8 @@
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:orientation="vertical"
+			android:background="#FFFFFF"
 			>
-			
 		<RelativeLayout 
     			android:orientation="vertical" 
     			android:layout_width="fill_parent" 
@@ -32,7 +32,13 @@
 		            				android:layout_height="wrap_content" 
 		            				/>
 		    </LinearLayout>
-		</RelativeLayout> 		 
+		</RelativeLayout> 	
+		<include
+		        android:id="@+id/progressbarOfShowInfo"
+		        android:layout_width="fill_parent"
+		        android:layout_height="fill_parent"
+		        layout="@layout/myprogress"
+		        />	 
  		<ListView 
  		    		android:id="@+id/listviewOfShowInfo"
  		    		android:layout_width="fill_parent"

@@ -85,6 +85,9 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 	private BaseAdapter listAdapter2;
 	//微博信息
 	private ImageView img_weibo;
+	//progressbar
+	private LinearLayout progressbar1,progressbar2;
+	
 	
 	private Handler handler = new Handler() {
 
@@ -157,8 +160,7 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 //		progressbar = (LinearLayout) container
 //				.findViewById(R.id.progressOfTheatre);
 		// viewflipper
-		mViewPager = (MyViewPager) container
-				.findViewById(R.id.viewpagerOfTheatre);
+		mViewPager = (MyViewPager) container.findViewById(R.id.viewpagerOfTheatre);
 
 		initVP();
 
@@ -203,6 +205,7 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 				.findViewById(R.id.dot_imageviewOfShowInfo));
 		this.mGallery = ((SlowFlipGallery) views.get(0).findViewById(R.id.galleryOfShowInfo));
 		listview = (ListView) views.get(0).findViewById(R.id.listviewOfShowInfo);
+		progressbar1 = (LinearLayout) views.get(0).findViewById(R.id.progressbarOfShowInfo);
 		
 		listview.setOnItemClickListener(new OnItemClickListener() {
 
@@ -224,7 +227,7 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 		});
 		//listview2
 		listView2= (ListView) views.get(1).findViewById(R.id.listviewOfTheatreActivies);
-		
+		progressbar2 = (LinearLayout) views.get(1).findViewById(R.id.progressbarOfTheatreActivies);
 		listView2.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -349,6 +352,7 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
 			ExproApplication.throwTips("加载演出资讯...");
+			progressbar1.setVisibility(View.VISIBLE);
 		}
 
 		@Override
@@ -356,15 +360,18 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 			try {
 				adList = XmlToListService.GetAD(HttpUtil.sendGetRequest(
 						Constants.YANCHU_AD));
-				showList = XmlToListService.GetShowInfo(HttpUtil
-						.sendGetRequest( Constants.YANCHU_ZIXUN + PageSize
-								+ "/" + PageIndex));
-
-			} catch (IOException e) {
-				e.printStackTrace();
 			} catch (Exception e) {
 				e.printStackTrace();
 				Log.e("poe", "sax解析出错！"+e.getMessage());
+			}
+			
+			try {
+				showList = XmlToListService.GetShowInfo(HttpUtil
+						.sendGetRequest( Constants.YANCHU_ZIXUN + PageSize
+								+ "/" + PageIndex));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			return null;
 		}
@@ -398,6 +405,8 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 			if(mSlideHolder.isOpened()){
 				mSlideHolder.toggle();
 			}
+			
+			progressbar1.setVisibility(View.GONE);
 		}
 	}
 	
@@ -459,6 +468,7 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			ExproApplication.throwTipLong("正在努力的为您加载数据...");
+			progressbar2.setVisibility(View.VISIBLE);
 		}
 
 		@Override
@@ -502,6 +512,8 @@ public class FragementYanChu extends Fragment implements OnClickListener {
 					});
 					listView2.setAdapter(listAdapter2);
 			}
+			
+			progressbar2.setVisibility(View.GONE);
 		}
 	}
 	class DefaultGestureDetector extends

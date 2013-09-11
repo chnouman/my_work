@@ -10,6 +10,7 @@ import com.ssac.expro.kewen.adapter.Adapter4Search.lastIndexLoaded;
 import com.ssac.expro.kewen.bean.Constants;
 import com.ssac.expro.kewen.bean.SearchBean;
 import com.ssac.expro.kewen.collapsiblesearchmenu.CollapsibleMenuUtils;
+import com.ssac.expro.kewen.service.MainService;
 import com.ssac.expro.kewen.service.XmlToListService;
 import com.ssac.expro.kewen.util.HttpUtil;
 import android.annotation.SuppressLint;
@@ -20,6 +21,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -46,7 +48,7 @@ public class Activity_Search extends SherlockListActivity implements OnClickList
 
 		@Override
 		public void onQueryTextSubmit(String query) {
-			ExproApplication.throwTipLong("Search key word:"+query);
+//			ExproApplication.throwTipLong("Search key word:"+query);
 			keyword = query;
 			PageIndex=1;
 			dataList.clear();
@@ -84,6 +86,11 @@ public class Activity_Search extends SherlockListActivity implements OnClickList
 	}
 
 	public void init() {
+		if(ExproApplication.metrics==null){
+			ExproApplication.metrics = new DisplayMetrics();
+			getWindowManager().getDefaultDisplay().getMetrics(ExproApplication.metrics);
+		}
+		
 		listview = getListView();
 		lin_home = (LinearLayout) findViewById(R.id.linearHOme);
 		lin_yetai = (LinearLayout) findViewById(R.id.linearYetai);

@@ -24,7 +24,6 @@ import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.ssac.expro.kewen.adapter.Adapter4HomeFilm;
 import com.ssac.expro.kewen.adapter.Adapter4HomeShow;
 import com.ssac.expro.kewen.adapter.ImageAdapter4NumberGallery;
@@ -32,6 +31,7 @@ import com.ssac.expro.kewen.bean.Film;
 import com.ssac.expro.kewen.bean.ShowInfo;
 import com.ssac.expro.kewen.bean.Task;
 import com.ssac.expro.kewen.bean.TaskType;
+import com.ssac.expro.kewen.exception.DefaultExceptionHandler;
 import com.ssac.expro.kewen.service.MainService;
 import com.ssac.expro.kewen.util.HttpUtil;
 import com.ssac.expro.kewen.util.VersionUpdateManager;
@@ -73,9 +73,10 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		Thread.setDefaultUncaughtExceptionHandler(new DefaultExceptionHandler(  
+			       this.getApplicationContext()));
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.layout_home);
-
 		mContext = this;
 		if (!MainService.isrun) {
 			Intent it = new Intent(Activity_Home.this, MainService.class);
@@ -172,6 +173,8 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 		galleryShow = (Gallery) findViewById(R.id.galleryYanchuOfHome);
 		galleryFilm 	= (Gallery) findViewById(R.id.galleryDianYingOfHome);
 		
+		galleryFilm.scrollBy(100, 0);
+		galleryShow.scrollBy(100, 0);
 		
 		galleryShow.setOnItemClickListener(new OnItemClickListener() {
 
@@ -212,6 +215,7 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 		HashMap<String, Object> hm = new HashMap<String, Object>();
 		Task ts = new Task(TaskType.GET_HOME, hm);
 		MainService.newTask(ts);
+		progressbar.setVisibility(View.VISIBLE);
 	}
 
 	@Override
@@ -241,8 +245,6 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 		}else{
 			adapterFilm.notifyDataSetChanged();
 		}
-		
-		galleryFilm.scrollBy(100, 0);
 	}
 
 	private void fillGalleryShow() {
@@ -253,7 +255,6 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 			adapterShow.notifyDataSetChanged();
 		}
 		
-		galleryShow.scrollBy(100, 0);
 	}
 
 	// 给 gallery 放数据。
@@ -293,10 +294,6 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 		intent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
 		switch (v.getId()) {
 		case R.id.linearHOme:
-			// intent.setClass(this, Activity_Home.class);
-			// startActivity(intent);
-			// overridePendingTransition(R.anim.in_from_right,
-			// R.anim.out_to_left);
 			break;
 		case R.id.linearYetai:
 			intent.setClass(this, Activity_Yetai.class);
@@ -355,18 +352,19 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 
 		public boolean onFling(MotionEvent paramMotionEvent1, MotionEvent paramMotionEvent2, float paramFloat1, float paramFloat2) {
 			Log.e("mGallery.getSelectedItemId()", Activity_Home.this.mGallery.getSelectedItemId() + "");
-
-			Log.e("mGallery.getSelected-----position", postion + "");
-			if ((paramMotionEvent1.getX() - paramMotionEvent2.getX() > 20.0F) && (Math.abs(paramFloat1) > 20.0F)) {
-				Log.e("mGallery.getSelected----end", "over now goto next activity");
-				postion--;
-				mGallery.setSelection((postion + MainService.adList.size()) % MainService.adList.size());
-			} else if ((paramMotionEvent2.getX() - paramMotionEvent1.getX() > 20.0F) && (Math.abs(paramFloat1) > 20.0F)) {
-				Log.e("mGallery.getSelected----end", "over now goto next activity");
-				postion++;
-				mGallery.setSelection(postion % MainService.adList.size());
+			
+			if(MainService.adList.size()>0){
+				if ((paramMotionEvent1.getX() - paramMotionEvent2.getX() > 20.0F) && (Math.abs(paramFloat1) > 20.0F)) {
+					Log.e("mGallery.getSelected----end", "over now goto next activity");
+					postion--;
+					mGallery.setSelection((postion + MainService.adList.size()) % MainService.adList.size());
+				} else if ((paramMotionEvent2.getX() - paramMotionEvent1.getX() > 20.0F) && (Math.abs(paramFloat1) > 20.0F)) {
+					Log.e("mGallery.getSelected----end", "over now goto next activity");
+					postion++;
+					mGallery.setSelection(postion % MainService.adList.size());
+				}
+				postion = (int) Activity_Home.this.mGallery.getSelectedItemId();
 			}
-			postion = (int) Activity_Home.this.mGallery.getSelectedItemId();
 			return true;
 		}
 	}

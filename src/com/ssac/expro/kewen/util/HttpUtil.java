@@ -50,10 +50,16 @@ public class HttpUtil {
 	public static String sendGetRequest(String strUrl) throws IOException {
 		String result = null;
 		BufferedReader br = null;
+		
 		InputStream instream = getInputsteamByAppache(strUrl);
-//		if (instream == null) {
-//			instream = httpgetInputsteam(strUrl);// (InputStream)
-//		}
+		
+		if (instream == null) {
+			instream = httpgetInputsteam(strUrl);// (InputStream)
+		}
+		
+		if (instream == null) {
+			instream = httpgetInputsteam(strUrl);// (InputStream)
+		}
 		// http://58.210.186.110/fyservice.svc/fy/notice/1/1/xml
 		if (null != instream) {
 			br = new BufferedReader(new InputStreamReader(instream));

@@ -66,7 +66,11 @@ public class Adapter4Search extends BaseAdapter {
 		    		mLastLoad.loadData();
 		    		}else{
 		    			TextView text=new TextView(c);
-		    			text.setText("没有更多的数据了...");
+		    			if(list.size()>0){
+		    				text.setText("没有更多的数据了...");
+		    			}else{
+		    				text.setText("");
+		    			}
 		    			return text;
 		    		}
 	    	}else{

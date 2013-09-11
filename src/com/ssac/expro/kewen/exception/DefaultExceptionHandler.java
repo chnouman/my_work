@@ -109,27 +109,14 @@ public class DefaultExceptionHandler implements UncaughtExceptionHandler {
 	}
 
 	private void handleException() {
+//		// 关闭应用
+//		killProcess(act.getPackageName());
+		killProcess(android.os.Process.myPid());
+	}
 
-		// TODO
-		// MainService.exitApp(act);
-		final ActivityManager am = (ActivityManager) act.getSystemService(Context.ACTIVITY_SERVICE);
-		am.restartPackage(act.getPackageName());
+	private void killProcess(int myPid) {
+		// TODO Auto-generated method stub
 		
-		
-		File f = new File(Environment.getExternalStorageDirectory(),"oom-error.hprof");
-		String path = f.getAbsolutePath();
-		// force a few GC before dumping stuff
-		System.gc();
-		System.gc();    
-		try {
-			Debug.dumpHprofData(path);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		// 关闭应用
-		killProcess(act.getPackageName());
 	}
 
 	/**

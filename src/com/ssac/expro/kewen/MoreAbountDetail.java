@@ -90,7 +90,7 @@ public class MoreAbountDetail extends Activity {
 			protected void onPostExecute(String result) {
 				// TODO Auto-generated method stub
 				super.onPostExecute(result);
-				Log.i("poe", content);
+//				Log.i("poe", content);
 				// 处理结果
 				if(content!=null){
 						mWebView.loadDataWithBaseURL(null,content, "text/html", "utf-8", null);

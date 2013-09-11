@@ -7,7 +7,7 @@
 	<classpathentry exported="true" kind="src" path="/actionbarsherlock"/>
 	<classpathentry exported="true" kind="lib" path="libs/baidumapapi_v2_1_2.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/weibo_sdk.jar"/>
-	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
