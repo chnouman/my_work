@@ -1,6 +1,7 @@
 package com.ssac.expro.kewen.service;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
 import android.util.Xml;
 
@@ -44,44 +46,57 @@ public class XmlToListService {
 	 * @return
 	 * @throws Exception
 	 */
-	public static UpdataInfo GetUpdateInfo(String str) throws Exception {
+	public static UpdataInfo GetUpdateInfo(String str)  {
 
 		if (str == null || "".equals(str))
 			return null;
-		UpdataInfo info = null;
-		XmlPullParser parser = Xml.newPullParser();
-		InputStream inputStream = new ByteArrayInputStream(str.getBytes());
-		parser.setInput(inputStream, "UTF-8");
-		int eventType = parser.getEventType();
-		while (eventType != XmlPullParser.END_DOCUMENT) {
-			switch (eventType) {
-			case XmlPullParser.START_DOCUMENT:
-				info = new UpdataInfo();
-				break;
-			case XmlPullParser.START_TAG:
+	
+		try {
+			UpdataInfo info = null;
+			XmlPullParser parser = Xml.newPullParser();
+			InputStream inputStream = new ByteArrayInputStream(str.getBytes());
+			parser.setInput(inputStream, "UTF-8");
+			int eventType = parser.getEventType();
+			while (eventType != XmlPullParser.END_DOCUMENT) {
+				switch (eventType) {
+				case XmlPullParser.START_DOCUMENT:
+					info = new UpdataInfo();
+					break;
+				case XmlPullParser.START_TAG:
+					String name = parser.getName();
+						if ("Versioncode".equals(name)) {
+							
+							info.setVersion(parser.nextText()); // 获取版本号
+							
+						} else if ("Url".equals(name)) {
+							
+							info.setUrl(parser.nextText()); // 获取要升级的APK文件
+							
+						} else if ("Message".equals(name)) {
+							
+							info.setDescription(parser.nextText()); // 获取该文件的信息
+							
+						}
 
-				String name = parser.getName();
-
-				if (info != null) {
-
-					if ("Versioncode".equals(parser.getName())) {
-						info.setVersion(parser.getText()); // 获取版本号
-					} else if ("Url".equals(parser.getName())) {
-						// info.setUrl(parser.nextText()); //获取要升级的APK文件
-						info.setUrl(parser.getText()); // 获取要升级的APK文件
-					} else if ("Message".equals(parser.getName())) {
-						info.setDescription(parser.getText()); // 获取该文件的信息
-					}
+					break;
+				case XmlPullParser.END_TAG:
+					break;
 				}
-
-				break;
-			case XmlPullParser.END_TAG:
-				break;
+				eventType = parser.next();
 			}
-			eventType = parser.next();
+			
+			return info;
+			
+		} catch (XmlPullParserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
 
-		return info;
+		return null;
 	}
 	/**
 	 * 获取首页的广告数据

@@ -37,7 +37,10 @@
         </activity>
         <activity android:name=".BasicMapActivity" >
         </activity>
-        <activity android:name=".sinaweibo.SinaAcitivity">
+        <activity android:name=".sinaweibo.SinaAcitivity"
+             	  android:screenOrientation="portrait" 
+           		  android:theme="@style/AppBaseTheme"
+            >
             
         </activity>
         
