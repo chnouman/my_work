@@ -81,8 +81,8 @@ public class Activity_Search extends SherlockListActivity implements OnClickList
 		init();
 		
 		
-		task4Search task =new task4Search();
-		task.execute();
+//		task4Search task =new task4Search();
+//		task.execute();
 	}
 
 	public void init() {

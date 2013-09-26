@@ -84,7 +84,7 @@
 			 		    		android:layout_height="150dp"
 			 		    		android:id="@+id/galleryYanchuOfHome"
 			 		    		android:background="#00000000"
-			 		    		android:spacing="30dp"
+			 		    		android:spacing="10sp"
 			 		    		/>
 					 <LinearLayout
 					        android:layout_width="fill_parent"
@@ -112,7 +112,7 @@
 			 		    		android:layout_height="150dp"
 			 		    		android:id="@+id/galleryDianYingOfHome"
 			 		    		android:background="#00000000"
-			 		    		android:spacing="30dp"
+			 		    		android:spacing="10sp"
 			 		    		/>        
 			 </LinearLayout>
          </ScrollView>

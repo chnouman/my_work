@@ -56,6 +56,7 @@ public class Adapter4HomeFilm extends BaseAdapter {
 			final ViewHolder vh = new ViewHolder();
 			vh.image = (ImageView) paramView.findViewById(R.id.imgOfHomeShowItem);
 			vh.title = (TextView) paramView.findViewById(R.id.tvOfHomeShowItem);
+			vh.image.setScaleType(ImageView.ScaleType.FIT_XY);
 			// 设置数据
 			Film Ninfo = list.get(paramInt);
 			// 取图片

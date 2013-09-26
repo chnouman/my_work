@@ -173,8 +173,8 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 		galleryShow = (Gallery) findViewById(R.id.galleryYanchuOfHome);
 		galleryFilm 	= (Gallery) findViewById(R.id.galleryDianYingOfHome);
 		
-		galleryFilm.scrollBy(100, 0);
-		galleryShow.scrollBy(100, 0);
+//		galleryFilm.scrollBy(100, 0);
+//		galleryShow.scrollBy(100, 0);
 		
 		galleryShow.setOnItemClickListener(new OnItemClickListener() {
 
@@ -242,8 +242,14 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 		if(null==adapterFilm){
 			adapterFilm = new Adapter4HomeFilm(mContext);
 			galleryFilm.setAdapter(adapterFilm);
+			if(adapterFilm.getCount()>1){
+				galleryFilm.setSelection(1);
+			}
 		}else{
 			adapterFilm.notifyDataSetChanged();
+			if(adapterFilm.getCount()>1){
+				galleryFilm.setSelection(1);
+			}
 		}
 	}
 
@@ -251,8 +257,15 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 		if(null==adapterShow){
 			adapterShow = new Adapter4HomeShow(mContext);
 			galleryShow.setAdapter(adapterShow);
+			if(adapterShow.getCount()>1){
+				galleryShow.setSelection(1);
+			}
+			
 		}else{
 			adapterShow.notifyDataSetChanged();
+			if(adapterShow.getCount()>1){
+				galleryShow.setSelection(1);
+			}
 		}
 		
 	}
