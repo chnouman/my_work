@@ -229,10 +229,18 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 		//showinfo
 		if(MainService.showList.size()>0){
 			fillGalleryShow();
+		}else{
+			HashMap<String, Object> hm = new HashMap<String, Object>();
+			Task ts = new Task(TaskType.GET_YANCHU, hm);
+			MainService.newTask(ts);
 		}
 		//film
 		if(MainService.filmList.size()>0){
 			fillGalleryFilm();
+		}else{
+			HashMap<String, Object> hm = new HashMap<String, Object>();
+			Task ts = new Task(TaskType.GET_DIANYING, hm);
+			MainService.newTask(ts);
 		}
 
 		progressbar.setVisibility(View.GONE);
@@ -242,13 +250,13 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 		if(null==adapterFilm){
 			adapterFilm = new Adapter4HomeFilm(mContext);
 			galleryFilm.setAdapter(adapterFilm);
-			if(adapterFilm.getCount()>1){
-				galleryFilm.setSelection(1);
+			if(adapterFilm.getCount()>2){
+				galleryFilm.setSelection(2);
 			}
 		}else{
 			adapterFilm.notifyDataSetChanged();
-			if(adapterFilm.getCount()>1){
-				galleryFilm.setSelection(1);
+			if(adapterFilm.getCount()>2){
+				galleryFilm.setSelection(2);
 			}
 		}
 	}
@@ -257,14 +265,14 @@ public class Activity_Home extends BaseActivity implements OnClickListener {
 		if(null==adapterShow){
 			adapterShow = new Adapter4HomeShow(mContext);
 			galleryShow.setAdapter(adapterShow);
-			if(adapterShow.getCount()>1){
-				galleryShow.setSelection(1);
+			if(adapterShow.getCount()>2){
+				galleryShow.setSelection(2);
 			}
 			
 		}else{
 			adapterShow.notifyDataSetChanged();
-			if(adapterShow.getCount()>1){
-				galleryShow.setSelection(1);
+			if(adapterShow.getCount()>2){
+				galleryShow.setSelection(2);
 			}
 		}
 		

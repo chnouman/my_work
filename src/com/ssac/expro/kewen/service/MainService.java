@@ -110,15 +110,14 @@ public class MainService extends Service implements Runnable {
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
 			switch (msg.what) {
-			
+			case TaskType.GET_YANCHU:
+			case TaskType.GET_DIANYING://首页 广告信息获取
 			case TaskType.GET_HOME: {
 				if (MainService.getActivityByName("Activity_Home") != null)
 					MainService.getActivityByName("Activity_Home").refresh(msg.what);
 				break;
 			}
-			case TaskType.GET_YANCHU:
 			case TaskType.GET_YANCHU_ZX: 
-			case TaskType.GET_DIANYING://首页 广告信息获取
 			case TaskType.GET_HUIZHAN://首页 广告信息获取
 			case TaskType.GET_MEISHUGUAN://首页 广告信息获取
 			case TaskType.GET_YITAN://首页 广告信息获取
@@ -193,8 +192,33 @@ public class MainService extends Service implements Runnable {
 			
 			break;
 		case TaskType.GET_YANCHU://首页 广告信息获取
+			try{
+				List<ShowInfo> sList = XmlToListService.GetShowInfo(HttpUtil
+						.sendGetRequest( Constants.YANCHU_ZIXUN + 5
+								+ "/" + 1));
+				
+				if(null!=sList){
+					showList.clear();
+					showList.addAll(sList);
+				}
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
 				break;
 		case TaskType.GET_DIANYING://首页 广告信息获取
+			try {
+				List<Film>fList = XmlToListService.GetFilms(HttpUtil.sendGetRequest(
+						 Constants.DIANYING_LIST + 5 + "/"+ 1));
+				if(null!=fList){
+					filmList.clear();
+					filmList.addAll(fList);
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			break;
 		case TaskType.GET_HUIZHAN://首页 广告信息获取
 			break;

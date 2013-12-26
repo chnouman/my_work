@@ -10,18 +10,22 @@
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         layout="@layout/header_home" />
-
+<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
     <RelativeLayout
         android:id="@+id/help_layout"
         android:layout_width="fill_parent"
-        android:layout_height="150dp"
+        android:layout_height="fill_parent"
         android:background="#666666"
         android:focusable="false" >
 
         <com.ssac.expro.kewen.view.SlowFlipGallery
             android:id="@+id/gallery"
             android:layout_width="fill_parent"
-            android:layout_height="150dp" />
+            android:layout_height="fill_parent" />
 
         <LinearLayout
             android:id="@+id/dot_linearlayout"
@@ -37,10 +41,11 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
     </RelativeLayout>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:orientation="vertical" >
 		<include
 		        android:id="@+id/progressbarOfHome"
